@@ -12,7 +12,7 @@ namespace AI_Forge_Service
     [ServiceContract]
     public interface IAI_Forge
     {
-
+//Edit Here
         [OperationContract]
         string GetData(int value);
 
