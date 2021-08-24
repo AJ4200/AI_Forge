@@ -116,3 +116,7 @@ C:\Users\ifa Sinthumule\Desktop\group\AI Forge Web\obj\Debug\AI Forge Web.csproj
 C:\Users\ifa Sinthumule\Desktop\group\AI Forge Web\obj\Debug\AI Forge Web.csproj.CopyComplete
 C:\Users\ifa Sinthumule\Desktop\group\AI Forge Web\obj\Debug\AI Forge Web.dll
 C:\Users\ifa Sinthumule\Desktop\group\AI Forge Web\obj\Debug\AI Forge Web.pdb
+C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Web\obj\Debug\AI Forge Web.csproj.AssemblyReference.cache
+C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Web\obj\Debug\AI Forge Web.csproj.CoreCompileInputs.cache
+C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Web\obj\Debug\AI Forge Web.dll
+C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Web\obj\Debug\AI Forge Web.pdb
