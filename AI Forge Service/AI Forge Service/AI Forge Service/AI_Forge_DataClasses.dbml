@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AI_Forge_Database" Class="AI_Forge_DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\AI_Forge_Database.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="AI_Forge_DatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Product_Type" Member="Product_Types">
+    <Type Name="Product_Type">
+      <Column Name="ProductT_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductT_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Product_Type_Product" Member="Products" ThisKey="ProductT_Id" OtherKey="ProductT_ID" Type="Product" />
+      <Association Name="Product_Type_User" Member="Users" ThisKey="ProductT_Id" OtherKey="ProductT_ID" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="Product_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductT_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Product_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Product_Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Product_Description" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Product_Dimensions" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Product_Category" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Product_Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Product_Sale" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Product_SalePrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Product_SaleDescription" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Product_Deleted" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Product_Invoice_Line" Member="Invoice_Lines" ThisKey="Product_Id" OtherKey="Product_Id" Type="Invoice_Line" />
+      <Association Name="Product_Type_Product" Member="Product_Type" ThisKey="ProductT_ID" OtherKey="ProductT_Id" Type="Product_Type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Invoice_Line" Member="Invoice_Lines">
+    <Type Name="Invoice_Line">
+      <Column Name="InvoiceL_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InvoiceL_Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceL_Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceL_Tax" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Product_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Invoice_Line_Invoice" Member="Invoices" ThisKey="InvoiceL_Id" OtherKey="InvoiceL_Id" Type="Invoice" />
+      <Association Name="Product_Invoice_Line" Member="Product" ThisKey="Product_Id" OtherKey="Product_Id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="User_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="User_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="User_Surname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="User_Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="User_Contact" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="User_Gender" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="User_DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="User_Address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="User_UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="User_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductT_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="User_Active" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="User_Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Invoice" Member="Invoices" ThisKey="User_Id" OtherKey="User_Id" Type="Invoice" />
+      <Association Name="Product_Type_User" Member="Product_Type" ThisKey="ProductT_ID" OtherKey="ProductT_Id" Type="Product_Type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Invoice" Member="Invoices">
+    <Type Name="Invoice">
+      <Column Name="Invoice_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InvoiceL_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="User_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Invoice_Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Invoice_Line_Invoice" Member="Invoice_Line" ThisKey="InvoiceL_Id" OtherKey="InvoiceL_Id" Type="Invoice_Line" IsForeignKey="true" />
+      <Association Name="User_Invoice" Member="User" ThisKey="User_Id" OtherKey="User_Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,7 @@
+C:\Users\lutho\OneDrive\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\bin\AI Forge Service.dll.config
+C:\Users\lutho\OneDrive\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\bin\AI Forge Service.dll
+C:\Users\lutho\OneDrive\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\bin\AI Forge Service.pdb
+C:\Users\lutho\OneDrive\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.csprojAssemblyReference.cache
+C:\Users\lutho\OneDrive\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.csproj.CoreCompileInputs.cache
+C:\Users\lutho\OneDrive\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.dll
+C:\Users\lutho\OneDrive\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.pdb
