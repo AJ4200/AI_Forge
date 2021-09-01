@@ -5,6 +5,15 @@ C:\Users\lutho\OneDrive\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Serv
 C:\Users\lutho\OneDrive\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.csproj.CoreCompileInputs.cache
 C:\Users\lutho\OneDrive\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.dll
 C:\Users\lutho\OneDrive\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.pdb
+<<<<<<< HEAD
+C:\Users\Sthe 17\Source\Repos\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\bin\AI Forge Service.dll.config
+C:\Users\Sthe 17\Source\Repos\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\bin\AI Forge Service.dll
+C:\Users\Sthe 17\Source\Repos\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\bin\AI Forge Service.pdb
+C:\Users\Sthe 17\Source\Repos\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.csproj.AssemblyReference.cache
+C:\Users\Sthe 17\Source\Repos\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.csproj.CoreCompileInputs.cache
+C:\Users\Sthe 17\Source\Repos\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.dll
+C:\Users\Sthe 17\Source\Repos\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.pdb
+=======
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\bin\AI Forge Service.dll.config
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\bin\AI Forge Service.dll
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\bin\AI Forge Service.pdb
@@ -12,3 +21,4 @@ C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Fo
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.csproj.CoreCompileInputs.cache
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.dll
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.pdb
+>>>>>>> 8e287728b80253e029f20d7b83d762875104bd46

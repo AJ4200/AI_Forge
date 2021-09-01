@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AI Forge Service",
+    "\\AI Forge Service\\AI Forge Service",
+    "\\AI Forge Service\\AI Forge Service\\AI Forge Service",
+    "\\AI Forge Service\\AI Forge Service\\AI Forge Service\\Properties",
+    "\\AI Forge Web App",
+    "\\AI Forge Web App\\images",
+    "\\AI Forge Web App\\images\\Products"
   ],
-  "SelectedNode": "\\AI Forge Web.sln",
+  "SelectedNode": "\\AI Forge Service\\AI Forge Service\\AI Forge Service.sln",
   "PreviewInSolutionExplorer": false
 }
