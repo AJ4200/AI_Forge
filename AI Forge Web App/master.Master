@@ -75,13 +75,13 @@
                                  <a class="nav-link" href="#service"> Service</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="#contact">Contact</a>
+                                 <a class="nav-link" href="Checkout.aspx">Checkout test</a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" href="SignUp.aspx">Sign Up</a>
                               </li>
                                                              <li class="nav-item">
-                                 <a class="nav-link" href="SignUp.aspx">Sign In</a>
+                                 <a class="nav-link" href="SignIn.aspx">Sign In</a>
                               </li>
                            </ul>
                         </div>
@@ -101,7 +101,7 @@
          <!--  footer -->
       <footer>
          <div class="footer">
-            <div class="container">
+           
                <div class="row">
                   <div class="col-md-10 offset-md-1">
                      <div class="cont">
