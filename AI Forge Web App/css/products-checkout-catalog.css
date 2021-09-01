@@ -1,7 +1,8 @@
 ﻿/*Catalog.aspx*/
 .product-tile-container img {
     width: 130px;
-    margin: 0px;
+    height: 130px;
+    margin: 10px;
 }
 
 .product-tile {
@@ -50,7 +51,8 @@
 
 /*Checkout.aspx*/
 .cart .container-image {
-    width: 50px;
+    width: 75px;
+    height: 75px;
 }
 
 .item-container-image {
@@ -59,9 +61,24 @@
     height: 75px;
     width: 75px;
     padding: 10px;
-    border: 1px solid black;
     float: left;
     margin: 5px;
+}
+
+.cart .cart-item-container {
+    resize: both;
+    overflow: auto;
+    height: 105px;
+    padding: 15px;
+    border: 1px solid black;
+    float: none;
+    margin: 5px;
+}
+
+.item-price {
+    float: right;
+    margin: 5px;
+    margin-right: 50px;
 }
 
 .item-summary {
@@ -84,9 +101,7 @@
 }
 
 .cart .checkout div {
-    float: left;
-}
-
-.cart .checkout {
     font: 18px;
+    margin: auto;
+    width: 50%;
 }

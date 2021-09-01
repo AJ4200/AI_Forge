@@ -10,11 +10,11 @@
 	<div class="product-container-details">
         <div class="product-container-header">
 		    <div class="header-details">
-				<p class="product-name">Smart Fridge</p>
-                <p class="product-price">R7500</p>
+				<p class="product-name">F4 Double Door Fridge</p>
+                <p class="product-price">R7500.00</p>
 			</div>
 			<div>
-				<img class="header-image" src="images/Products/smart-fridge.jpg" alt="Smart Fridge"/>
+				<img class="header-image" src="images/Products/smart-fridge.jpg" alt="F4 Double Door Fridge"/>
 			</div>
         </div>
 
@@ -26,7 +26,11 @@
 
 		<div class="product-details">
 			<p class="details-heading">Details</p>
-			<p class="details-content">...</p>
+			<p class="details-content">
+				This is a description of the product... it's a fridge... a double door fridge... 
+				a smart double dor fridge.
+				Are you impressed :)
+			</p>
 		</div>
 	</div>
 
