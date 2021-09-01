@@ -41,7 +41,7 @@
                            <input class="contactus" placeholder="Re-enter New Password" type="password" name="Password">
                         </div>
                         <div class="col-sm-12">
-                           <button class="send">Sign Up</button>
+                           <button class="send" href="ClientProfile.aspx">Sign Up </button>
                         </div>
                      </div>
                   </div>
