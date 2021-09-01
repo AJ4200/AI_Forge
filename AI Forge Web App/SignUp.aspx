@@ -30,7 +30,7 @@
                         <div class="col-sm-12">
                            <input class="contactus" placeholder="Address" type="text" name="Address">
                         </div>
-                         <br>
+                         <br><br><br>
                         <div class="col-sm-12">
                            <input class="contactus" placeholder="Username" type="text" name="Username">
                         </div>
