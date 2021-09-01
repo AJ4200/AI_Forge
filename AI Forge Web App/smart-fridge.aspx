@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-	<form id="form1" runat="server">
+
 	<div class="product-container-details">
         <div class="product-container-header">
 		    <div class="header-details">
@@ -20,7 +20,7 @@
 
 		<div class="add-product">
 			<span class="add-to-cart">
-				<asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart" Width="130px" />
+				<asp:Button ID="btnAddToCart2" runat="server" Text="Add To Cart" Width="130px" />
 			</span>
 		</div>
 
@@ -34,6 +34,5 @@
 		</div>
 	</div>
 
-    </form>
 
 </asp:Content>

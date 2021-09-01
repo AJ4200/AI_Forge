@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-	<form id="form1" runat="server">
+	
 	<div class="product-container-details">
         <div class="product-container-header">
 		    <div class="header-details">
@@ -30,6 +30,5 @@
 		</div>
 	</div>
 
-    </form>
 
 </asp:Content>
