@@ -1,37 +1,52 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="AI_Forge_Web_App.Checkout" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	
-	<link rel="stylesheet" href="Main.css">
+	<link rel="stylesheet" href="css/products-checkout-catalog.css">
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="cart__container__details">
-        <div class="product-header">
-		    <div class="name__price_container">
-				<p class="product-name">{Product Name]</p>
-                <p class="product-price">{Price}</p>
-			</div>
-        </div>
+    <form id="frmCheckout" runat="server">
 
-        <div class="product-form">
-            <div class="product-quantity">
-			    <div class="product__container__details__quantity">
-				    <p class="quantity-label">Quantity</p>
-				    <div class="quantity__select">
-					    <span class="select__less">
-							<asp:Button ID="btnDecQuantity" runat="server" Text="-" Width="18px" />
-					    </span>
-						<span class="quantity__value">1</span>
-					    <span class="select__more">
-							<asp:Button ID="btnIncQuantity" runat="server" Text="+" Width="18px" />
-                        </span>
-					</div>
+	<ul class="cart">
+		<li class="cart-item-container">
+			<div class="item-container-image">
+				<img class="container-image" src="images/Products/smart-fridge.jpg" alt="Smart Fridge"/>
+			</div>
+			<div class="item-summary">
+				<p class="product-name">Smart Fridge</p>
+
+				<div class="product-select">
+					<span class="select-less">
+						<asp:Button ID="btnDecQuantity" runat="server" Text="-" Width="18px" />
+					</span>
+					<span class="quantity-value">
+						<asp:Label ID="lblProductQuantity" runat="server" Text="1"></asp:Label>
+					</span>
+					<span class="select-more">
+						<asp:Button ID="btnIncQuantity" runat="server" Text="+" Width="18px" />
+					</span>
 				</div>
 			</div>
-			<a class="product-container__checkout" href="404">Checkout</a>
-		</div>
+			<div class="item-price">
+				<p class="price=heading">Price</p>
+				<p class="price-value">R7500.00</p>
+			</div>
+		</li>
+	</ul>
 
-    </div>
+	<div class="checkout">
+		<div class="checkout-summary">
+			<p class="Subtotal">Subtotal</p>
+			<p class="SubtotalValue">
+				<asp:Label ID="lblSubtotalValue" runat="server" Text="R7500.00"></asp:Label>
+			</p>
+		</div>
+		<div class="confirm">
+			<asp:Button ID="btnCheckout" runat="server" Text="Checkout" Width="80px" />
+		</div>
+	</div>
+
+    </form>
 
 </asp:Content>

@@ -1,40 +1,145 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="Catalog.aspx.cs" Inherits="AI_Forge_Web_App.Catalog" %>
+
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+		//TODO
+    }
+</script>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	
-	<link rel="stylesheet" href="Main.css">
+	<link rel="stylesheet" href="css/products-checkout-catalog.css">
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+	<form id="form1" runat="server">
+
 	<ul>
-		<li class="product-tile__item">
-			<!--Container for the product's information.-->
-			<div class="product-tile__container">
-				<!--Container for the image of the product. This might be styled differently from the other containers-->
-				<div class="product-tile__images">
-					<a href="ProductExample.aspx" class="product-tile__link" title="[Product Name]">
-						<img class="product-tile__image" src="images/smart-fridge.jpg" alt="[Product Name]"/>
+		<li class="product-tile">
+			<div class="product-tile-container">
+				<div class="tile-container-image">
+					<a href="ProductExample.aspx" class="container-link" title="Example">
+						<img class="container-image" src="images/example.jpg" alt="Example"/>
 					</a>
 				</div>
-				<!--Container for the link when image of the product is clicked. This might be styled differently from the other containers-->
-				<div class="product__details__link__container">
-					<!--productsku is the serial number of the product in inventory-->
-					<a class="quick__product__details" href="ProductExample.aspx">View Details</a>
+				<div class="product-container-details">
+					<a class="details-link" href="ProductExample.aspx">View Details</a>
 				</div>
 			</div>
 
-			<!--Container for the name of the product. This might be styled differently from the other containers-->
-			<div class="product-tile__name">
-				<div class="product-tile__links">
-					<a href="ProductExample.aspx" class="product-tile__link">[Product Name]</a>
+			<div class="product-tile-summary">
+				<div class="product-links">
+					<asp:Label ID="Label3" runat="server" Text="Example"></asp:Label>
+				</div>
+				<div class="product-tile__prices">
+					<p class="product-tile__price">
+                        <asp:Label ID="Label4" runat="server" Text="R0.00"></asp:Label>
+					</p>
+				</div>
+			</div>
+		</li>
+		
+		<li class="product-tile">
+			<div class="product-tile-container">
+				<div class="tile-container-image">
+					<a href="ProductExample.aspx" class="container-link" title="Example">
+						<img class="container-image" src="images/example.jpg" alt="Example"/>
+					</a>
+				</div>
+				<div class="product-container-details">
+					<a class="details-link" href="ProductExample.aspx">View Details</a>
 				</div>
 			</div>
 
-			<!--Container for the price of the product. This might be styled differently from the other containers-->
-			<div class="product-tile__prices">
-				<p class="product-tile__price">{Price}</p>
+			<div class="product-tile-summary">
+				<div class="product-links">
+					<asp:Label ID="Label5" runat="server" Text="Example"></asp:Label>
+				</div>
+				<div class="product-tile__prices">
+					<p class="product-tile__price">
+                        <asp:Label ID="Label6" runat="server" Text="R0.00"></asp:Label>
+					</p>
+				</div>
+			</div>
+		</li>
+		
+		<li class="product-tile">
+			<div class="product-tile-container">
+				<div class="tile-container-image">
+					<a href="ProductExample.aspx" class="container-link" title="Example">
+						<img class="container-image" src="images/example.jpg" alt="Example"/>
+					</a>
+				</div>
+				<div class="product-container-details">
+					<a class="details-link" href="ProductExample.aspx">View Details</a>
+				</div>
+			</div>
+
+			<div class="product-tile-summary">
+				<div class="product-links">
+					<asp:Label ID="Label7" runat="server" Text="Example"></asp:Label>
+				</div>
+				<div class="product-tile__prices">
+					<p class="product-tile__price">
+                        <asp:Label ID="Label8" runat="server" Text="R0.00"></asp:Label>
+					</p>
+				</div>
+			</div>
+		</li>
+		
+		<li class="product-tile">
+			<div class="product-tile-container">
+				<div class="tile-container-image">
+					<a href="ProductExample.aspx" class="container-link" title="Example">
+						<img class="container-image" src="images/example.jpg" alt="Example"/>
+					</a>
+				</div>
+				<div class="product-container-details">
+					<a class="details-link" href="ProductExample.aspx">View Details</a>
+				</div>
+			</div>
+
+			<div class="product-tile-summary">
+				<div class="product-links">
+					<asp:Label ID="Label9" runat="server" Text="Example"></asp:Label>
+				</div>
+				<div class="product-tile__prices">
+					<p class="product-tile__price">
+                        <asp:Label ID="Label10" runat="server" Text="R0.00"></asp:Label>
+					</p>
+				</div>
+			</div>
+		</li>
+
+		<!--Smart Fridge-->
+		<li class="product-tile">
+			<div class="product-tile-container">
+				<div class="tile-container-image">
+					<a href="ProductExample.aspx" class="container-link" title="Smart Fridge">
+						<img class="container-image" src="images/Products/smart-fridge.jpg" alt="Smart Fridge"/>
+					</a>
+				</div>
+				<div class="product-container-details">
+					<a class="details-link" href="ProductExample.aspx">View Details</a>
+				</div>
+			</div>
+
+			<div class="product-tile-summary">
+				<div class="product-links">
+					<asp:Label ID="Label1" runat="server" Text="Smart Fridge"></asp:Label>
+				</div>
+				<div class="product-tile__prices">
+					<p class="product-tile__price">
+                        <asp:Label ID="Label2" runat="server" Text="R7500"></asp:Label>
+					</p>
+				</div>
 			</div>
 		</li>
 	</ul>
+
+    </form>
 
 </asp:Content>
