@@ -9,9 +9,6 @@ namespace AI_Forge_Web_App
 {
     public partial class Catalog : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }
