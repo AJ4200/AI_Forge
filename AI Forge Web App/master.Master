@@ -53,7 +53,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div>
-                              <a href="index.html"><img src="images/Lightlogo2.png" alt="AI Forge" /></a>
+                              <a href="home.aspx"><img src="images/Lightlogo2.png" alt="AI Forge" /></a>
                            </div>
                         </div>
                      </div>
@@ -66,10 +66,10 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto">
                               <li class="nav-item active">
-                                 <a class="nav-link" href="#">Home</a>
+                                 <a class="nav-link" href="home.aspx">Home</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="#"> About  </a>
+                                 <a class="nav-link" href="Catalog.aspx"> Catalog  </a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" href="#service"> Service</a>
