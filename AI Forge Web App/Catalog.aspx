@@ -14,7 +14,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-	  <div>
+      <div>
 	<ul>
 		<li class="product-tile">
 			<div class="product-tile-container">
