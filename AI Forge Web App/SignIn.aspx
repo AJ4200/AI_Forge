@@ -19,7 +19,9 @@
                            <input class="contactus" placeholder="Enter New Password" type="password" name="Password">
                         </div>
                         <div class="col-sm-12">
-                           <button class="send" href="ClientProfile.aspx">Sign In</button>
+                           <a href="ClientProfile.aspx">
+                                   <input class="send" type="button" value="Sign In" />
+                                </a>
                         </div>
                      </div>
                   </div>

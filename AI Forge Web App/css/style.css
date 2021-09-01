@@ -626,9 +626,12 @@ button {
      background-color: #fff;
      color: #ef4259;
      padding: 12px 70px;
-     margin: 0 auto;
      display: block;
      border-radius: 30px;
+    width: 612px;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .contact .main_form .send:hover {
