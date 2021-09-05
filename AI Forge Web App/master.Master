@@ -82,8 +82,11 @@
                      <div class="full">
                         <div class="center-desk">
                            <div>
-                              <a href="#"><img src="images/cart.png" alt="cart" /></a>
-                           </div>
+                              <a href="Checkout.aspx"><img src="images/cart.png" alt="cart" /></a>
+                               <a href="Wishlist.aspx"><img src="images/wishlists.png" alt="cart" /></a>
+                           </div>                                                     
+                              
+                           
                         </div>
                      </div>
                   </div>

@@ -109,6 +109,7 @@
     <Content Include="SignUp.aspx" />
     <Content Include="smart-fridge.aspx" />
     <Content Include="Web.config" />
+    <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Catalog.aspx.cs">
@@ -174,6 +175,13 @@
     </Compile>
     <Compile Include="smart-fridge.aspx.designer.cs">
       <DependentUpon>smart-fridge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Wishlist.aspx.cs">
+      <DependentUpon>Wishlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wishlist.aspx.designer.cs">
+      <DependentUpon>Wishlist.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
