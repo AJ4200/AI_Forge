@@ -1,0 +1,270 @@
+﻿
+div.page {
+    background-color: mediumpurple;
+    position: relative;
+    top: 50px;
+    width: auto;
+    height: auto;
+}
+
+div.PaymentInfo {
+    background-color: white;
+    width: 40%;
+    height: 500px;
+    float: left;
+    position: relative;
+    left: 120px;
+    border-style: ridge;
+}
+
+    div.PaymentInfo hr {
+        margin: 5px 60px 10px 60px;
+        display: block;
+    }
+
+    div.PaymentInfo h1 {
+        text-align: center;
+        font-size: 25px;
+    }
+
+    div.PaymentInfo h2 {
+        margin-left: 20px;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 17px;
+    }
+
+    div.PaymentInfo .Cardname {
+        position: relative;
+        left: 80px;
+    }
+
+div.ProductInfo {
+    background-color: white;
+    width: 40%;
+    height: 500px;
+    float: right;
+    position: relative;
+    right: 120px;
+    border-style: ridge;
+    background-color: white;
+}
+
+    div.ProductInfo hr {
+        margin: 5px 60px 5px 60px;
+        display: block;
+    }
+
+    div.ProductInfo h1 {
+        text-align: center;
+        font-size: 25px;
+    }
+
+div.ProductSum {
+    position: relative;
+    top: 20px;
+}
+
+    div.ProductSum h2 {
+        margin-left: 20px;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 17px;
+    }
+
+#Items, #Address {
+    padding-bottom: 50px;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.Pay {
+    background-color: #708090;
+    color: white;
+    border: 2px solid #2f5669;
+    width: 35%;
+    position: relative;
+    left: 170px;
+    top: 50px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+    .Pay:hover {
+        background-color: #2f5669;
+        color: white;
+    }
+
+.Promo {
+    background-color: #708090;
+    color: white;
+    border: 2px solid #2f5669;
+    width: 30%;
+    height: 45px;
+    position: relative;
+    left: 70px;
+    top: 27px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding-bottom: 15px;
+}
+
+    .Promo:hover {
+        background-color: #2f5669;
+        color: white;
+    }
+
+/* Textfield customisation --------------------------------------*/
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.custom-field {
+    position: relative;
+    font-size: 14px;
+    border-top: 20px solid transparent;
+    margin-bottom: 5px;
+    --field-padding: 12px;
+    top: 30px;
+    height: 100px;
+    left: 40px;
+}
+
+    .custom-field input {
+        border: none;
+        -webkit-appearance: none;
+        /*-ms-appearance: none;*/
+        -moz-appearance: none;
+        /*appearance: none;*/
+        background: #f2f2f2;
+        padding: var(--field-padding);
+        border-radius: 3px;
+        width: 250px;
+        outline: none;
+        font-size: 14px;
+    }
+
+    .custom-field .placeholder {
+        position: absolute;
+        left: var(--field-padding);
+        width: calc(100% - (var(--field-padding) * 2));
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        top: 10px;
+        line-height: 100%;
+        transform: translateY(-50%);
+        color: #aaa;
+        transition: top 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+    }
+
+    .custom-field input.dirty + .placeholder,
+    .custom-field input:focus + .placeholder,
+    .custom-field input:valid + .placeholder {
+        top: -20px;
+        font-size: 15px;
+        color: #222;
+    }
+
+    .custom-field.three {
+        --draw-duration: 0.1s;
+        --draw-color: #222;
+        --draw-line-width: 2px;
+        --draw-easing: linear;
+    }
+
+        .custom-field.three .border {
+            width: 100%;
+            height: 245%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: -10px;
+            transform: none;
+            display: flex;
+            align-items: center;
+            padding-left: 12px;
+            border-radius: 3px;
+        }
+
+            .custom-field.three .border::after,
+            .custom-field.three .border::before {
+                content: "";
+                width: 0;
+                height: 0;
+                display: inline-block;
+                position: absolute;
+                border-radius: 3px;
+            }
+
+            .custom-field.three .border::before {
+                left: 0;
+                bottom: 0;
+                border-right: 0px solid var(--draw-color);
+                border-bottom: 0px solid var(--draw-color);
+                transition: border 0s linear 0.4s, height var(--draw-duration) var(--draw-easing) 0.2s, width var(--draw-duration) var(--draw-easing) 0.3s;
+            }
+
+            .custom-field.three .border::after {
+                right: 0;
+                top: 0;
+                border-left: 0px solid var(--draw-color);
+                border-top: 0px solid var(--draw-color);
+                transition: border 0s linear 0.2s, height var(--draw-duration) var(--draw-easing), width var(--draw-duration) var(--draw-easing) var(--draw-duration);
+            }
+
+        .custom-field.three input:focus ~ .border::before,
+        .custom-field.three input:valid ~ .border::before,
+        .custom-field.three input.dirty ~ .border::before,
+        .custom-field.three input:focus ~ .border::after,
+        .custom-field.three input:valid ~ .border::after,
+        .custom-field.three input.dirty ~ .border::after {
+            width: 100%;
+            height: 100%;
+            border-width: var(--draw-line-width);
+        }
+
+        .custom-field.three input:valid ~ .border::before,
+        .custom-field.three input.dirty ~ .border::before,
+        .custom-field.three input:focus ~ .border::before {
+            transition-delay: 0s, var(--draw-duration), 0s;
+        }
+
+        .custom-field.three input:valid ~ .border::after,
+        .custom-field.three input.dirty ~ .border::after,
+        .custom-field.three input:focus ~ .border::after {
+            transition-delay: 0.2s, 0.3s, 0.2s;
+        }
+
+    /*-----------------*/
+
+    .custom-field.two {
+        position: relative;
+        left: 20px;
+    }
+
+        .custom-field.two input {
+            background: none;
+            border: 2px solid #ddd;
+            transition: border-color 0.3s ease;
+            position: relative;
+            top: -5px;
+            font-size: 15px;
+        }
+
+            .custom-field.two input + .placeholder {
+                left: 8px;
+                padding: 0 5px;
+                color: #222;
+                background: #fff;
+                width: auto;
+                font-size: 15px;
+            }
