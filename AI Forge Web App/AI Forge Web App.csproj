@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Catalog.aspx" />
+    <Content Include="Catalogue.aspx" />
     <Content Include="Checkout.aspx" />
     <Content Include="ClientProfile.aspx" />
     <Content Include="css\animate.min.css" />
@@ -114,12 +114,12 @@
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Catalog.aspx.cs">
-      <DependentUpon>Catalog.aspx</DependentUpon>
+    <Compile Include="Catalogue.aspx.cs">
+      <DependentUpon>Catalogue.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Catalog.aspx.designer.cs">
-      <DependentUpon>Catalog.aspx</DependentUpon>
+    <Compile Include="Catalogue.aspx.designer.cs">
+      <DependentUpon>Catalogue.aspx</DependentUpon>
     </Compile>
     <Compile Include="Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>

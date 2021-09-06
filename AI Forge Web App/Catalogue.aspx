@@ -1,21 +1,26 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="Catalog.aspx.cs" Inherits="AI_Forge_Web_App.Catalog" %>
-
-<script runat="server">
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
-		//TODO
-    }
-</script>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="Catalogue.aspx.cs" Inherits="AI_Forge_Web_App.Catalogue" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	
 	<link rel="stylesheet" href="css/products-checkout-catalog.css">
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <div>
+	<div>
+		<div class="filter">
+			<asp:Button ID="btnFilter" runat="server" OnClick="btnFilter_Click" Text="Filter" Width="98px"/>
+			<div id="divOpenFilter" runat="server">
+
+			</div>
+		</div>
+		<div class="sort">
+			<asp:Button ID="btnSortBy" runat="server" OnClick="btnSortBy_Click" Text="Sort" Width="98px"/>
+			<asp:ImageButton ID="ibtnSortDir" runat="server" OnClick="ibtnSortDir_Click" ImageUrl="~/images/ascending" Width="32px"/>
+		</div>
+	</div>
+
+	<div>
 	<ul>
+		
 		<li class="product-tile">
 			<div class="product-tile-container">
 				<div class="tile-container-image">
@@ -39,8 +44,8 @@
 				</div>
 			</div>
 		</li>
-		  
-		<!--Black Home Speaker-->
+		
+		<!--
 		<li class="product-tile">
 			<div class="product-tile-container">
 				<div class="tile-container-image">
@@ -65,7 +70,6 @@
 			</div>
 		</li>
 		
-		<!--HomeBot S3-->
 		<li class="product-tile">
 			<div class="product-tile-container">
 				<div class="tile-container-image">
@@ -90,7 +94,6 @@
 			</div>
 		</li>
 		
-		<!--MX360 Lamp-->
 		<li class="product-tile">
 			<div class="product-tile-container">
 				<div class="tile-container-image">
@@ -115,7 +118,6 @@
 			</div>
 		</li>
 		
-		<!--CamBot Mini-->
 		<li class="product-tile">
 			<div class="product-tile-container">
 				<div class="tile-container-image">
@@ -140,7 +142,6 @@
 			</div>
 		</li>
 
-		<!--F4 Double Door Fridge-->
 		<li class="product-tile">
 			<div class="product-tile-container">
 				<div class="tile-container-image">
@@ -164,6 +165,7 @@
 				</div>
 			</div>
 		</li>
+		-->
 	</ul>
 	   </div>
  
