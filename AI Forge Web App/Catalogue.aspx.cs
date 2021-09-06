@@ -111,6 +111,7 @@ namespace AI_Forge_Web_App
                 sortAscending = true;
                 ibtnSortDir.ImageUrl = "~/images/ascending";
             }
+            products.Reverse();
         }
 
         protected void btnSortBy_Click(object sender, EventArgs e)
