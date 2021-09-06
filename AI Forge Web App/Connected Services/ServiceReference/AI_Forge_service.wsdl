@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AI_Forge_service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:54211/AI_Forge_service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:54211/AI_Forge_service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:54211/AI_Forge_service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AI_Forge_Service" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAI_Forge_service_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_UpdateInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInfo" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_UpdateInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_UpdateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProduct" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_UpdateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_VerifyEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyEmail" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_VerifyEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetAllProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProducts" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetAllProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProduct" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_AddProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProduct" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_AddProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_DeleteProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProduct" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_DeleteProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetProductsOnSpecial_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsOnSpecial" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetProductsOnSpecial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsOnSpecialResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAI_Forge_service">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/Login" message="tns:IAI_Forge_service_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/LoginResponse" message="tns:IAI_Forge_service_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/Register" message="tns:IAI_Forge_service_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/RegisterResponse" message="tns:IAI_Forge_service_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/UpdateInfo" message="tns:IAI_Forge_service_UpdateInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/UpdateInfoResponse" message="tns:IAI_Forge_service_UpdateInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/UpdateProduct" message="tns:IAI_Forge_service_UpdateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/UpdateProductResponse" message="tns:IAI_Forge_service_UpdateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/GetUser" message="tns:IAI_Forge_service_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/GetUserResponse" message="tns:IAI_Forge_service_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/VerifyEmail" message="tns:IAI_Forge_service_VerifyEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/VerifyEmailResponse" message="tns:IAI_Forge_service_VerifyEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/GetAllProducts" message="tns:IAI_Forge_service_GetAllProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/GetAllProductsResponse" message="tns:IAI_Forge_service_GetAllProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/GetProduct" message="tns:IAI_Forge_service_GetProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/GetProductResponse" message="tns:IAI_Forge_service_GetProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/AddProduct" message="tns:IAI_Forge_service_AddProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/AddProductResponse" message="tns:IAI_Forge_service_AddProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/DeleteProduct" message="tns:IAI_Forge_service_DeleteProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/DeleteProductResponse" message="tns:IAI_Forge_service_DeleteProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsOnSpecial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/GetProductsOnSpecial" message="tns:IAI_Forge_service_GetProductsOnSpecial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/GetProductsOnSpecialResponse" message="tns:IAI_Forge_service_GetProductsOnSpecial_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAI_Forge_service" type="tns:IAI_Forge_service">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInfo">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/UpdateInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/UpdateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyEmail">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/VerifyEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProducts">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/GetAllProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/GetProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/AddProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/DeleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsOnSpecial">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/GetProductsOnSpecial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AI_Forge_service">
+    <wsdl:port name="BasicHttpBinding_IAI_Forge_service" binding="tns:BasicHttpBinding_IAI_Forge_service">
+      <soap:address location="http://localhost:54211/AI_Forge_service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
