@@ -7,14 +7,27 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 	<div>
 		<div class="filter">
-			<asp:Button ID="btnFilter" runat="server" OnClick="btnFilter_Click" Text="Filter" Width="98px"/>
+			<asp:Button ID="btnFilterOptions" runat="server" OnClick="btnFilterOptions_Click" Text="Filter" Width="98px"/>
 			<div id="divOpenFilter" runat="server">
-
+				<asp:DropDownList ID="ddlCategory" runat="server" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged">
+                    <asp:ListItem>Select Category</asp:ListItem>
+				</asp:DropDownList>
+				<asp:DropDownList ID="ddlPriceRange" runat="server" OnSelectedIndexChanged="ddlPriceRange_SelectedIndexChanged">
+                    <asp:ListItem>Select Price Range</asp:ListItem>
+				</asp:DropDownList>
 			</div>
 		</div>
 		<div class="sort">
-			<asp:Button ID="btnSortBy" runat="server" OnClick="btnSortBy_Click" Text="Sort" Width="98px"/>
+			<asp:Button ID="btnSort" runat="server" OnClick="btnSort_Click" Text="Sort" Width="98px"/>
 			<asp:ImageButton ID="ibtnSortDir" runat="server" OnClick="ibtnSortDir_Click" ImageUrl="~/images/ascending" Width="32px"/>
+			<div id="divSortOptions" runat="server">
+				<asp:BulletedList ID="blSortOptions" runat="server" OnClick="blSortOptions_Click" OnTextChanged="blSortOptions_TextChanged">
+                    <asp:ListItem>Name</asp:ListItem>
+                    <asp:ListItem>Recently Added</asp:ListItem>
+                    <asp:ListItem>Price</asp:ListItem>
+                    <asp:ListItem>Category</asp:ListItem>
+                </asp:BulletedList>
+			</div>
 		</div>
 	</div>
 

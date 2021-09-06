@@ -12,15 +12,17 @@ namespace AI_Forge_Web_App
     {
         private bool sortAscending;
         private enum sortValues { Name, Date, Price };
-        //private List<Product> products;
+        private List<Product> products;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            divOpenFilter.Visible = false;
+            divSortOptions.Visible = false;
             sortAscending = true;
-            //products = new List<Product>();
-            //addProductContainer();
+            products = new List<Product>();
+            addProductContainer();
         }
-        /**
+        
         private void addProductContainer()
         {
             products.AddRange(GetAllProducts());
@@ -30,7 +32,7 @@ namespace AI_Forge_Web_App
             ul.TagName = "ul";
             ul.ID = "Catalog";
 
-            foreach (Product p in product)
+            foreach (Product p in products)
             {
                 ul.Controls.Add(addProduct(p.Product_Name, p.Product_Price, p.Product_Image));
             }
@@ -115,6 +117,25 @@ namespace AI_Forge_Web_App
         {
 
         }
-        **/
+
+        protected void btnFilterOptions_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlPriceRange_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+        protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+        protected void blSortOptions_TextChanged(object sender, EventArgs e)
+        {
+            //TODO
+        }
     }
 }
