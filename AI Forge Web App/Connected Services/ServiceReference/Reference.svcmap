@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5f0c1a1b-eda8-4d1e-a14e-d84cb849e586" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:54211/AI_Forge_service.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AI_Forge_service.xsd" MetadataType="Schema" ID="2b5dedc2-8460-4dd0-bf4c-6c8d41918249" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd2" />
+    <MetadataFile FileName="AI_Forge_service1.xsd" MetadataType="Schema" ID="394a8451-60f3-4425-bb7b-c1bf6a930ebf" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd1" />
+    <MetadataFile FileName="AI_Forge_service.disco" MetadataType="Disco" ID="e59bac5a-d541-436d-bb81-364f9009df2f" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?disco" />
+    <MetadataFile FileName="AI_Forge_service2.xsd" MetadataType="Schema" ID="b4e30039-70b7-48d6-a781-34023054e077" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd0" />
+    <MetadataFile FileName="AI_Forge_service.wsdl" MetadataType="Wsdl" ID="4701d413-c347-440a-806c-4c13fa9cffba" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
