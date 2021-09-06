@@ -93,6 +93,7 @@
     <Content Include="css\nice-select.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\owl.carousel.min.css" />
+    <Content Include="css\products-checkout-catalog.css" />
     <Content Include="css\responsive.css" />
     <Content Include="css\slick.css" />
     <Content Include="css\style.css" />
