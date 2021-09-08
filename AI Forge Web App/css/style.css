@@ -34,6 +34,7 @@ html {
 }
 
 body {
+    overflow: auto;
      color: #666666;
      font-size: 14px;
      font-family: 'Roboto', sans-serif;
@@ -664,7 +665,8 @@ button {
 
 .cont {
      text-align: center;
-     margin-top: 31%;
+     height: 50%;
+     margin-top: 100%;
 }
 
 .cont h3 {

@@ -4,3 +4,4 @@ C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Fo
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.csproj.CoreCompileInputs.cache
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.dll
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.pdb
+C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.csproj.AssemblyReference.cache
