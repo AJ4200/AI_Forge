@@ -70,7 +70,7 @@
                                  <a class="nav-link" href="home.aspx">Home</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="Catalog.aspx"> Catalog  </a>
+                                 <a class="nav-link" href="Catalogue.aspx"> Catalog  </a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" href="SignUp.aspx">Sign Up</a>

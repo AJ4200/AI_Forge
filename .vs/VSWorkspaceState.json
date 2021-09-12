@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\AI Forge Service",
-    "\\AI Forge Service\\AI Forge Service",
-    "\\AI Forge Service\\AI Forge Service\\AI Forge Service",
-    "\\AI Forge Web App"
+    ""
   ],
-  "SelectedNode": "\\AI Forge Service\\AI Forge Service\\AI Forge Service\\AI_Forge_DataClasses.dbml",
+  "SelectedNode": "\\AI Forge Web App.sln",
   "PreviewInSolutionExplorer": false
 }

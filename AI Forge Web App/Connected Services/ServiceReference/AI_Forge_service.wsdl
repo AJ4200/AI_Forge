@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:54211/AI_Forge_service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:54211/AI_Forge_service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:54211/AI_Forge_service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AI_Forge_Service" />
+      <xsd:import schemaLocation="http://localhost:54211/AI_Forge_service.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAI_Forge_service_Login_InputMessage">
@@ -73,6 +74,30 @@
   <wsdl:message name="IAI_Forge_service_GetProductsOnSpecial_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProductsOnSpecialResponse" />
   </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetActiveItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveItems" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetActiveItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItem" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetSale_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSale" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetSale_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetItemCatagories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemCatagories" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_service_GetItemCatagories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemCatagoriesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAI_Forge_service">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/Login" message="tns:IAI_Forge_service_Login_InputMessage" />
@@ -117,6 +142,22 @@
     <wsdl:operation name="GetProductsOnSpecial">
       <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/GetProductsOnSpecial" message="tns:IAI_Forge_service_GetProductsOnSpecial_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/GetProductsOnSpecialResponse" message="tns:IAI_Forge_service_GetProductsOnSpecial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/GetActiveItems" message="tns:IAI_Forge_service_GetActiveItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/GetActiveItemsResponse" message="tns:IAI_Forge_service_GetActiveItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/GetItem" message="tns:IAI_Forge_service_GetItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/GetItemResponse" message="tns:IAI_Forge_service_GetItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSale">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/GetSale" message="tns:IAI_Forge_service_GetSale_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/GetSaleResponse" message="tns:IAI_Forge_service_GetSale_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemCatagories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_service/GetItemCatagories" message="tns:IAI_Forge_service_GetItemCatagories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_service/GetItemCatagoriesResponse" message="tns:IAI_Forge_service_GetItemCatagories_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAI_Forge_service" type="tns:IAI_Forge_service">
@@ -213,6 +254,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetProductsOnSpecial">
       <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/GetProductsOnSpecial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveItems">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/GetActiveItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItem">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/GetItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSale">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/GetSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemCatagories">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_service/GetItemCatagories" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

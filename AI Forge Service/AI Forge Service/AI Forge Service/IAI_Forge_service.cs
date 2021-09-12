@@ -42,5 +42,17 @@ namespace AI_Forge_Service
 
         [OperationContract]
         List<Product> GetProductsOnSpecial();
+
+        [OperationContract]
+        List<Item> GetActiveItems();
+
+        [OperationContract]
+        Item GetItem(int id);
+
+        [OperationContract]
+        Sale GetSale(int id);
+
+        [OperationContract]
+        List<string> GetItemCatagories();
     }
 }

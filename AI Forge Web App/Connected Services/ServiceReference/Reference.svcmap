@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:54211/AI_Forge_service.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AI_Forge_service.xsd" MetadataType="Schema" ID="2b5dedc2-8460-4dd0-bf4c-6c8d41918249" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd2" />
-    <MetadataFile FileName="AI_Forge_service1.xsd" MetadataType="Schema" ID="394a8451-60f3-4425-bb7b-c1bf6a930ebf" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd1" />
-    <MetadataFile FileName="AI_Forge_service.disco" MetadataType="Disco" ID="e59bac5a-d541-436d-bb81-364f9009df2f" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?disco" />
-    <MetadataFile FileName="AI_Forge_service2.xsd" MetadataType="Schema" ID="b4e30039-70b7-48d6-a781-34023054e077" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd0" />
     <MetadataFile FileName="AI_Forge_service.wsdl" MetadataType="Wsdl" ID="4701d413-c347-440a-806c-4c13fa9cffba" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?wsdl" />
+    <MetadataFile FileName="AI_Forge_service2.xsd" MetadataType="Schema" ID="b4e30039-70b7-48d6-a781-34023054e077" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd0" />
+    <MetadataFile FileName="AI_Forge_service.xsd" MetadataType="Schema" ID="2b5dedc2-8460-4dd0-bf4c-6c8d41918249" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd2" />
+    <MetadataFile FileName="AI_Forge_service.disco" MetadataType="Disco" ID="e59bac5a-d541-436d-bb81-364f9009df2f" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?disco" />
+    <MetadataFile FileName="AI_Forge_service1.xsd" MetadataType="Schema" ID="394a8451-60f3-4425-bb7b-c1bf6a930ebf" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd1" />
+    <MetadataFile FileName="AI_Forge_service3.xsd" MetadataType="Schema" ID="15b7b8b9-9d25-4562-a9bf-1cd9e4f75952" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

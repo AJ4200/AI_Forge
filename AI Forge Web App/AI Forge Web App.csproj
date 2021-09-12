@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Catalogue.aspx" />
     <Content Include="Checkout.aspx" />
     <Content Include="ClientProfile.aspx" />
     <None Include="Connected Services\ServiceReference\AI_Forge_service.disco" />
@@ -78,6 +79,15 @@
     <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.Item.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.Sale.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ServiceReference\AI_Forge_service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\ServiceReference\Reference.svcmap">
@@ -132,6 +142,13 @@
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalogue.aspx.cs">
+      <DependentUpon>Catalogue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogue.aspx.designer.cs">
+      <DependentUpon>Catalogue.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

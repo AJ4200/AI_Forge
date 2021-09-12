@@ -11,7 +11,7 @@ namespace AI_Forge_Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select AI_Forge_service.svc or AI_Forge_service.svc.cs at the Solution Explorer and start debugging.
     public class AI_Forge_service : IAI_Forge_service
     {
-        readonly AI_Forge_DataClassesDataContext db = new AI_Forge_DataClassesDataContext();
+        AI_Forge_DataClassesDataContext db = new AI_Forge_DataClassesDataContext();
         public int AddProduct(string Name, int Price, string Description, string Dimensions, string Category, int Quantity, int PTid, int Sale, int SalePrice, string SaleDescription)
         {
             Product temp_product = new Product()
@@ -280,6 +280,43 @@ namespace AI_Forge_Service
                 return client;
             }
                 
+        }
+
+        public List<Item> GetActiveItems()
+        {
+            var items = (from i in db.Items
+                         where i.ITM_Active
+                         select i).ToList();
+            return items;
+        }
+
+        public Item GetItem(int id)
+        {
+            Item item = null;
+            var foundItem = (from i in db.Items where i.ITM_ID.Equals(id) select i).FirstOrDefault();
+            if (foundItem != null)
+            {
+                item = new Item()
+                {
+                    //Not needed because all information is relavent
+                };
+            }
+
+            return foundItem;
+        }
+
+        public Sale GetSale(int id)
+        {
+           var sale = (from s in db.Sales where s.SLE_ID.Equals(id) select s).FirstOrDefault();
+            return sale;
+        }
+
+        List<string> IAI_Forge_service.GetItemCatagories()
+        {
+            var items = (from i in db.Items
+                         where i.ITM_Active
+                         select i.ITM_Category).Distinct().ToList();
+            return items;
         }
     }
 }

@@ -894,6 +894,320 @@ namespace AI_Forge_Web_App.ServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Item", Namespace="http://schemas.datacontract.org/2004/07/AI_Forge_Service")]
+    [System.SerializableAttribute()]
+    public partial class Item : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ITM_ActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ITM_CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte ITM_DepthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ITM_DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte ITM_HeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ITM_IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ITM_Image_PathField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ITM_NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal ITM_PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte ITM_WidthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> SLE_IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AI_Forge_Web_App.ServiceReference.Sale SaleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ITM_Active {
+            get {
+                return this.ITM_ActiveField;
+            }
+            set {
+                if ((this.ITM_ActiveField.Equals(value) != true)) {
+                    this.ITM_ActiveField = value;
+                    this.RaisePropertyChanged("ITM_Active");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ITM_Category {
+            get {
+                return this.ITM_CategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ITM_CategoryField, value) != true)) {
+                    this.ITM_CategoryField = value;
+                    this.RaisePropertyChanged("ITM_Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte ITM_Depth {
+            get {
+                return this.ITM_DepthField;
+            }
+            set {
+                if ((this.ITM_DepthField.Equals(value) != true)) {
+                    this.ITM_DepthField = value;
+                    this.RaisePropertyChanged("ITM_Depth");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ITM_Description {
+            get {
+                return this.ITM_DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ITM_DescriptionField, value) != true)) {
+                    this.ITM_DescriptionField = value;
+                    this.RaisePropertyChanged("ITM_Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte ITM_Height {
+            get {
+                return this.ITM_HeightField;
+            }
+            set {
+                if ((this.ITM_HeightField.Equals(value) != true)) {
+                    this.ITM_HeightField = value;
+                    this.RaisePropertyChanged("ITM_Height");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ITM_ID {
+            get {
+                return this.ITM_IDField;
+            }
+            set {
+                if ((this.ITM_IDField.Equals(value) != true)) {
+                    this.ITM_IDField = value;
+                    this.RaisePropertyChanged("ITM_ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ITM_Image_Path {
+            get {
+                return this.ITM_Image_PathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ITM_Image_PathField, value) != true)) {
+                    this.ITM_Image_PathField = value;
+                    this.RaisePropertyChanged("ITM_Image_Path");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ITM_Name {
+            get {
+                return this.ITM_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ITM_NameField, value) != true)) {
+                    this.ITM_NameField = value;
+                    this.RaisePropertyChanged("ITM_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ITM_Price {
+            get {
+                return this.ITM_PriceField;
+            }
+            set {
+                if ((this.ITM_PriceField.Equals(value) != true)) {
+                    this.ITM_PriceField = value;
+                    this.RaisePropertyChanged("ITM_Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte ITM_Width {
+            get {
+                return this.ITM_WidthField;
+            }
+            set {
+                if ((this.ITM_WidthField.Equals(value) != true)) {
+                    this.ITM_WidthField = value;
+                    this.RaisePropertyChanged("ITM_Width");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> SLE_ID {
+            get {
+                return this.SLE_IDField;
+            }
+            set {
+                if ((this.SLE_IDField.Equals(value) != true)) {
+                    this.SLE_IDField = value;
+                    this.RaisePropertyChanged("SLE_ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AI_Forge_Web_App.ServiceReference.Sale Sale {
+            get {
+                return this.SaleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SaleField, value) != true)) {
+                    this.SaleField = value;
+                    this.RaisePropertyChanged("Sale");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Sale", Namespace="http://schemas.datacontract.org/2004/07/AI_Forge_Service")]
+    [System.SerializableAttribute()]
+    public partial class Sale : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AI_Forge_Web_App.ServiceReference.Item[] ItemsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SLE_IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SLE_NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte SLE_ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AI_Forge_Web_App.ServiceReference.Item[] Items {
+            get {
+                return this.ItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemsField, value) != true)) {
+                    this.ItemsField = value;
+                    this.RaisePropertyChanged("Items");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SLE_ID {
+            get {
+                return this.SLE_IDField;
+            }
+            set {
+                if ((this.SLE_IDField.Equals(value) != true)) {
+                    this.SLE_IDField = value;
+                    this.RaisePropertyChanged("SLE_ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SLE_Name {
+            get {
+                return this.SLE_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SLE_NameField, value) != true)) {
+                    this.SLE_NameField = value;
+                    this.RaisePropertyChanged("SLE_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte SLE_Value {
+            get {
+                return this.SLE_ValueField;
+            }
+            set {
+                if ((this.SLE_ValueField.Equals(value) != true)) {
+                    this.SLE_ValueField = value;
+                    this.RaisePropertyChanged("SLE_Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IAI_Forge_service")]
     public interface IAI_Forge_service {
@@ -963,6 +1277,30 @@ namespace AI_Forge_Web_App.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_service/GetProductsOnSpecial", ReplyAction="http://tempuri.org/IAI_Forge_service/GetProductsOnSpecialResponse")]
         System.Threading.Tasks.Task<AI_Forge_Web_App.ServiceReference.Product[]> GetProductsOnSpecialAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_service/GetActiveItems", ReplyAction="http://tempuri.org/IAI_Forge_service/GetActiveItemsResponse")]
+        AI_Forge_Web_App.ServiceReference.Item[] GetActiveItems();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_service/GetActiveItems", ReplyAction="http://tempuri.org/IAI_Forge_service/GetActiveItemsResponse")]
+        System.Threading.Tasks.Task<AI_Forge_Web_App.ServiceReference.Item[]> GetActiveItemsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_service/GetItem", ReplyAction="http://tempuri.org/IAI_Forge_service/GetItemResponse")]
+        AI_Forge_Web_App.ServiceReference.Item GetItem(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_service/GetItem", ReplyAction="http://tempuri.org/IAI_Forge_service/GetItemResponse")]
+        System.Threading.Tasks.Task<AI_Forge_Web_App.ServiceReference.Item> GetItemAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_service/GetSale", ReplyAction="http://tempuri.org/IAI_Forge_service/GetSaleResponse")]
+        AI_Forge_Web_App.ServiceReference.Sale GetSale(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_service/GetSale", ReplyAction="http://tempuri.org/IAI_Forge_service/GetSaleResponse")]
+        System.Threading.Tasks.Task<AI_Forge_Web_App.ServiceReference.Sale> GetSaleAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_service/GetItemCatagories", ReplyAction="http://tempuri.org/IAI_Forge_service/GetItemCatagoriesResponse")]
+        string[] GetItemCatagories();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_service/GetItemCatagories", ReplyAction="http://tempuri.org/IAI_Forge_service/GetItemCatagoriesResponse")]
+        System.Threading.Tasks.Task<string[]> GetItemCatagoriesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1078,6 +1416,38 @@ namespace AI_Forge_Web_App.ServiceReference {
         
         public System.Threading.Tasks.Task<AI_Forge_Web_App.ServiceReference.Product[]> GetProductsOnSpecialAsync() {
             return base.Channel.GetProductsOnSpecialAsync();
+        }
+        
+        public AI_Forge_Web_App.ServiceReference.Item[] GetActiveItems() {
+            return base.Channel.GetActiveItems();
+        }
+        
+        public System.Threading.Tasks.Task<AI_Forge_Web_App.ServiceReference.Item[]> GetActiveItemsAsync() {
+            return base.Channel.GetActiveItemsAsync();
+        }
+        
+        public AI_Forge_Web_App.ServiceReference.Item GetItem(int id) {
+            return base.Channel.GetItem(id);
+        }
+        
+        public System.Threading.Tasks.Task<AI_Forge_Web_App.ServiceReference.Item> GetItemAsync(int id) {
+            return base.Channel.GetItemAsync(id);
+        }
+        
+        public AI_Forge_Web_App.ServiceReference.Sale GetSale(int id) {
+            return base.Channel.GetSale(id);
+        }
+        
+        public System.Threading.Tasks.Task<AI_Forge_Web_App.ServiceReference.Sale> GetSaleAsync(int id) {
+            return base.Channel.GetSaleAsync(id);
+        }
+        
+        public string[] GetItemCatagories() {
+            return base.Channel.GetItemCatagories();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetItemCatagoriesAsync() {
+            return base.Channel.GetItemCatagoriesAsync();
         }
     }
 }

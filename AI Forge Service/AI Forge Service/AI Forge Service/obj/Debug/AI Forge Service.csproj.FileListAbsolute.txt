@@ -5,3 +5,10 @@ C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Fo
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.dll
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.pdb
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.csproj.AssemblyReference.cache
+C:\Users\Maggie\source\repos\UJ\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\bin\AI Forge Service.dll.config
+C:\Users\Maggie\source\repos\UJ\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\bin\AI Forge Service.dll
+C:\Users\Maggie\source\repos\UJ\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\bin\AI Forge Service.pdb
+C:\Users\Maggie\source\repos\UJ\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.csproj.AssemblyReference.cache
+C:\Users\Maggie\source\repos\UJ\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.csproj.CoreCompileInputs.cache
+C:\Users\Maggie\source\repos\UJ\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.dll
+C:\Users\Maggie\source\repos\UJ\AI_Forge\AI Forge Service\AI Forge Service\AI Forge Service\obj\Debug\AI Forge Service.pdb
