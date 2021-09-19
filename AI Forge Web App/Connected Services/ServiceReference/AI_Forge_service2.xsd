@@ -72,7 +72,6 @@
         <xs:element minOccurs="0" name="Dimensions" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Quantity" type="xs:int" />
-        <xs:element minOccurs="0" name="PTid" type="xs:int" />
         <xs:element minOccurs="0" name="Sale" type="xs:int" />
         <xs:element minOccurs="0" name="SalePrice" type="xs:int" />
         <xs:element minOccurs="0" name="SaleDescription" nillable="true" type="xs:string" />
@@ -130,7 +129,7 @@
   <xs:element name="GetProduct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -150,7 +149,6 @@
         <xs:element minOccurs="0" name="Dimensions" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Quantity" type="xs:int" />
-        <xs:element minOccurs="0" name="PTid" type="xs:int" />
         <xs:element minOccurs="0" name="Sale" type="xs:int" />
         <xs:element minOccurs="0" name="SalePrice" type="xs:int" />
         <xs:element minOccurs="0" name="SaleDescription" nillable="true" type="xs:string" />
@@ -167,7 +165,7 @@
   <xs:element name="DeleteProduct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

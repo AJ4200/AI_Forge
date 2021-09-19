@@ -12,7 +12,7 @@ namespace AI_Forge_Service
     public class AI_Forge_service : IAI_Forge_service
     {
         AI_Forge_DataClassesDataContext db = new AI_Forge_DataClassesDataContext();
-        public int AddProduct(string Name, int Price, string Description, string Dimensions, string Category, int Quantity, int PTid, int Sale, int SalePrice, string SaleDescription)
+        public int AddProduct(string Name, int Price, string Description, string Dimensions, string Category, int Quantity, int Sale, int SalePrice, string SaleDescription)
         {
             Product temp_product = new Product()
             {
@@ -22,7 +22,6 @@ namespace AI_Forge_Service
                 Product_Dimensions = Dimensions,
                 Product_Category = Category,
                 Product_Quantity = Quantity,
-                ProductT_ID = PTid,
                 Product_Sale = Sale,
                 Product_SalePrice = SalePrice,
                 Product_SaleDescription = SaleDescription,
@@ -41,9 +40,9 @@ namespace AI_Forge_Service
             }
         }
 
-        public bool DeleteProduct(int id)
+        public bool DeleteProduct(string name)
         {
-            var product = GetProduct(id);
+            var product = GetProduct(name);
             if (product != null)
             {
            
@@ -79,11 +78,11 @@ namespace AI_Forge_Service
             return Products;
         }
 
-        public Product GetProduct(int id)
+        public Product GetProduct(string name)
         {
             Product temp_product = null;
             var product = (from p in db.Products
-                           where p.Product_Id.Equals(id) && p.Product_Deleted.Equals(0)
+                           where p.Product_Name.Equals(name) && p.Product_Deleted.Equals(0)
                            select p).FirstOrDefault();
             if (product == null)
             {
@@ -230,9 +229,9 @@ namespace AI_Forge_Service
             }
         }
 
-        public int UpdateProduct(int id, string Name, int Price, string Description, string Dimensions, string Category, int Quantity, int PTid, int Sale, int SalePrice, string SaleDescription)
+        public int UpdateProduct(int id, string Name, int Price, string Description, string Dimensions, string Category, int Quantity, int Sale, int SalePrice, string SaleDescription)
         {
-            dynamic tempProduct = GetProduct(id);
+            dynamic tempProduct = GetProduct(Name);
             if (tempProduct != null)
             {
                 tempProduct.Product_Name = Name;
@@ -241,7 +240,6 @@ namespace AI_Forge_Service
                 tempProduct.Product_Dimensions = Dimensions;
                 tempProduct.Product_Category = Category;
                 tempProduct.Product_Quantity = Quantity;
-                tempProduct.ProductT_ID = PTid;
                 tempProduct.Product_Sale = Sale;
                 tempProduct.Product_SalePrice = SalePrice;
                 tempProduct.Product_SaleDescription = SaleDescription;

@@ -21,7 +21,7 @@ namespace AI_Forge_Service
         int UpdateInfo(string Name, string Surname, string Email, decimal Contact, string Gender, DateTime dob, string Address, string Username, string Password,int id);
 
         [OperationContract]
-        int UpdateProduct(int id, string Name, int Price, string Description, string Dimensions, string Category, int Quantity, int PTid, int Sale, int SalePrice, string SaleDescription);
+        int UpdateProduct(int id, string Name, int Price, string Description, string Dimensions, string Category, int Quantity, int Sale, int SalePrice, string SaleDescription);
 
         [OperationContract]
         User GetUser(int id);
@@ -32,13 +32,13 @@ namespace AI_Forge_Service
         List<Product> GetAllProducts();
 
         [OperationContract]
-        Product GetProduct(int id);
+        Product GetProduct(string name);
 
         [OperationContract]
-        int AddProduct(string Name, int Price, string Description, string Dimensions, string Category, int Quantity, int PTid, int Sale, int SalePrice, string SaleDescription);
+        int AddProduct(string Name, int Price, string Description, string Dimensions, string Category, int Quantity, int Sale, int SalePrice, string SaleDescription);
 
         [OperationContract]
-        bool DeleteProduct(int id);
+        bool DeleteProduct(string name);
 
         [OperationContract]
         List<Product> GetProductsOnSpecial();

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[User]
 (
-	[User_Id] INT NOT NULL PRIMARY KEY,
+	[User_Id] INT NOT NULL PRIMARY KEY identity(1,1),
 	[User_Name] varchar(50) not null,
 	[User_Surname] varchar(50) not null,
 	[User_Email] varchar(50) not null,
@@ -10,22 +10,23 @@
 	[User_Address] varchar(50) not null,
 	[User_UserName] varchar(50) not null,
 	[User_Password] varchar(50) not null,
-	[ProductT_ID] int not null,
 	[Product_Active] int not null,
 	[User_Type] varchar(50) not null,
-	foreign key(ProductT_ID) references Product_Type
 )
 
 CREATE TABLE [dbo].[Product_Type]
 (
-	[ProductT_Id] INT NOT NULL PRIMARY KEY,
-	[ProductT_Name] varchar(50) not null,
+	[ProductT_Id] INT NOT NULL PRIMARY KEY identity(1,1),
+	[User_Id] INT NOT NULL,
+	[Product_Id] INT NOT NULL,
+
+	foreign key(User_Id) references [dbo].[User],
+	foreign key(Product_Id) references [dbo].[Product]
 )
 
 CREATE TABLE [dbo].[Product]
 (
 	[Product_Id] INT NOT NULL PRIMARY KEY,
-	[ProductT_ID] int not null,
 	[Product_Name] varchar(50) not null,
 	[Product_Price] money not null,
 	[Product_Description] varchar(150) not null,
@@ -35,8 +36,7 @@ CREATE TABLE [dbo].[Product]
 	[Product_Sale] int,
 	[Product_SalePrice] money,
 	[Product_SaleDescription] varchar(150),
-	[Product_Deleted] int,
-	foreign key(ProductT_ID) references Product_Type
+	[Product_Deleted] int
 )
 
 CREATE TABLE [dbo].[Invoice_Line]
@@ -59,3 +59,9 @@ CREATE TABLE [dbo].[Invoice]
 	foreign key(User_Id) references [dbo].[User],
 	foreign key(InvoiceL_Id) references Invoice_Line
 )
+
+
+
+
+
+
