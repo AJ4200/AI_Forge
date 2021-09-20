@@ -15,44 +15,39 @@ namespace AI_Forge_Service
         int Login(string Email, string Password);
 
         [OperationContract]
-        int Register(string Name, string Surname, string Email, decimal Contact, string Gender, DateTime dob, string Address, string Username, string Password);
+        bool Register(string Name, string Surname, string Email, string Contact, char Gender, DateTime dob, string Password);
      
         [OperationContract]
-        int UpdateInfo(string Name, string Surname, string Email, decimal Contact, string Gender, DateTime dob, string Address, string Username, string Password,int id);
+        bool UpdateInfo(string Name, string Surname, string Email, string Contact, char Gender, DateTime dob, string Address, string Password);
 
         [OperationContract]
-        int UpdateProduct(int id, string Name, int Price, string Description, string Dimensions, string Category, int Quantity, int Sale, int SalePrice, string SaleDescription);
+        bool UpdateProduct(int id, string name, int price, string category, int height, int width, int depth, string imgPath, string description, int quantity);
 
         [OperationContract]
         User GetUser(int id);
-        [OperationContract]
-        User VerifyEmail(string Email, int id);
 
         [OperationContract]
-        List<Product> GetAllProducts();
+        User VerifyEmail(string Email);
 
         [OperationContract]
-        Product GetProduct(string name);
+        bool AddProduct(string name, int price, string category, int height, int width, int depth, string imgPath, string description, int quantity);
 
         [OperationContract]
-        int AddProduct(string Name, int Price, string Description, string Dimensions, string Category, int Quantity, int Sale, int SalePrice, string SaleDescription);
-
-        [OperationContract]
-        bool DeleteProduct(string name);
+        bool DeleteProduct(int id);
 
         [OperationContract]
         List<Product> GetProductsOnSpecial();
 
         [OperationContract]
-        List<Item> GetActiveItems();
+        List<Product> GetActiveProducts();
 
         [OperationContract]
-        Item GetItem(int id);
+        Product GetProduct(int id);
 
         [OperationContract]
         Sale GetSale(int id);
 
         [OperationContract]
-        List<string> GetItemCatagories();
+        List<string> GetProductCatagories();
     }
 }
