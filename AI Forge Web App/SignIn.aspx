@@ -1,34 +1,56 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="SignIn.aspx.cs" Inherits="AI_Forge_Web_App.SignIn" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
- 
 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-          <!-- contact -->
-      <div id="contact" class="contact">
-         <div class="container">
+    <!-- contact -->
+    <div id="contact" class="contact">
+        <div class="container">
             <div class="row">
-               <div class="col-md-6 offset-md-3 ">
-                  <div class="main_form">
-                     <div class="row">
-                       
-                        <div class="col-sm-12">
-                           <input class="contactus" placeholder="Username" type="text" name="Username">
+                <div class="col-md-6 offset-md-3 ">
+                    <div class="main_form">
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <input class="contactus" placeholder="Username" type="text" name="Username">
+                            </div>
+                            <div class="col-sm-12">
+                                <input class="contactus" placeholder="Enter New Password" type="password" name="Password">
+                            </div>
+                            <div class="col-sm-12">
+                                <
+                                 <asp:Button ID="btnLogin" class="send" runat="server" Text="Sign In" Width="100%" />
+                                </div>
                         </div>
-                        <div class="col-sm-12">
-                           <input class="contactus" placeholder="Enter New Password" type="password" name="Password">
-                        </div>
-                        <div class="col-sm-12">
-                           <a href="ClientProfile.aspx">
-                                   <input class="send" type="button" value="Sign In" />
-                                </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <!-- end contact -->
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- end contact -->
 </asp:Content>
