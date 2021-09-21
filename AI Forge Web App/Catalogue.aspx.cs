@@ -13,13 +13,13 @@ namespace AI_Forge_Web_App
     {
         AI_Forge_serviceClient client = new AI_Forge_serviceClient();
 
-        List<Item> itemsOnDisplay = null;
+        List<Product> productsOnDisplay = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            itemsOnDisplay = client.GetActiveItems().ToList();
-            generateProductHtml(itemsOnDisplay);
+            productsOnDisplay = client.GetActiveProducts().ToList();
+            generateProductHtml(productsOnDisplay);
             populateDdlPriceRange();
-            foreach (string c in client.GetItemCatagories())
+            foreach (string c in client.GetProductCatagories())
             {
                 ddlCategory.Items.Add(c);
             }
@@ -31,7 +31,7 @@ namespace AI_Forge_Web_App
             decimal highest = 0;
             decimal lowest = 0;
             decimal temp;
-            foreach (Item i in itemsOnDisplay)
+            foreach (Product p in productsOnDisplay)
             {
                 if (i.SLE_ID == null)
                 {
@@ -57,44 +57,44 @@ namespace AI_Forge_Web_App
                 }
             }
             var range = Math.Ceiling((highest - lowest + 1)/15);
-            for (int i = (int)lowest; i < highest-range;)
+            for (int p = (int)lowest; p < highest-range;)
             {
-                ddlPriceRange.Items.Add(i + "-" + (i + range));
+                ddlPriceRange.Items.Add(p + "-" + (p + range));
             }
         }
 
-        private void generateProductHtml(List<Item> items)
+        private void generateProductHtml(List<Product> products)
         {
             string html = "";
-            foreach (Item i in items)
+            foreach (Product p in products)
             {
                 html += "<ul><li class='product-tile'>";
                 html += "<div class='product-tile-container'>";
                 html += "<div class='product-container-image'>";
-                html += "<a href ='" + i.ITM_Name + ".aspx' class='container-link' title='" + i.ITM_Name + "'>";
-                html += "<img class='container-image' src='" + i.ITM_Image_Path + "' alt='" + i.ITM_Name + "'/>";
+                html += "<a href ='Product.aspx' class='container-link' title='" + p.PROD_Name + "'>";
+                html += "<img class='container-image' src='" + p.PROD_Image_Path + "' alt='" + p.PROD_Name + "'/>";
                 html += "</a>";
                 html += "</div>";
                 html += "< div class='product-container-details'>";
-                html += "< a class='details-link' href='" + i.ITM_Name + ".aspx'>View Details</a>";
+                html += "< a class='details-link' href='" + p.PROD_Name + ".aspx'>View Details</a>";
                 html += "</div>";
                 html += "</div>";
                 html += "<div class='product-tile-summary'>";
                 html += "<div class='product-links'>";
-                html += "<asp:Label ID ='" + i.ITM_Name + "_Name' runat='server' Text='" + i.ITM_Name + "'></asp:Label>";
+                html += "<asp:Label ID ='" + p.PROD_Name + "_Name' runat='server' Text='" + p.PROD_Name + "'></asp:Label>";
                 html += "</div>";
                 html += "<div class='product-tile-prices'>";
-                if(i.SLE_ID != null)
+                if(p.SLE_ID != null)
                 {
-                    html += "<p><asp:Label ID='" + i.ITM_Name + "_Price' runat='server' style='text-decoration:line-through; font-size:6px;'" +
-                        " Text='" + Math.Round(i.ITM_Price, 2) + "'></asp:Label></p>";
-                    double salePrice = (double)(i.ITM_Price - i.ITM_Price * client.GetSale(Convert.ToInt32(i.SLE_ID)).SLE_Value);
-                    html += "<p><asp:Label ID='" + i.ITM_Name + "_Sale_Price' runat='server' Text='" + Math.Round(salePrice, 2) + "'></asp:Label></p>";
+                    html += "<p><asp:Label ID='" + p.PROD_Name + "_Price' runat='server' style='text-decoration:line-through; font-size:6px;'" +
+                        " Text='" + Math.Round(p.PROD_Price, 2) + "'></asp:Label></p>";
+                    double salePrice = (double)(p.PROD_Price - p.PROD_Price * client.GetSale(Convert.ToInt32(p.SLE_ID)).SLE_Value);
+                    html += "<p><asp:Label ID='" + p.PROD_Name + "_Sale_Price' runat='server' Text='" + Math.Round(salePrice, 2) + "'></asp:Label></p>";
 
                 }
                 else
                 {
-                    html += "<p><asp:Label ID='" + i.ITM_Name + "_Price' runat='server' Text='" + Math.Round(i.ITM_Price, 2) + "'></asp:Label></p>";
+                    html += "<p><asp:Label ID='" + p.PROD_Name + "_Price' runat='server' Text='" + Math.Round(p.PROD_Price, 2) + "'></asp:Label></p>";
                 }
                 html += "</div>";
                 html += "</div>";
@@ -131,34 +131,39 @@ namespace AI_Forge_Web_App
         {
             if(ddlCategory.TabIndex != 0)
             {
-                var fliteredCategoryItems = new List<Item>();
-                foreach(Item i in itemsOnDisplay)
+                var fliteredCategoryItems = new List<Product>();
+                foreach(Product p in productsOnDisplay)
                 {
-                    if (i.ITM_Category.Equals(ddlCategory.SelectedValue))
+                    if (p.PROD_Category.Equals(ddlCategory.SelectedValue))
                     {
-                        fliteredCategoryItems.Add(i);
+                        fliteredCategoryItems.Add(p);
                     }
                 }
-                itemsOnDisplay = fliteredCategoryItems;
+                productsOnDisplay = fliteredCategoryItems;
             }
+            else
+            {
+                productsOnDisplay = client.GetActiveProducts().ToList();
+            }
+            generateProductHtml(productsOnDisplay);
         }
 
         protected void ddlPriceRange_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlPriceRange.TabIndex != 0)
             {
-                var fliteredPriceItems = new List<Item>();
-                foreach (Item i in itemsOnDisplay)
+                var fliteredPriceProducts = new List<Product>();
+                foreach (Product p in productsOnDisplay)
                 {
                     var token = ddlPriceRange.SelectedItem.ToString().IndexOf("-");
                     var min = Convert.ToInt32(ddlPriceRange.SelectedItem.ToString().Substring(0, token));
                     var max = Convert.ToInt32(ddlPriceRange.SelectedItem.ToString().Substring(token + 1, ddlPriceRange.SelectedItem.ToString().Length));
-                    if (i.ITM_Price>=min && i.ITM_Price<=max)
+                    if (p.PROD_Price>=min && p.PROD_Price <= max)
                     {
-                        fliteredPriceItems.Add(i);
+                        fliteredPriceProducts.Add(p);
                     }
                 }
-                itemsOnDisplay = fliteredPriceItems;
+                productsOnDisplay = fliteredPriceProducts;
             }
         }
 
@@ -166,15 +171,15 @@ namespace AI_Forge_Web_App
         {
             if (ddlSortOptions.SelectedValue.Equals("Name"))
             {
-                itemsOnDisplay.Sort((a, b) => a.ITM_Name.CompareTo(b.ITM_Name));
+                productsOnDisplay.Sort((a, b) => a.PROD_Name.CompareTo(b.PROD_Name));
             } 
             else if (ddlSortOptions.SelectedValue.Equals("Price"))
             {
-                itemsOnDisplay.Sort((a, b) => a.ITM_Price.CompareTo(b.ITM_Price));
+                productsOnDisplay.Sort((a, b) => a.PROD_Price.CompareTo(b.PROD_Price));
             }
             else if (ddlSortOptions.SelectedValue.Equals("Category"))
             {
-                itemsOnDisplay.Sort((a, b) => a.ITM_Category.CompareTo(b.ITM_Category));
+                productsOnDisplay.Sort((a, b) => a.PROD_Category.CompareTo(b.PROD_Category));
             }
         }
     }

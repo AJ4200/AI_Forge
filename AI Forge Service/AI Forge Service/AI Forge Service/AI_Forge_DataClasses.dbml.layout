@@ -1,63 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.625, 8.5" name="AI_Forge_DataClasses">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.75" name="AI_Forge_DataClasses">
   <DataContextMoniker Name="/AI_Forge_DataClassesDataContext" />
   <nestedChildShapes>
-    <classShape Id="bfaa075c-ba51-4f4e-a315-e5afd44d5202" absoluteBounds="2.5, 5, 2, 1.3862939453125">
-      <DataClassMoniker Name="/AI_Forge_DataClassesDataContext/Sale" />
-      <nestedChildShapes>
-        <elementListCompartment Id="f0174a01-c195-4436-a288-e656318a5754" absoluteBounds="2.5150000000000006, 5.4600000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="9a9a023c-40e7-4516-9354-1957df76c76b" absoluteBounds="5.875, 1.625, 2, 1.7708968098958331">
-      <DataClassMoniker Name="/AI_Forge_DataClassesDataContext/Invoice_Line" />
-      <nestedChildShapes>
-        <elementListCompartment Id="58f58d55-45a9-4ea8-b4dc-f37b914fd457" absoluteBounds="5.89, 2.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="44cb543a-28dd-422d-84f4-b51820b4e925" absoluteBounds="9.375, 4.375, 2, 2.9247054036458331">
+    <classShape Id="de18eb0f-d3e9-4f7f-b81a-3ed26897ac06" absoluteBounds="8.125, 5.375, 2, 2.9247054036458331">
       <DataClassMoniker Name="/AI_Forge_DataClassesDataContext/User" />
       <nestedChildShapes>
-        <elementListCompartment Id="37285a36-69aa-42e5-aadd-6692c09e6a8d" absoluteBounds="9.39, 4.835, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d6da2eeb-fd2b-406f-89d3-b968aae214a3" absoluteBounds="8.14, 5.835, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3534225f-9c39-47b6-87d5-7453c76233b3" absoluteBounds="9.375, 1.75, 2, 1.3862939453125">
+    <classShape Id="5a07c54f-53b8-4b98-a220-a219ef8cf312" absoluteBounds="0.625, 6.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/AI_Forge_DataClassesDataContext/Sale" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1db02caa-ddd1-4589-8773-9cb80b8ac848" absoluteBounds="0.63999999999999968, 6.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7f79aca1-11b6-420c-9dd8-4096775131fa" absoluteBounds="8.125, 2.875, 2, 1.3862939453125">
       <DataClassMoniker Name="/AI_Forge_DataClassesDataContext/Invoice" />
       <nestedChildShapes>
-        <elementListCompartment Id="c941f1b3-e508-44a3-9a30-110dce2186ce" absoluteBounds="9.39, 2.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="10e0025f-c0e4-48fb-9968-2abb6e28ddd3" absoluteBounds="8.14, 3.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(9.375 : 2.44314697265625); (7.875 : 2.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/AI_Forge_DataClassesDataContext/Invoice/Invoice_Invoice_Line" />
-      <nodes>
-        <classShapeMoniker Id="3534225f-9c39-47b6-87d5-7453c76233b3" />
-        <classShapeMoniker Id="9a9a023c-40e7-4516-9354-1957df76c76b" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(10.375 : 4.375); (10.375 : 3.1362939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(9.34375 : 5.375); (9.34375 : 4.2612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/AI_Forge_DataClassesDataContext/User/User_Invoice" />
       <nodes>
-        <classShapeMoniker Id="44cb543a-28dd-422d-84f4-b51820b4e925" />
-        <classShapeMoniker Id="3534225f-9c39-47b6-87d5-7453c76233b3" />
+        <classShapeMoniker Id="de18eb0f-d3e9-4f7f-b81a-3ed26897ac06" />
+        <classShapeMoniker Id="7f79aca1-11b6-420c-9dd8-4096775131fa" />
       </nodes>
     </associationConnector>
-    <classShape Id="257e64c8-a174-41bd-8b3d-48f2bd9676a5" absoluteBounds="5.875, 4.125, 2, 3.1170068359375">
-      <DataClassMoniker Name="/AI_Forge_DataClassesDataContext/Product" />
+    <classShape Id="8a406b07-70bc-4d2f-8960-e684f6e11834" absoluteBounds="4, 2.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/AI_Forge_DataClassesDataContext/Invoice_Line" />
       <nestedChildShapes>
-        <elementListCompartment Id="ffd67632-4209-4626-9872-83661dfbc390" absoluteBounds="5.89, 4.585, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="aefe9d36-c662-4a06-a6e9-8e923824e49b" absoluteBounds="4.015, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.875 : 4.125); (6.875 : 3.39589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/AI_Forge_DataClassesDataContext/Product/Product_Invoice_Line" />
+    <associationConnector edgePoints="[(8.125 : 3.56814697265625); (6 : 3.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AI_Forge_DataClassesDataContext/Invoice/Invoice_Invoice_Line" />
       <nodes>
-        <classShapeMoniker Id="257e64c8-a174-41bd-8b3d-48f2bd9676a5" />
-        <classShapeMoniker Id="9a9a023c-40e7-4516-9354-1957df76c76b" />
+        <classShapeMoniker Id="7f79aca1-11b6-420c-9dd8-4096775131fa" />
+        <classShapeMoniker Id="8a406b07-70bc-4d2f-8960-e684f6e11834" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 5.69314697265625); (5.875 : 5.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <classShape Id="ba2319d8-b040-4deb-873e-9d4493c724b0" absoluteBounds="4, 5.375, 2, 3.1170068359375">
+      <DataClassMoniker Name="/AI_Forge_DataClassesDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc62fdb8-e506-40eb-a276-c969b476b6a2" absoluteBounds="4.015, 5.835, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5 : 5.375); (5 : 4.32859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AI_Forge_DataClassesDataContext/Product/Product_Invoice_Line" />
+      <nodes>
+        <classShapeMoniker Id="ba2319d8-b040-4deb-873e-9d4493c724b0" />
+        <classShapeMoniker Id="8a406b07-70bc-4d2f-8960-e684f6e11834" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 6.81814697265625); (4 : 6.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/AI_Forge_DataClassesDataContext/Sale/Sale_Product" />
       <nodes>
-        <classShapeMoniker Id="bfaa075c-ba51-4f4e-a315-e5afd44d5202" />
-        <classShapeMoniker Id="257e64c8-a174-41bd-8b3d-48f2bd9676a5" />
+        <classShapeMoniker Id="5a07c54f-53b8-4b98-a220-a219ef8cf312" />
+        <classShapeMoniker Id="ba2319d8-b040-4deb-873e-9d4493c724b0" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
