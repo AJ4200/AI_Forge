@@ -69,10 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddProduct.aspx" />
     <Content Include="Admin.aspx" />
-    <Content Include="Catalogue.aspx" />
-    <Content Include="Cart.aspx" />
     <Content Include="ClientProfile.aspx" />
     <Content Include="admin master.Master" />
     <None Include="Connected Services\ServiceReference\AI_Forge_service.disco" />
@@ -144,13 +141,6 @@
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddProduct.aspx.cs">
-      <DependentUpon>AddProduct.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AddProduct.aspx.designer.cs">
-      <DependentUpon>AddProduct.aspx</DependentUpon>
-    </Compile>
     <Compile Include="admin master.Master.cs">
       <DependentUpon>admin master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,20 +154,6 @@
     </Compile>
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Catalogue.aspx.cs">
-      <DependentUpon>Catalogue.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Catalogue.aspx.designer.cs">
-      <DependentUpon>Catalogue.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cart.aspx.cs">
-      <DependentUpon>Cart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cart.aspx.designer.cs">
-      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClientProfile.aspx.cs">
       <DependentUpon>ClientProfile.aspx</DependentUpon>

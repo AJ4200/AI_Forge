@@ -44,7 +44,7 @@
                                 <input class="contactus" placeholder="Re-enter New Password" type="password" name="Password" required>
                             </div>
                             <div class="col-sm-12">                   
-                                <asp:Button ID="Button1" class="send" runat="server" Text="Sign Up" Width="100%" /> 
+                                <asp:Button ID="btnSignup" class="send" runat="server" Text="Sign Up" Width="100%" /> 
                            </div>
                         </div>
                     </div>

@@ -12,15 +12,15 @@
                         <div class="row">
 
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Username" type="text" name="Username">
+                                <input class="contactus" placeholder="Username" type="text" name="Username" required>
                             </div>
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Enter New Password" type="password" name="Password">
+                                <input class="contactus" placeholder="Password" type="password" name="Password" required>
                             </div>
                             <div class="col-sm-12">
                                 <
                                  <asp:Button ID="btnLogin" class="send" runat="server" Text="Sign In" Width="100%" />
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
