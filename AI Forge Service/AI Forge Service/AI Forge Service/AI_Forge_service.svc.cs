@@ -45,7 +45,7 @@ namespace AI_Forge_Service
             var product = GetProduct(id);
             if (product != null)
             {
-           
+
                 if (product.PROD_Active == false)
                     product.PROD_Active = true;
 
@@ -69,21 +69,48 @@ namespace AI_Forge_Service
         public List<Product> GetProductsOnSpecial()
         {
             List<Product> specials = new List<Product>();
-            dynamic product = (from p in db.Products
-                               where !p.SLE_ID.Equals(null) && p.PROD_Active.Equals(true)
-                               select p).ToList();
-            foreach (Product p in product)
+            dynamic products = (from p in db.Products
+                                where !p.SLE_ID.Equals(null) && p.PROD_Active.Equals(true)
+                                select p).ToList();
+            foreach (Product p in products)
             {
+                var product = new Product()
+                {
+                    PROD_Name = products.PROD_Name,
+                    PROD_Price = products.PROD_Price,
+                    PROD_Category = products.PROD_Category,
+                    PROD_Height = 0,
+                    PROD_Width = 0,
+                    PROD_Depth = 0,
+                    PROD_Image_Path = products.PROD_Image_Path,
+                    PROD_Description = null,
+                    PROD_Inventory = 0,
+                    PROD_Active = products.Active,
+                    SLE_ID = products.SLE_ID
+                };
                 specials.Add(product);
             }
+
+
             return specials;
         }
 
         public User GetUser(int id)
         {
-            var user = (from u in db.Users
+            var temp = (from u in db.Users
                         where u.User_Id.Equals(id)
                         select u).FirstOrDefault();
+
+            var user = new User
+            {
+                User_Name = temp.User_Name,
+                User_Surname = "",
+                User_Email = temp.User_Email,
+                User_Contact = "",
+                User_Gender = '\0',
+                User_DOB = null,
+                User_Password = null,
+            };
 
             return user;
         }
@@ -149,20 +176,20 @@ namespace AI_Forge_Service
             }
         }
 
-        public bool UpdateInfo(string Name, string Surname, string Email, string Contact, char Gender, DateTime dob, string Address, string Password)
+        public bool UpdatePersonalDetails(int id, string Name, string Surname, string Email, string Contact, char Gender, DateTime dob)
         {
-            User client = VerifyEmail(Email);
+            var client = (from u in db.Users
+                          where u.User_Id.Equals(id)
+                          select u).FirstOrDefault();
 
             if (client != null)
             {
                 client.User_Name = Name;
                 client.User_Surname = Surname;
-                client.User_Email = Email;
+                client.User_Name = Email;
                 client.User_Contact = Contact;
                 client.User_Gender = Gender;
                 client.User_DOB = dob;
-                client.User_Address = Address;
-                client.User_Password = Password;
 
                 try
                 {
@@ -181,9 +208,12 @@ namespace AI_Forge_Service
             }
         }
 
-        public bool UpdateProduct(int id, string name, int price, string category, int height, int width, int depth, string imgPath, string description, int quantity)
+        public bool UpdateProduct(int id, string name, int price, string category, int height, int width, int depth, string imgPath, string description)
         {
-            dynamic tempProduct = GetProduct(id);
+            var tempProduct = (from i in db.Products
+                               where i.PROD_ID.Equals(id)
+                               select i).FirstOrDefault();
+
             if (tempProduct != null)
             {
                 tempProduct.PROD_Name = name;
@@ -194,7 +224,6 @@ namespace AI_Forge_Service
                 tempProduct.PROD_Depth = (byte)depth;
                 tempProduct.PROD_Image_Path = imgPath;
                 tempProduct.PROD_Description = description;
-                tempProduct.PROD_Inventory = quantity;
                 try
                 {
                     db.SubmitChanges();
@@ -218,42 +247,62 @@ namespace AI_Forge_Service
                           where u.User_Email.Equals(Email)
                           select u).FirstOrDefault();
             if (client == null)
-            { 
+            {
                 return null;
             }
             else
             {
                 return client;
             }
-                
+
         }
 
         public List<Product> GetActiveProducts()
         {
-            var items = (from i in db.Products
-                         where i.PROD_Active
-                         select i).ToList();
-            return items;
+            List<Product> products = new List<Product>();
+            var temp = (from i in db.Products
+                        where i.PROD_Active
+                        select i).ToList();
+
+            foreach (Product p in temp)
+            {
+                products.Add(GetProduct(p.PROD_ID));
+            }
+
+            return products;
         }
 
         public Product GetProduct(int id)
         {
             Product item = null;
-            var foundItem = (from i in db.Products where i.PROD_ID.Equals(id) select i).FirstOrDefault();
+            var foundItem = (from i in db.Products
+                             where i.PROD_ID.Equals(id)
+                             select i).FirstOrDefault();
+
             if (foundItem != null)
             {
                 item = new Product()
                 {
-                    //TODO
+                    PROD_Name = foundItem.PROD_Name,
+                    PROD_Price = foundItem.PROD_Price,
+                    PROD_Category = foundItem.PROD_Category,
+                    PROD_Height = 0,
+                    PROD_Width = 0,
+                    PROD_Depth = 0,
+                    PROD_Image_Path = foundItem.PROD_Image_Path,
+                    PROD_Description = null,
+                    PROD_Inventory = 0,
+                    PROD_Active = foundItem.PROD_Active,
+                    SLE_ID = foundItem.SLE_ID
                 };
             }
 
-            return foundItem;
+            return item;
         }
 
         public Sale GetSale(int id)
         {
-           var sale = (from s in db.Sales where s.SLE_ID.Equals(id) select s).FirstOrDefault();
+            var sale = (from s in db.Sales where s.SLE_ID.Equals(id) select s).FirstOrDefault();
             return sale;
         }
 
@@ -263,6 +312,62 @@ namespace AI_Forge_Service
                          where i.PROD_Active
                          select i.PROD_Category).Distinct().ToList();
             return items;
+        }
+
+        public bool ChangePassword(int id, string oldPassword, string newPassword)
+        {
+            var client = (from u in db.Users
+                          where u.User_Id.Equals(id)
+                          select u).FirstOrDefault();
+
+            if (client != null)
+            {
+                if (client.User_Password.Equals(oldPassword))
+                {
+                    client.User_Password = newPassword;
+                }
+
+                try
+                {
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool IncreaseInventoryBy(int prod_ID, int quantity)
+        {
+            var product = (from i in db.Products
+                           where i.PROD_ID.Equals(prod_ID)
+                           select i).FirstOrDefault();
+
+            if (product != null)
+            {
+                product.PROD_Inventory += (short)quantity;
+                try
+                {
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

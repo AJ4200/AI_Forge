@@ -16,12 +16,15 @@ namespace AI_Forge_Service
 
         [OperationContract]
         bool Register(string Name, string Surname, string Email, string Contact, char Gender, DateTime dob, string Password);
-     
-        [OperationContract]
-        bool UpdateInfo(string Name, string Surname, string Email, string Contact, char Gender, DateTime dob, string Address, string Password);
 
         [OperationContract]
-        bool UpdateProduct(int id, string name, int price, string category, int height, int width, int depth, string imgPath, string description, int quantity);
+        bool UpdatePersonalDetails(int id, string Name, string Surname, string Email, string Contact, char Gender, DateTime dob);
+
+        [OperationContract]
+        bool ChangePassword(int id, string oldPassword, string newPassword);
+
+        [OperationContract]
+        bool UpdateProduct(int id, string name, int price, string category, int height, int width, int depth, string imgPath, string description);
 
         [OperationContract]
         User GetUser(int id);
@@ -34,6 +37,9 @@ namespace AI_Forge_Service
 
         [OperationContract]
         bool DeleteProduct(int id);
+
+        [OperationContract]
+        bool IncreaseInventoryBy(int prod_ID, int quantity);
 
         [OperationContract]
         List<Product> GetProductsOnSpecial();

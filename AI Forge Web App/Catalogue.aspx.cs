@@ -1,4 +1,4 @@
-﻿using AI_Forge_Web_App.ServiceReference;
+﻿using AI_Forge_Web_App.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,16 +6,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-
 namespace AI_Forge_Web_App
 {
     public partial class Catalogue : System.Web.UI.Page
     {
         AI_Forge_serviceClient client = new AI_Forge_serviceClient();
-
         List<Product> productsOnDisplay = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            productsOnDisplay = new List<Product>();
             productsOnDisplay = client.GetActiveProducts().ToList();
             generateProductHtml(productsOnDisplay);
             populateDdlPriceRange();
@@ -33,14 +33,14 @@ namespace AI_Forge_Web_App
             decimal temp;
             foreach (Product p in productsOnDisplay)
             {
-                if (i.SLE_ID == null)
+                if (p.SLE_ID == null)
                 {
-                    temp = i.ITM_Price;
+                    temp = p.PROD_Price;
                 }
                 else
                 {
-                    var sale = client.GetSale((int)i.SLE_ID);
-                    temp = i.ITM_Price - i.ITM_Price * sale.SLE_Value;
+                    var sale = client.GetSale((int)p.SLE_ID);
+                    temp = p.PROD_Price - p.PROD_Price * sale.SLE_Value;
                 }
                 if (count == 0)
                 {
@@ -56,8 +56,8 @@ namespace AI_Forge_Web_App
                     highest = temp;
                 }
             }
-            var range = Math.Ceiling((highest - lowest + 1)/15);
-            for (int p = (int)lowest; p < highest-range;)
+            var range = Math.Ceiling((highest - lowest + 1) / 15);
+            for (int p = (int)lowest; p < highest - range;)
             {
                 ddlPriceRange.Items.Add(p + "-" + (p + range));
             }
@@ -84,7 +84,7 @@ namespace AI_Forge_Web_App
                 html += "<asp:Label ID ='" + p.PROD_Name + "_Name' runat='server' Text='" + p.PROD_Name + "'></asp:Label>";
                 html += "</div>";
                 html += "<div class='product-tile-prices'>";
-                if(p.SLE_ID != null)
+                if (p.SLE_ID != null)
                 {
                     html += "<p><asp:Label ID='" + p.PROD_Name + "_Price' runat='server' style='text-decoration:line-through; font-size:6px;'" +
                         " Text='" + Math.Round(p.PROD_Price, 2) + "'></asp:Label></p>";
@@ -129,10 +129,10 @@ namespace AI_Forge_Web_App
 
         protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(ddlCategory.TabIndex != 0)
+            if (ddlCategory.TabIndex != 0)
             {
                 var fliteredCategoryItems = new List<Product>();
-                foreach(Product p in productsOnDisplay)
+                foreach (Product p in productsOnDisplay)
                 {
                     if (p.PROD_Category.Equals(ddlCategory.SelectedValue))
                     {
@@ -158,7 +158,7 @@ namespace AI_Forge_Web_App
                     var token = ddlPriceRange.SelectedItem.ToString().IndexOf("-");
                     var min = Convert.ToInt32(ddlPriceRange.SelectedItem.ToString().Substring(0, token));
                     var max = Convert.ToInt32(ddlPriceRange.SelectedItem.ToString().Substring(token + 1, ddlPriceRange.SelectedItem.ToString().Length));
-                    if (p.PROD_Price>=min && p.PROD_Price <= max)
+                    if (p.PROD_Price >= min && p.PROD_Price <= max)
                     {
                         fliteredPriceProducts.Add(p);
                     }
@@ -172,7 +172,7 @@ namespace AI_Forge_Web_App
             if (ddlSortOptions.SelectedValue.Equals("Name"))
             {
                 productsOnDisplay.Sort((a, b) => a.PROD_Name.CompareTo(b.PROD_Name));
-            } 
+            }
             else if (ddlSortOptions.SelectedValue.Equals("Price"))
             {
                 productsOnDisplay.Sort((a, b) => a.PROD_Price.CompareTo(b.PROD_Price));

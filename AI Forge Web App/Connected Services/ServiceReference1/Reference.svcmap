@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="be9328e5-ccea-4270-b9aa-5316f0abb4bb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:54211/AI_Forge_service.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AI_Forge_service.wsdl" MetadataType="Wsdl" ID="538da65a-1bc4-45b1-a667-345f00d5f037" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?wsdl" />
+    <MetadataFile FileName="AI_Forge_service.xsd" MetadataType="Schema" ID="c5f8648c-4756-4365-aa97-48892f6a213c" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd0" />
+    <MetadataFile FileName="AI_Forge_service1.xsd" MetadataType="Schema" ID="69b4c58b-1a04-478c-9e4a-5034dbe3dba0" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd2" />
+    <MetadataFile FileName="AI_Forge_service.disco" MetadataType="Disco" ID="cb2f501f-73c6-42b3-8e15-d3589091b6dd" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?disco" />
+    <MetadataFile FileName="AI_Forge_service2.xsd" MetadataType="Schema" ID="25f20c0b-a3e5-4de4-9bdd-7689b889b732" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd1" />
+    <MetadataFile FileName="AI_Forge_service3.xsd" MetadataType="Schema" ID="f7dd68eb-aa55-4e61-a8d7-3583b936fc66" SourceId="1" SourceUrl="http://localhost:54211/AI_Forge_service.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -69,25 +69,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddProduct.aspx" />
     <Content Include="Admin.aspx" />
+    <Content Include="Cart.aspx" />
+    <Content Include="Catalogue.aspx" />
     <Content Include="ClientProfile.aspx" />
     <Content Include="admin master.Master" />
-    <None Include="Connected Services\ServiceReference\AI_Forge_service.disco" />
-    <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.Product.datasource">
+    <None Include="Connected Services\ServiceReference1\AI_Forge_service.disco" />
+    <Content Include="Connected Services\ServiceReference1\AI_Forge_Web_App.ServiceReference1.Product.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.User.datasource">
+    <Content Include="Connected Services\ServiceReference1\AI_Forge_Web_App.ServiceReference1.Sale.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.Sale.datasource">
+    <Content Include="Connected Services\ServiceReference1\AI_Forge_Web_App.ServiceReference1.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\ServiceReference\AI_Forge_service3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReference\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceReference\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceReference\Reference.svcmap">
+    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -141,6 +141,13 @@
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin master.Master.cs">
       <DependentUpon>admin master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,6 +162,20 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogue.aspx.cs">
+      <DependentUpon>Catalogue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogue.aspx.designer.cs">
+      <DependentUpon>Catalogue.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClientProfile.aspx.cs">
       <DependentUpon>ClientProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -162,7 +183,7 @@
     <Compile Include="ClientProfile.aspx.designer.cs">
       <DependentUpon>ClientProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceReference\Reference.cs">
+    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -248,14 +269,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="master.Master" />
-    <None Include="Connected Services\ServiceReference\AI_Forge_service.wsdl" />
-    <None Include="Connected Services\ServiceReference\AI_Forge_service.xsd">
+    <None Include="Connected Services\ServiceReference1\AI_Forge_service.wsdl" />
+    <None Include="Connected Services\ServiceReference1\AI_Forge_service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference\AI_Forge_service1.xsd">
+    <None Include="Connected Services\ServiceReference1\AI_Forge_service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference\AI_Forge_service2.xsd">
+    <None Include="Connected Services\ServiceReference1\AI_Forge_service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\AI_Forge_service3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
@@ -270,7 +294,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
