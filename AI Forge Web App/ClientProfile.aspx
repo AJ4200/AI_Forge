@@ -6,7 +6,7 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <div class="foot">
        <div class="page">
         <div class="header">
             My Account
@@ -33,13 +33,23 @@
                     2000
                     </h3>
 </div>
+             <a href="#">
+            <input class="button EditDetails" type="button" value="Edit personal details" />
+           </a>
+
+            <a href="#">
+            <input class="button Invoices" type="button" value="Previous Invoices" />
+           </a>
+
+           <a href="PasswordReset.aspx">
+            <input class="button Reset-Password" type="button" value="Reset Password" />
+           </a>
         </div>
-
-
-        <br>
-        <button class="button Invoices">Get Previous Invoices</button>
-        <br>
-        <button class="button Reset-Password">Reset Password</button>
-
+        </div>
     </div>
+
+       
+
+    
+        
 </asp:Content>

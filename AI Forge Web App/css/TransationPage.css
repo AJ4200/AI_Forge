@@ -1,5 +1,4 @@
-﻿
-div.page {
+﻿div.page {
     background-color: mediumpurple;
     position: relative;
     top: 50px;
@@ -10,10 +9,11 @@ div.page {
 div.PaymentInfo {
     background-color: white;
     width: 40%;
-    height: 500px;
+    height: 550px;
     float: left;
     position: relative;
     left: 120px;
+    top: 48px;
     border-style: ridge;
 }
 
@@ -41,7 +41,7 @@ div.PaymentInfo {
 div.ProductInfo {
     background-color: white;
     width: 40%;
-    height: 500px;
+    height: 730px;
     float: right;
     position: relative;
     right: 120px;
@@ -49,9 +49,18 @@ div.ProductInfo {
     background-color: white;
 }
 
+    div.ProductInfo h3 {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 17px;
+        color: #4d4d4f;
+        position: relative;
+        left: 20px;
+    }
+
     div.ProductInfo hr {
         margin: 5px 60px 5px 60px;
         display: block;
+        color: #4d4d4f
     }
 
     div.ProductInfo h1 {
@@ -70,8 +79,56 @@ div.ProductSum {
         font-size: 17px;
     }
 
-#Items, #Address {
-    padding-bottom: 50px;
+.Password {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 17px;
+}
+
+div.password {
+    padding: 0px 20px 10px 20px;
+    border-radius: 5px;
+    border-style: ridge;
+    border-width: 5px;
+    background-color: white;
+    position: relative;
+    top: 30px;
+    left: 185px;
+    width: 70%;
+    height: auto;
+}
+
+.HeadPass {
+    position: relative;
+    top: 5px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif color;
+    color: #4d4d4f;
+    font-size: 20px;
+    margin-bottom: 20px
+}
+
+
+section {
+    background-color: #0c0f38;
+    width: 100%;
+    height: 550px;
+}
+
+    section.Paid {
+        background-color: white;
+    }
+
+div.pics {
+    position: relative;
+    left: 330px;
+    top: 160px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+}
+
+
+div.img {
+    position: relative;
+    left: 200px;
 }
 
 .button {
@@ -97,22 +154,54 @@ div.ProductSum {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-    .Pay:hover {
+.ResetPassword_ {
+    background-color: #708090;
+    color: white;
+    border: 1px solid #2f5669;
+    width: 20%;
+    position: relative;
+    left: 385px;
+    bottom: 0px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.Cancel {
+    background-color: white;
+    color: black;
+    border: 1px solid #2f5669;
+    width: 20%;
+    position: relative;
+    left: 385px;
+    bottom: 0px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+    .Cancel:hover {
         background-color: #2f5669;
         color: white;
     }
+
+.Pay:hover {
+    background-color: #2f5669;
+    color: white;
+}
+
+.ResetPassword_:hover {
+    background-color: #2f5669;
+    color: white;
+}
 
 .Promo {
     background-color: #708090;
     color: white;
     border: 2px solid #2f5669;
     width: 30%;
-    height: 45px;
+    height: 55px;
     position: relative;
     left: 70px;
-    top: 27px;
+    top: 0px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 }
 
     .Promo:hover {
@@ -133,17 +222,17 @@ div.ProductSum {
     border-top: 20px solid transparent;
     margin-bottom: 5px;
     --field-padding: 12px;
-    top: 30px;
-    height: 100px;
+    height: 40px;
     left: 40px;
 }
+
+
+
 
     .custom-field input {
         border: none;
         -webkit-appearance: none;
-        /*-ms-appearance: none;*/
         -moz-appearance: none;
-        /*appearance: none;*/
         background: #f2f2f2;
         padding: var(--field-padding);
         border-radius: 3px;
@@ -159,7 +248,7 @@ div.ProductSum {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        top: 10px;
+        top: 25px;
         line-height: 100%;
         transform: translateY(-50%);
         color: #aaa;
@@ -169,7 +258,7 @@ div.ProductSum {
     .custom-field input.dirty + .placeholder,
     .custom-field input:focus + .placeholder,
     .custom-field input:valid + .placeholder {
-        top: -20px;
+        top: -10px;
         font-size: 15px;
         color: #222;
     }
@@ -187,7 +276,7 @@ div.ProductSum {
             width: 100%;
             position: absolute;
             left: 0;
-            top: -10px;
+            top: 0px;
             transform: none;
             display: flex;
             align-items: center;
@@ -268,3 +357,41 @@ div.ProductSum {
                 width: auto;
                 font-size: 15px;
             }
+
+    /*---------------------*/
+
+    .custom-field.address {
+        position: relative;
+        bottom: 20px;
+    }
+
+
+        .custom-field.address input {
+            border-radius: 0;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            background: linear-gradient(90deg, #222, #222) center bottom/0 0.15em no-repeat, linear-gradient(90deg, #ccc, #ccc) left bottom/100% 0.15em no-repeat, linear-gradient(90deg, #fafafa, #fafafa) left bottom/100% no-repeat;
+            transition: background-size 0.3s ease;
+        }
+
+            .custom-field.address input.dirty,
+            .custom-field.address input:valid,
+            .custom-field.address input:focus {
+                background-size: 100% 0.15em, 100% 0.1em, 100%;
+            }
+
+    /*------------------*/
+
+    .custom-field.pass input {
+        border-radius: 0;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        background: linear-gradient(90deg, #222, #222) center bottom/0 0.15em no-repeat, linear-gradient(90deg, #ccc, #ccc) left bottom/100% 0.15em no-repeat, linear-gradient(90deg, #fafafa, #fafafa) left bottom/100% no-repeat;
+        transition: background-size 0.3s ease;
+    }
+
+        .custom-field.pass input.dirty,
+        .custom-field.pass input:valid,
+        .custom-field.pass input:focus {
+            background-size: 100% 0.15em, 100% 0.1em, 100%;
+        }

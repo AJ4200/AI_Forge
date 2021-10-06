@@ -234,3 +234,7 @@ C:\Users\Maggie\source\repos\UJ\AI_Forge\AI Forge Web App\bin\roslyn\VBCSCompile
 C:\Users\Maggie\source\repos\UJ\AI_Forge\AI Forge Web App\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Maggie\source\repos\UJ\AI_Forge\AI Forge Web App\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Maggie\source\repos\UJ\AI_Forge\AI Forge Web App\obj\Debug\AI Forge Web App.csproj.CopyComplete
+C:\Users\ifa Sinthumule\Documents\2021\Informatics 2B\Group prac\AI Forge Web App\obj\Debug\AI Forge Web App.csproj.AssemblyReference.cache
+C:\Users\ifa Sinthumule\Documents\2021\Informatics 2B\Group prac\AI Forge Web App\obj\Debug\AI Forge Web App.csproj.CoreCompileInputs.cache
+C:\Users\ifa Sinthumule\Documents\2021\Informatics 2B\Group prac\AI Forge Web App\obj\Debug\AI Forge Web App.dll
+C:\Users\ifa Sinthumule\Documents\2021\Informatics 2B\Group prac\AI Forge Web App\obj\Debug\AI Forge Web App.pdb
