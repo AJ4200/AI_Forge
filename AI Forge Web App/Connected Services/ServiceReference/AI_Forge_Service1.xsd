@@ -54,7 +54,7 @@
   <xs:element name="GetInventoryOfResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetInventoryOfResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="GetInventoryOfResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -181,6 +181,64 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_id" type="xs:int" />
+        <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAddressResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/AI_Forge_Service" minOccurs="0" name="GetAddressResult" nillable="true" type="q9:Address_Book" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateAddressResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveAddressResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UpdateProduct">
     <xs:complexType>
       <xs:sequence>
@@ -210,7 +268,7 @@
   <xs:element name="GetUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/AI_Forge_Service" minOccurs="0" name="GetUserResult" nillable="true" type="q9:User" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/AI_Forge_Service" minOccurs="0" name="GetUserResult" nillable="true" type="q10:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -224,7 +282,7 @@
   <xs:element name="VerifyEmailResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/AI_Forge_Service" minOccurs="0" name="VerifyEmailResult" nillable="true" type="q10:User" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/AI_Forge_Service" minOccurs="0" name="VerifyEmailResult" nillable="true" type="q11:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -264,8 +322,10 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="user_id" type="xs:int" />
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="products" nillable="true" type="q11:ArrayOfint" />
-        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="quantities" nillable="true" type="q12:ArrayOfint" />
+        <xs:element minOccurs="0" name="vchr_id" type="xs:int" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="products" nillable="true" type="q12:ArrayOfint" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="prices" nillable="true" type="q13:ArrayOfdecimal" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="quantities" nillable="true" type="q14:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -286,7 +346,7 @@
   <xs:element name="GetInvoiceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/AI_Forge_Service" minOccurs="0" name="GetInvoiceResult" nillable="true" type="q13:Invoice" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/AI_Forge_Service" minOccurs="0" name="GetInvoiceResult" nillable="true" type="q15:Invoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -300,21 +360,22 @@
   <xs:element name="GetInvoiceSummaryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetInvoiceSummaryResult" nillable="true" type="q14:ArrayOfdouble" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetInvoiceSummaryResult" nillable="true" type="q16:ArrayOfdouble" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="IsDeliveryFree">
+  <xs:element name="AddVoucher">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="inv_id" type="xs:int" />
+        <xs:element minOccurs="0" name="value" type="xs:int" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="IsDeliveryFreeResponse">
+  <xs:element name="AddVoucherResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="IsDeliveryFreeResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AddVoucherResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

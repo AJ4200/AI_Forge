@@ -90,6 +90,9 @@
     <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.Address_Book.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\ServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\ServiceReference\Reference.svcmap">

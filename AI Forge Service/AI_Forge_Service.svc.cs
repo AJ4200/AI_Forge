@@ -14,6 +14,50 @@ namespace AI_Forge_Service
     {
         AI_ForgeDataContext db = new AI_ForgeDataContext();
 
+        public bool AddAddress(int user_id, string address)
+        {
+            var inactive_addr = (from a in db.Address_Books
+                                 where a.User_Id.Equals(user_id) && a.Active.Equals(false)
+                                 select a).FirstOrDefault();
+            
+            if (inactive_addr.Equals(null))
+            {
+                Address_Book addr = new Address_Book()
+                {
+                    User_Id = user_id,
+                    ADRS_Details = address,
+                    Active = true
+                };
+                db.Address_Books.InsertOnSubmit(addr);
+                try
+                {
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                    return false;
+                }
+            }
+            else
+            {
+                inactive_addr.ADRS_Details = address;
+                inactive_addr.Active = true;
+
+                try
+                {
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                    return false;
+                }
+            }
+        }
+            
         public bool AddProduct(string name, int price, string imgPath, string description, int category)
         {
             Product temp_product = new Product()
@@ -27,6 +71,27 @@ namespace AI_Forge_Service
                 Active = true
             };
             db.Products.InsertOnSubmit(temp_product);
+            try
+            {
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ex.GetBaseException();
+                return false;
+            }
+        }
+
+        public bool AddVoucher(int value, string code)
+        {
+            Voucher vchr = new Voucher()
+            {
+                VCHR_Value = value,
+                VCHR_Code = code,
+                Redeemed = true
+            };
+            db.Vouchers.InsertOnSubmit(vchr);
             try
             {
                 db.SubmitChanges();
@@ -95,6 +160,15 @@ namespace AI_Forge_Service
             }
         }
 
+        public Address_Book GetAddress(int id)
+        {
+            var addr = (from a in db.Address_Books
+                       where a.ADRS_ID.Equals(id)
+                       select a).FirstOrDefault();
+
+            return addr;
+        }
+
         public List<string> GetCatagories()
         {
             var categories = (from c in db.Categories
@@ -109,14 +183,22 @@ namespace AI_Forge_Service
             return category;
         }
 
-        public bool GetInventoryOf(int prod_ID)
+        public int GetInventoryOf(int prod_ID)
         {
-            throw new NotImplementedException();
+            var inventory = (from p in db.Products
+                             where p.PROD_ID.Equals(prod_ID)
+                             select p.PROD_Inventory).FirstOrDefault();
+
+            return inventory;
         }
 
         public Invoice GetInvoice(int id)
         {
-            throw new NotImplementedException();
+            var inv = (from i in db.Invoices
+                       where i.Invoice_Id.Equals(id)
+                       select i).FirstOrDefault();
+
+            return inv;
         }
 
         public List<double> GetInvoiceSummary(int id)
@@ -150,9 +232,6 @@ namespace AI_Forge_Service
                 {
                     PROD_Name = foundItem.PROD_Name,
                     PROD_Price = foundItem.PROD_Price,
-                    PROD_Height = foundItem.PROD_Height,
-                    PROD_Width = foundItem.PROD_Width,
-                    PROD_Depth = foundItem.PROD_Depth,
                     PROD_Image_Path = foundItem.PROD_Image_Path,
                     PROD_Description = null,
                     CAT_ID = foundItem.CAT_ID,
@@ -253,11 +332,6 @@ namespace AI_Forge_Service
             }
         }
 
-        public bool IsDeliveryFree(int inv_id)
-        {
-            throw new NotImplementedException();
-        }
-
         public User Login(string Email, string Password)
         {
             var user = (from u in db.Users
@@ -328,9 +402,80 @@ namespace AI_Forge_Service
             }
         }
 
-        public bool Transact(int user_id, List<int> products, List<int> quantities)
+        public bool RemoveAddress(int id)
         {
-            throw new NotImplementedException();
+            var addr = GetAddress(id);
+            if (addr != null)
+            {
+                addr.Active = true;
+                try
+                {
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool Transact(int user_id, int vchr_id, List<int> products, List<decimal> prices, List<int> quantities)
+        {
+            var inv = new Invoice()
+            {
+                User_Id = user_id,
+                VCHR_ID = vchr_id,
+                Invoice_Date = DateTime.Today
+            };
+            
+            if(CreateInvoice(inv, user_id, vchr_id))
+            {
+                for(int i=0; i<products.Count; i++)
+                {
+                    var invL = new Invoice_Line()
+                    {
+                        Invoice_Id = inv.Invoice_Id,
+                        PROD_Id = products[i],
+                        InvoiceL_Quantity = quantities[i],
+                        InvoiceL_Price_Each = prices[i]
+                    };
+
+                    db.Invoice_Lines.InsertOnSubmit(invL);
+                    try
+                    {
+                        db.SubmitChanges();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.GetBaseException();
+                        return false;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private bool CreateInvoice(Invoice inv, int user_id, int vchr_id)
+        {
+            db.Invoices.InsertOnSubmit(inv);
+            try
+            {
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ex.GetBaseException();
+                return false;
+            }
         }
 
         public bool UpdatePersonalDetails(int id, string Name, string Surname, string Email, string Contact, char Gender, DateTime dob)
@@ -348,6 +493,30 @@ namespace AI_Forge_Service
                 client.User_Gender = Gender;
                 client.User_DOB = dob;
 
+                try
+                {
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateAddress(int id, string address)
+        {
+            var addr = GetAddress(id);
+
+            if (addr != null)
+            {
+                addr.ADRS_Details = address;
                 try
                 {
                     db.SubmitChanges();

@@ -22,7 +22,7 @@ namespace AI_Forge_Service
         bool IncreaseInventoryBy(int prod_ID, int quantity);
 
         [OperationContract]
-        bool GetInventoryOf(int prod_ID);
+        int GetInventoryOf(int prod_ID);
 
         [OperationContract]
         List<Product> GetProductsOnSpecial();
@@ -49,6 +49,18 @@ namespace AI_Forge_Service
         bool ChangePassword(int id, string oldPassword, string newPassword);
 
         [OperationContract]
+        bool AddAddress(int user_id, string address);
+
+        [OperationContract]
+        Address_Book GetAddress(int id);
+
+        [OperationContract]
+        bool UpdateAddress(int id, string address);
+
+        [OperationContract]
+        bool RemoveAddress(int id);
+
+        [OperationContract]
         bool UpdateProduct(int id, string name, int price, string imgPath, string description, int category);
 
         [OperationContract]
@@ -64,7 +76,7 @@ namespace AI_Forge_Service
         bool DeleteProduct(int id);
 
         [OperationContract]
-        bool Transact(int user_id, List<int> products, List<int> quantities);
+        bool Transact(int user_id, int vchr_id, List<int> products, List<decimal> prices, List<int> quantities);
 
         [OperationContract]
         Invoice GetInvoice(int id);
@@ -73,7 +85,7 @@ namespace AI_Forge_Service
         List<double> GetInvoiceSummary(int id);
 
         [OperationContract]
-        bool IsDeliveryFree(int inv_id);
+        bool AddVoucher(int value, string code);
     }
 
 }

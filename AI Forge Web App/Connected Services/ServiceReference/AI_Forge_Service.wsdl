@@ -80,6 +80,30 @@
   <wsdl:message name="IAI_Forge_Service_ChangePassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
   </wsdl:message>
+  <wsdl:message name="IAI_Forge_Service_AddAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAddress" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_Service_AddAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_Service_GetAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddress" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_Service_GetAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_Service_UpdateAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAddress" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_Service_UpdateAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_Service_RemoveAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAddress" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_Service_RemoveAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAddressResponse" />
+  </wsdl:message>
   <wsdl:message name="IAI_Forge_Service_UpdateProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateProduct" />
   </wsdl:message>
@@ -128,11 +152,11 @@
   <wsdl:message name="IAI_Forge_Service_GetInvoiceSummary_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetInvoiceSummaryResponse" />
   </wsdl:message>
-  <wsdl:message name="IAI_Forge_Service_IsDeliveryFree_InputMessage">
-    <wsdl:part name="parameters" element="tns:IsDeliveryFree" />
+  <wsdl:message name="IAI_Forge_Service_AddVoucher_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVoucher" />
   </wsdl:message>
-  <wsdl:message name="IAI_Forge_Service_IsDeliveryFree_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IsDeliveryFreeResponse" />
+  <wsdl:message name="IAI_Forge_Service_AddVoucher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVoucherResponse" />
   </wsdl:message>
   <wsdl:portType name="IAI_Forge_Service">
     <wsdl:operation name="GetProducts">
@@ -183,6 +207,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/ChangePassword" message="tns:IAI_Forge_Service_ChangePassword_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_Service/ChangePasswordResponse" message="tns:IAI_Forge_Service_ChangePassword_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/AddAddress" message="tns:IAI_Forge_Service_AddAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_Service/AddAddressResponse" message="tns:IAI_Forge_Service_AddAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/GetAddress" message="tns:IAI_Forge_Service_GetAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_Service/GetAddressResponse" message="tns:IAI_Forge_Service_GetAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/UpdateAddress" message="tns:IAI_Forge_Service_UpdateAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_Service/UpdateAddressResponse" message="tns:IAI_Forge_Service_UpdateAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/RemoveAddress" message="tns:IAI_Forge_Service_RemoveAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_Service/RemoveAddressResponse" message="tns:IAI_Forge_Service_RemoveAddress_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/UpdateProduct" message="tns:IAI_Forge_Service_UpdateProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_Service/UpdateProductResponse" message="tns:IAI_Forge_Service_UpdateProduct_OutputMessage" />
@@ -215,9 +255,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/GetInvoiceSummary" message="tns:IAI_Forge_Service_GetInvoiceSummary_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_Service/GetInvoiceSummaryResponse" message="tns:IAI_Forge_Service_GetInvoiceSummary_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="IsDeliveryFree">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/IsDeliveryFree" message="tns:IAI_Forge_Service_IsDeliveryFree_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_Service/IsDeliveryFreeResponse" message="tns:IAI_Forge_Service_IsDeliveryFree_OutputMessage" />
+    <wsdl:operation name="AddVoucher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/AddVoucher" message="tns:IAI_Forge_Service_AddVoucher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_Service/AddVoucherResponse" message="tns:IAI_Forge_Service_AddVoucher_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAI_Forge_Service" type="tns:IAI_Forge_Service">
@@ -330,6 +370,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AddAddress">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_Service/AddAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_Service/GetAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddress">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_Service/UpdateAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAddress">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_Service/RemoveAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UpdateProduct">
       <soap:operation soapAction="http://tempuri.org/IAI_Forge_Service/UpdateProduct" style="document" />
       <wsdl:input>
@@ -402,8 +478,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="IsDeliveryFree">
-      <soap:operation soapAction="http://tempuri.org/IAI_Forge_Service/IsDeliveryFree" style="document" />
+    <wsdl:operation name="AddVoucher">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_Service/AddVoucher" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

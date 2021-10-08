@@ -30,27 +30,30 @@ namespace AI_Forge_Service
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertProduct(Product instance);
+    partial void UpdateProduct(Product instance);
+    partial void DeleteProduct(Product instance);
     partial void InsertSale(Sale instance);
     partial void UpdateSale(Sale instance);
     partial void DeleteSale(Sale instance);
     partial void InsertCategory(Category instance);
     partial void UpdateCategory(Category instance);
     partial void DeleteCategory(Category instance);
-    partial void InsertProduct(Product instance);
-    partial void UpdateProduct(Product instance);
-    partial void DeleteProduct(Product instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
     partial void InsertAddress_Book(Address_Book instance);
     partial void UpdateAddress_Book(Address_Book instance);
     partial void DeleteAddress_Book(Address_Book instance);
-    partial void InsertInvoice(Invoice instance);
-    partial void UpdateInvoice(Invoice instance);
-    partial void DeleteInvoice(Invoice instance);
     partial void InsertInvoice_Line(Invoice_Line instance);
     partial void UpdateInvoice_Line(Invoice_Line instance);
     partial void DeleteInvoice_Line(Invoice_Line instance);
+    partial void InsertInvoice(Invoice instance);
+    partial void UpdateInvoice(Invoice instance);
+    partial void DeleteInvoice(Invoice instance);
+    partial void InsertVoucher(Voucher instance);
+    partial void UpdateVoucher(Voucher instance);
+    partial void DeleteVoucher(Voucher instance);
     #endregion
 		
 		public AI_ForgeDataContext() : 
@@ -83,6 +86,14 @@ namespace AI_Forge_Service
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<Product> Products
+		{
+			get
+			{
+				return this.GetTable<Product>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Sale> Sales
 		{
 			get
@@ -96,14 +107,6 @@ namespace AI_Forge_Service
 			get
 			{
 				return this.GetTable<Category>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Product> Products
-		{
-			get
-			{
-				return this.GetTable<Product>();
 			}
 		}
 		
@@ -123,6 +126,14 @@ namespace AI_Forge_Service
 			}
 		}
 		
+		public System.Data.Linq.Table<Invoice_Line> Invoice_Lines
+		{
+			get
+			{
+				return this.GetTable<Invoice_Line>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Invoice> Invoices
 		{
 			get
@@ -131,12 +142,376 @@ namespace AI_Forge_Service
 			}
 		}
 		
-		public System.Data.Linq.Table<Invoice_Line> Invoice_Lines
+		public System.Data.Linq.Table<Voucher> Vouchers
 		{
 			get
 			{
-				return this.GetTable<Invoice_Line>();
+				return this.GetTable<Voucher>();
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Product")]
+	public partial class Product : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PROD_ID;
+		
+		private string _PROD_Name;
+		
+		private decimal _PROD_Price;
+		
+		private string _PROD_Description;
+		
+		private string _PROD_Image_Path;
+		
+		private short _PROD_Inventory;
+		
+		private bool _Active;
+		
+		private int _CAT_ID;
+		
+		private System.Nullable<int> _SLE_ID;
+		
+		private EntitySet<Invoice_Line> _Invoice_Lines;
+		
+		private EntityRef<Sale> _Sale;
+		
+		private EntityRef<Category> _Category;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPROD_IDChanging(int value);
+    partial void OnPROD_IDChanged();
+    partial void OnPROD_NameChanging(string value);
+    partial void OnPROD_NameChanged();
+    partial void OnPROD_PriceChanging(decimal value);
+    partial void OnPROD_PriceChanged();
+    partial void OnPROD_DescriptionChanging(string value);
+    partial void OnPROD_DescriptionChanged();
+    partial void OnPROD_Image_PathChanging(string value);
+    partial void OnPROD_Image_PathChanged();
+    partial void OnPROD_InventoryChanging(short value);
+    partial void OnPROD_InventoryChanged();
+    partial void OnActiveChanging(bool value);
+    partial void OnActiveChanged();
+    partial void OnCAT_IDChanging(int value);
+    partial void OnCAT_IDChanged();
+    partial void OnSLE_IDChanging(System.Nullable<int> value);
+    partial void OnSLE_IDChanged();
+    #endregion
+		
+		public Product()
+		{
+			this._Invoice_Lines = new EntitySet<Invoice_Line>(new Action<Invoice_Line>(this.attach_Invoice_Lines), new Action<Invoice_Line>(this.detach_Invoice_Lines));
+			this._Sale = default(EntityRef<Sale>);
+			this._Category = default(EntityRef<Category>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int PROD_ID
+		{
+			get
+			{
+				return this._PROD_ID;
+			}
+			set
+			{
+				if ((this._PROD_ID != value))
+				{
+					this.OnPROD_IDChanging(value);
+					this.SendPropertyChanging();
+					this._PROD_ID = value;
+					this.SendPropertyChanged("PROD_ID");
+					this.OnPROD_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Name", DbType="VarChar(75) NOT NULL", CanBeNull=false)]
+		public string PROD_Name
+		{
+			get
+			{
+				return this._PROD_Name;
+			}
+			set
+			{
+				if ((this._PROD_Name != value))
+				{
+					this.OnPROD_NameChanging(value);
+					this.SendPropertyChanging();
+					this._PROD_Name = value;
+					this.SendPropertyChanged("PROD_Name");
+					this.OnPROD_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Price", DbType="Money NOT NULL")]
+		public decimal PROD_Price
+		{
+			get
+			{
+				return this._PROD_Price;
+			}
+			set
+			{
+				if ((this._PROD_Price != value))
+				{
+					this.OnPROD_PriceChanging(value);
+					this.SendPropertyChanging();
+					this._PROD_Price = value;
+					this.SendPropertyChanged("PROD_Price");
+					this.OnPROD_PriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string PROD_Description
+		{
+			get
+			{
+				return this._PROD_Description;
+			}
+			set
+			{
+				if ((this._PROD_Description != value))
+				{
+					this.OnPROD_DescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._PROD_Description = value;
+					this.SendPropertyChanged("PROD_Description");
+					this.OnPROD_DescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Image_Path", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string PROD_Image_Path
+		{
+			get
+			{
+				return this._PROD_Image_Path;
+			}
+			set
+			{
+				if ((this._PROD_Image_Path != value))
+				{
+					this.OnPROD_Image_PathChanging(value);
+					this.SendPropertyChanging();
+					this._PROD_Image_Path = value;
+					this.SendPropertyChanged("PROD_Image_Path");
+					this.OnPROD_Image_PathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Inventory", DbType="SmallInt NOT NULL")]
+		public short PROD_Inventory
+		{
+			get
+			{
+				return this._PROD_Inventory;
+			}
+			set
+			{
+				if ((this._PROD_Inventory != value))
+				{
+					this.OnPROD_InventoryChanging(value);
+					this.SendPropertyChanging();
+					this._PROD_Inventory = value;
+					this.SendPropertyChanged("PROD_Inventory");
+					this.OnPROD_InventoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit NOT NULL")]
+		public bool Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this.OnActiveChanging(value);
+					this.SendPropertyChanging();
+					this._Active = value;
+					this.SendPropertyChanged("Active");
+					this.OnActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAT_ID", DbType="Int NOT NULL")]
+		public int CAT_ID
+		{
+			get
+			{
+				return this._CAT_ID;
+			}
+			set
+			{
+				if ((this._CAT_ID != value))
+				{
+					if (this._Category.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._CAT_ID = value;
+					this.SendPropertyChanged("CAT_ID");
+					this.OnCAT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLE_ID", DbType="Int")]
+		public System.Nullable<int> SLE_ID
+		{
+			get
+			{
+				return this._SLE_ID;
+			}
+			set
+			{
+				if ((this._SLE_ID != value))
+				{
+					if (this._Sale.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSLE_IDChanging(value);
+					this.SendPropertyChanging();
+					this._SLE_ID = value;
+					this.SendPropertyChanged("SLE_ID");
+					this.OnSLE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_Invoice_Line", Storage="_Invoice_Lines", ThisKey="PROD_ID", OtherKey="PROD_Id")]
+		public EntitySet<Invoice_Line> Invoice_Lines
+		{
+			get
+			{
+				return this._Invoice_Lines;
+			}
+			set
+			{
+				this._Invoice_Lines.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sale_Product", Storage="_Sale", ThisKey="SLE_ID", OtherKey="SLE_ID", IsForeignKey=true)]
+		public Sale Sale
+		{
+			get
+			{
+				return this._Sale.Entity;
+			}
+			set
+			{
+				Sale previousValue = this._Sale.Entity;
+				if (((previousValue != value) 
+							|| (this._Sale.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sale.Entity = null;
+						previousValue.Products.Remove(this);
+					}
+					this._Sale.Entity = value;
+					if ((value != null))
+					{
+						value.Products.Add(this);
+						this._SLE_ID = value.SLE_ID;
+					}
+					else
+					{
+						this._SLE_ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Sale");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Product", Storage="_Category", ThisKey="CAT_ID", OtherKey="CAT_ID", IsForeignKey=true)]
+		public Category Category
+		{
+			get
+			{
+				return this._Category.Entity;
+			}
+			set
+			{
+				Category previousValue = this._Category.Entity;
+				if (((previousValue != value) 
+							|| (this._Category.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Category.Entity = null;
+						previousValue.Products.Remove(this);
+					}
+					this._Category.Entity = value;
+					if ((value != null))
+					{
+						value.Products.Add(this);
+						this._CAT_ID = value.CAT_ID;
+					}
+					else
+					{
+						this._CAT_ID = default(int);
+					}
+					this.SendPropertyChanged("Category");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Invoice_Lines(Invoice_Line entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = this;
+		}
+		
+		private void detach_Invoice_Lines(Invoice_Line entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = null;
 		}
 	}
 	
@@ -152,6 +527,8 @@ namespace AI_Forge_Service
 		
 		private byte _SLE_Value;
 		
+		private bool _Active;
+		
 		private EntitySet<Product> _Products;
 		
     #region Extensibility Method Definitions
@@ -164,6 +541,8 @@ namespace AI_Forge_Service
     partial void OnSLE_NameChanged();
     partial void OnSLE_ValueChanging(byte value);
     partial void OnSLE_ValueChanged();
+    partial void OnActiveChanging(bool value);
+    partial void OnActiveChanged();
     #endregion
 		
 		public Sale()
@@ -228,6 +607,26 @@ namespace AI_Forge_Service
 					this._SLE_Value = value;
 					this.SendPropertyChanged("SLE_Value");
 					this.OnSLE_ValueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit NOT NULL")]
+		public bool Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this.OnActiveChanging(value);
+					this.SendPropertyChanging();
+					this._Active = value;
+					this.SendPropertyChanged("Active");
+					this.OnActiveChanged();
 				}
 			}
 		}
@@ -392,442 +791,6 @@ namespace AI_Forge_Service
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Product")]
-	public partial class Product : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PROD_ID;
-		
-		private string _PROD_Name;
-		
-		private decimal _PROD_Price;
-		
-		private byte _PROD_Height;
-		
-		private byte _PROD_Width;
-		
-		private byte _PROD_Depth;
-		
-		private string _PROD_Description;
-		
-		private string _PROD_Image_Path;
-		
-		private short _PROD_Inventory;
-		
-		private bool _Active;
-		
-		private int _CAT_ID;
-		
-		private System.Nullable<int> _SLE_ID;
-		
-		private EntitySet<Invoice_Line> _Invoice_Lines;
-		
-		private EntityRef<Category> _Category;
-		
-		private EntityRef<Sale> _Sale;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPROD_IDChanging(int value);
-    partial void OnPROD_IDChanged();
-    partial void OnPROD_NameChanging(string value);
-    partial void OnPROD_NameChanged();
-    partial void OnPROD_PriceChanging(decimal value);
-    partial void OnPROD_PriceChanged();
-    partial void OnPROD_HeightChanging(byte value);
-    partial void OnPROD_HeightChanged();
-    partial void OnPROD_WidthChanging(byte value);
-    partial void OnPROD_WidthChanged();
-    partial void OnPROD_DepthChanging(byte value);
-    partial void OnPROD_DepthChanged();
-    partial void OnPROD_DescriptionChanging(string value);
-    partial void OnPROD_DescriptionChanged();
-    partial void OnPROD_Image_PathChanging(string value);
-    partial void OnPROD_Image_PathChanged();
-    partial void OnPROD_InventoryChanging(short value);
-    partial void OnPROD_InventoryChanged();
-    partial void OnActiveChanging(bool value);
-    partial void OnActiveChanged();
-    partial void OnCAT_IDChanging(int value);
-    partial void OnCAT_IDChanged();
-    partial void OnSLE_IDChanging(System.Nullable<int> value);
-    partial void OnSLE_IDChanged();
-    #endregion
-		
-		public Product()
-		{
-			this._Invoice_Lines = new EntitySet<Invoice_Line>(new Action<Invoice_Line>(this.attach_Invoice_Lines), new Action<Invoice_Line>(this.detach_Invoice_Lines));
-			this._Category = default(EntityRef<Category>);
-			this._Sale = default(EntityRef<Sale>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int PROD_ID
-		{
-			get
-			{
-				return this._PROD_ID;
-			}
-			set
-			{
-				if ((this._PROD_ID != value))
-				{
-					this.OnPROD_IDChanging(value);
-					this.SendPropertyChanging();
-					this._PROD_ID = value;
-					this.SendPropertyChanged("PROD_ID");
-					this.OnPROD_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Name", DbType="VarChar(75) NOT NULL", CanBeNull=false)]
-		public string PROD_Name
-		{
-			get
-			{
-				return this._PROD_Name;
-			}
-			set
-			{
-				if ((this._PROD_Name != value))
-				{
-					this.OnPROD_NameChanging(value);
-					this.SendPropertyChanging();
-					this._PROD_Name = value;
-					this.SendPropertyChanged("PROD_Name");
-					this.OnPROD_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Price", DbType="Money NOT NULL")]
-		public decimal PROD_Price
-		{
-			get
-			{
-				return this._PROD_Price;
-			}
-			set
-			{
-				if ((this._PROD_Price != value))
-				{
-					this.OnPROD_PriceChanging(value);
-					this.SendPropertyChanging();
-					this._PROD_Price = value;
-					this.SendPropertyChanged("PROD_Price");
-					this.OnPROD_PriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Height", DbType="TinyInt NOT NULL")]
-		public byte PROD_Height
-		{
-			get
-			{
-				return this._PROD_Height;
-			}
-			set
-			{
-				if ((this._PROD_Height != value))
-				{
-					this.OnPROD_HeightChanging(value);
-					this.SendPropertyChanging();
-					this._PROD_Height = value;
-					this.SendPropertyChanged("PROD_Height");
-					this.OnPROD_HeightChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Width", DbType="TinyInt NOT NULL")]
-		public byte PROD_Width
-		{
-			get
-			{
-				return this._PROD_Width;
-			}
-			set
-			{
-				if ((this._PROD_Width != value))
-				{
-					this.OnPROD_WidthChanging(value);
-					this.SendPropertyChanging();
-					this._PROD_Width = value;
-					this.SendPropertyChanged("PROD_Width");
-					this.OnPROD_WidthChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Depth", DbType="TinyInt NOT NULL")]
-		public byte PROD_Depth
-		{
-			get
-			{
-				return this._PROD_Depth;
-			}
-			set
-			{
-				if ((this._PROD_Depth != value))
-				{
-					this.OnPROD_DepthChanging(value);
-					this.SendPropertyChanging();
-					this._PROD_Depth = value;
-					this.SendPropertyChanged("PROD_Depth");
-					this.OnPROD_DepthChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string PROD_Description
-		{
-			get
-			{
-				return this._PROD_Description;
-			}
-			set
-			{
-				if ((this._PROD_Description != value))
-				{
-					this.OnPROD_DescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._PROD_Description = value;
-					this.SendPropertyChanged("PROD_Description");
-					this.OnPROD_DescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Image_Path", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string PROD_Image_Path
-		{
-			get
-			{
-				return this._PROD_Image_Path;
-			}
-			set
-			{
-				if ((this._PROD_Image_Path != value))
-				{
-					this.OnPROD_Image_PathChanging(value);
-					this.SendPropertyChanging();
-					this._PROD_Image_Path = value;
-					this.SendPropertyChanged("PROD_Image_Path");
-					this.OnPROD_Image_PathChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROD_Inventory", DbType="SmallInt NOT NULL")]
-		public short PROD_Inventory
-		{
-			get
-			{
-				return this._PROD_Inventory;
-			}
-			set
-			{
-				if ((this._PROD_Inventory != value))
-				{
-					this.OnPROD_InventoryChanging(value);
-					this.SendPropertyChanging();
-					this._PROD_Inventory = value;
-					this.SendPropertyChanged("PROD_Inventory");
-					this.OnPROD_InventoryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit NOT NULL")]
-		public bool Active
-		{
-			get
-			{
-				return this._Active;
-			}
-			set
-			{
-				if ((this._Active != value))
-				{
-					this.OnActiveChanging(value);
-					this.SendPropertyChanging();
-					this._Active = value;
-					this.SendPropertyChanged("Active");
-					this.OnActiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAT_ID", DbType="Int NOT NULL")]
-		public int CAT_ID
-		{
-			get
-			{
-				return this._CAT_ID;
-			}
-			set
-			{
-				if ((this._CAT_ID != value))
-				{
-					if (this._Category.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCAT_IDChanging(value);
-					this.SendPropertyChanging();
-					this._CAT_ID = value;
-					this.SendPropertyChanged("CAT_ID");
-					this.OnCAT_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLE_ID", DbType="Int")]
-		public System.Nullable<int> SLE_ID
-		{
-			get
-			{
-				return this._SLE_ID;
-			}
-			set
-			{
-				if ((this._SLE_ID != value))
-				{
-					if (this._Sale.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSLE_IDChanging(value);
-					this.SendPropertyChanging();
-					this._SLE_ID = value;
-					this.SendPropertyChanged("SLE_ID");
-					this.OnSLE_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_Invoice_Line", Storage="_Invoice_Lines", ThisKey="PROD_ID", OtherKey="PROD_Id")]
-		public EntitySet<Invoice_Line> Invoice_Lines
-		{
-			get
-			{
-				return this._Invoice_Lines;
-			}
-			set
-			{
-				this._Invoice_Lines.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Product", Storage="_Category", ThisKey="CAT_ID", OtherKey="CAT_ID", IsForeignKey=true)]
-		public Category Category
-		{
-			get
-			{
-				return this._Category.Entity;
-			}
-			set
-			{
-				Category previousValue = this._Category.Entity;
-				if (((previousValue != value) 
-							|| (this._Category.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Category.Entity = null;
-						previousValue.Products.Remove(this);
-					}
-					this._Category.Entity = value;
-					if ((value != null))
-					{
-						value.Products.Add(this);
-						this._CAT_ID = value.CAT_ID;
-					}
-					else
-					{
-						this._CAT_ID = default(int);
-					}
-					this.SendPropertyChanged("Category");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sale_Product", Storage="_Sale", ThisKey="SLE_ID", OtherKey="SLE_ID", IsForeignKey=true)]
-		public Sale Sale
-		{
-			get
-			{
-				return this._Sale.Entity;
-			}
-			set
-			{
-				Sale previousValue = this._Sale.Entity;
-				if (((previousValue != value) 
-							|| (this._Sale.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Sale.Entity = null;
-						previousValue.Products.Remove(this);
-					}
-					this._Sale.Entity = value;
-					if ((value != null))
-					{
-						value.Products.Add(this);
-						this._SLE_ID = value.SLE_ID;
-					}
-					else
-					{
-						this._SLE_ID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Sale");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Invoice_Lines(Invoice_Line entity)
-		{
-			this.SendPropertyChanging();
-			entity.Product = this;
-		}
-		
-		private void detach_Invoice_Lines(Invoice_Line entity)
-		{
-			this.SendPropertyChanging();
-			entity.Product = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
 	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -849,6 +812,8 @@ namespace AI_Forge_Service
 		private System.Nullable<System.DateTime> _User_DOB;
 		
 		private string _User_Password;
+		
+		private decimal _Forge_Points;
 		
 		private bool _Active;
 		
@@ -878,6 +843,8 @@ namespace AI_Forge_Service
     partial void OnUser_DOBChanged();
     partial void OnUser_PasswordChanging(string value);
     partial void OnUser_PasswordChanged();
+    partial void OnForge_PointsChanging(decimal value);
+    partial void OnForge_PointsChanged();
     partial void OnActiveChanging(bool value);
     partial void OnActiveChanged();
     partial void OnUser_TypeChanging(string value);
@@ -1047,6 +1014,26 @@ namespace AI_Forge_Service
 					this._User_Password = value;
 					this.SendPropertyChanged("User_Password");
 					this.OnUser_PasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Forge_Points", DbType="Money NOT NULL")]
+		public decimal Forge_Points
+		{
+			get
+			{
+				return this._Forge_Points;
+			}
+			set
+			{
+				if ((this._Forge_Points != value))
+				{
+					this.OnForge_PointsChanging(value);
+					this.SendPropertyChanging();
+					this._Forge_Points = value;
+					this.SendPropertyChanged("Forge_Points");
+					this.OnForge_PointsChanged();
 				}
 			}
 		}
@@ -1337,185 +1324,6 @@ namespace AI_Forge_Service
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Invoice")]
-	public partial class Invoice : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Invoice_Id;
-		
-		private int _User_Id;
-		
-		private System.DateTime _Invoice_Date;
-		
-		private EntitySet<Invoice_Line> _Invoice_Lines;
-		
-		private EntityRef<User> _User;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnInvoice_IdChanging(int value);
-    partial void OnInvoice_IdChanged();
-    partial void OnUser_IdChanging(int value);
-    partial void OnUser_IdChanged();
-    partial void OnInvoice_DateChanging(System.DateTime value);
-    partial void OnInvoice_DateChanged();
-    #endregion
-		
-		public Invoice()
-		{
-			this._Invoice_Lines = new EntitySet<Invoice_Line>(new Action<Invoice_Line>(this.attach_Invoice_Lines), new Action<Invoice_Line>(this.detach_Invoice_Lines));
-			this._User = default(EntityRef<User>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Invoice_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Invoice_Id
-		{
-			get
-			{
-				return this._Invoice_Id;
-			}
-			set
-			{
-				if ((this._Invoice_Id != value))
-				{
-					this.OnInvoice_IdChanging(value);
-					this.SendPropertyChanging();
-					this._Invoice_Id = value;
-					this.SendPropertyChanged("Invoice_Id");
-					this.OnInvoice_IdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_Id", DbType="Int NOT NULL")]
-		public int User_Id
-		{
-			get
-			{
-				return this._User_Id;
-			}
-			set
-			{
-				if ((this._User_Id != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUser_IdChanging(value);
-					this.SendPropertyChanging();
-					this._User_Id = value;
-					this.SendPropertyChanged("User_Id");
-					this.OnUser_IdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Invoice_Date", DbType="Date NOT NULL")]
-		public System.DateTime Invoice_Date
-		{
-			get
-			{
-				return this._Invoice_Date;
-			}
-			set
-			{
-				if ((this._Invoice_Date != value))
-				{
-					this.OnInvoice_DateChanging(value);
-					this.SendPropertyChanging();
-					this._Invoice_Date = value;
-					this.SendPropertyChanged("Invoice_Date");
-					this.OnInvoice_DateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Invoice_Invoice_Line", Storage="_Invoice_Lines", ThisKey="Invoice_Id", OtherKey="Invoice_Id")]
-		public EntitySet<Invoice_Line> Invoice_Lines
-		{
-			get
-			{
-				return this._Invoice_Lines;
-			}
-			set
-			{
-				this._Invoice_Lines.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Invoice", Storage="_User", ThisKey="User_Id", OtherKey="User_Id", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.Invoices.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.Invoices.Add(this);
-						this._User_Id = value.User_Id;
-					}
-					else
-					{
-						this._User_Id = default(int);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Invoice_Lines(Invoice_Line entity)
-		{
-			this.SendPropertyChanging();
-			entity.Invoice = this;
-		}
-		
-		private void detach_Invoice_Lines(Invoice_Line entity)
-		{
-			this.SendPropertyChanging();
-			entity.Invoice = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Invoice_Line")]
 	public partial class Invoice_Line : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1530,9 +1338,11 @@ namespace AI_Forge_Service
 		
 		private int _PROD_Id;
 		
-		private EntityRef<Invoice> _Invoice;
+		private decimal _InvoiceL_Price_Each;
 		
 		private EntityRef<Product> _Product;
+		
+		private EntityRef<Invoice> _Invoice;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1546,16 +1356,18 @@ namespace AI_Forge_Service
     partial void OnInvoice_IdChanged();
     partial void OnPROD_IdChanging(int value);
     partial void OnPROD_IdChanged();
+    partial void OnInvoiceL_Price_EachChanging(decimal value);
+    partial void OnInvoiceL_Price_EachChanged();
     #endregion
 		
 		public Invoice_Line()
 		{
-			this._Invoice = default(EntityRef<Invoice>);
 			this._Product = default(EntityRef<Product>);
+			this._Invoice = default(EntityRef<Invoice>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceL_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceL_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int InvoiceL_Id
 		{
 			get
@@ -1643,36 +1455,22 @@ namespace AI_Forge_Service
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Invoice_Invoice_Line", Storage="_Invoice", ThisKey="Invoice_Id", OtherKey="Invoice_Id", IsForeignKey=true)]
-		public Invoice Invoice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceL_Price_Each", DbType="Money NOT NULL")]
+		public decimal InvoiceL_Price_Each
 		{
 			get
 			{
-				return this._Invoice.Entity;
+				return this._InvoiceL_Price_Each;
 			}
 			set
 			{
-				Invoice previousValue = this._Invoice.Entity;
-				if (((previousValue != value) 
-							|| (this._Invoice.HasLoadedOrAssignedValue == false)))
+				if ((this._InvoiceL_Price_Each != value))
 				{
+					this.OnInvoiceL_Price_EachChanging(value);
 					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Invoice.Entity = null;
-						previousValue.Invoice_Lines.Remove(this);
-					}
-					this._Invoice.Entity = value;
-					if ((value != null))
-					{
-						value.Invoice_Lines.Add(this);
-						this._Invoice_Id = value.Invoice_Id;
-					}
-					else
-					{
-						this._Invoice_Id = default(int);
-					}
-					this.SendPropertyChanged("Invoice");
+					this._InvoiceL_Price_Each = value;
+					this.SendPropertyChanged("InvoiceL_Price_Each");
+					this.OnInvoiceL_Price_EachChanged();
 				}
 			}
 		}
@@ -1711,6 +1509,40 @@ namespace AI_Forge_Service
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Invoice_Invoice_Line", Storage="_Invoice", ThisKey="Invoice_Id", OtherKey="Invoice_Id", IsForeignKey=true)]
+		public Invoice Invoice
+		{
+			get
+			{
+				return this._Invoice.Entity;
+			}
+			set
+			{
+				Invoice previousValue = this._Invoice.Entity;
+				if (((previousValue != value) 
+							|| (this._Invoice.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Invoice.Entity = null;
+						previousValue.Invoice_Lines.Remove(this);
+					}
+					this._Invoice.Entity = value;
+					if ((value != null))
+					{
+						value.Invoice_Lines.Add(this);
+						this._Invoice_Id = value.Invoice_Id;
+					}
+					else
+					{
+						this._Invoice_Id = default(int);
+					}
+					this.SendPropertyChanged("Invoice");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1729,6 +1561,412 @@ namespace AI_Forge_Service
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Invoice")]
+	public partial class Invoice : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Invoice_Id;
+		
+		private int _User_Id;
+		
+		private System.DateTime _Invoice_Date;
+		
+		private System.Nullable<int> _VCHR_ID;
+		
+		private EntitySet<Invoice_Line> _Invoice_Lines;
+		
+		private EntityRef<User> _User;
+		
+		private EntityRef<Voucher> _Voucher;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnInvoice_IdChanging(int value);
+    partial void OnInvoice_IdChanged();
+    partial void OnUser_IdChanging(int value);
+    partial void OnUser_IdChanged();
+    partial void OnInvoice_DateChanging(System.DateTime value);
+    partial void OnInvoice_DateChanged();
+    partial void OnVCHR_IDChanging(System.Nullable<int> value);
+    partial void OnVCHR_IDChanged();
+    #endregion
+		
+		public Invoice()
+		{
+			this._Invoice_Lines = new EntitySet<Invoice_Line>(new Action<Invoice_Line>(this.attach_Invoice_Lines), new Action<Invoice_Line>(this.detach_Invoice_Lines));
+			this._User = default(EntityRef<User>);
+			this._Voucher = default(EntityRef<Voucher>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Invoice_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Invoice_Id
+		{
+			get
+			{
+				return this._Invoice_Id;
+			}
+			set
+			{
+				if ((this._Invoice_Id != value))
+				{
+					this.OnInvoice_IdChanging(value);
+					this.SendPropertyChanging();
+					this._Invoice_Id = value;
+					this.SendPropertyChanged("Invoice_Id");
+					this.OnInvoice_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_Id", DbType="Int NOT NULL")]
+		public int User_Id
+		{
+			get
+			{
+				return this._User_Id;
+			}
+			set
+			{
+				if ((this._User_Id != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUser_IdChanging(value);
+					this.SendPropertyChanging();
+					this._User_Id = value;
+					this.SendPropertyChanged("User_Id");
+					this.OnUser_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Invoice_Date", DbType="Date NOT NULL")]
+		public System.DateTime Invoice_Date
+		{
+			get
+			{
+				return this._Invoice_Date;
+			}
+			set
+			{
+				if ((this._Invoice_Date != value))
+				{
+					this.OnInvoice_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Invoice_Date = value;
+					this.SendPropertyChanged("Invoice_Date");
+					this.OnInvoice_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VCHR_ID", DbType="Int")]
+		public System.Nullable<int> VCHR_ID
+		{
+			get
+			{
+				return this._VCHR_ID;
+			}
+			set
+			{
+				if ((this._VCHR_ID != value))
+				{
+					if (this._Voucher.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnVCHR_IDChanging(value);
+					this.SendPropertyChanging();
+					this._VCHR_ID = value;
+					this.SendPropertyChanged("VCHR_ID");
+					this.OnVCHR_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Invoice_Invoice_Line", Storage="_Invoice_Lines", ThisKey="Invoice_Id", OtherKey="Invoice_Id")]
+		public EntitySet<Invoice_Line> Invoice_Lines
+		{
+			get
+			{
+				return this._Invoice_Lines;
+			}
+			set
+			{
+				this._Invoice_Lines.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Invoice", Storage="_User", ThisKey="User_Id", OtherKey="User_Id", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.Invoices.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.Invoices.Add(this);
+						this._User_Id = value.User_Id;
+					}
+					else
+					{
+						this._User_Id = default(int);
+					}
+					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Voucher_Invoice", Storage="_Voucher", ThisKey="VCHR_ID", OtherKey="VCHR_ID", IsForeignKey=true)]
+		public Voucher Voucher
+		{
+			get
+			{
+				return this._Voucher.Entity;
+			}
+			set
+			{
+				Voucher previousValue = this._Voucher.Entity;
+				if (((previousValue != value) 
+							|| (this._Voucher.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Voucher.Entity = null;
+						previousValue.Invoices.Remove(this);
+					}
+					this._Voucher.Entity = value;
+					if ((value != null))
+					{
+						value.Invoices.Add(this);
+						this._VCHR_ID = value.VCHR_ID;
+					}
+					else
+					{
+						this._VCHR_ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Voucher");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Invoice_Lines(Invoice_Line entity)
+		{
+			this.SendPropertyChanging();
+			entity.Invoice = this;
+		}
+		
+		private void detach_Invoice_Lines(Invoice_Line entity)
+		{
+			this.SendPropertyChanging();
+			entity.Invoice = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Voucher")]
+	public partial class Voucher : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _VCHR_ID;
+		
+		private int _VCHR_Value;
+		
+		private string _VCHR_Code;
+		
+		private bool _Redeemed;
+		
+		private EntitySet<Invoice> _Invoices;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnVCHR_IDChanging(int value);
+    partial void OnVCHR_IDChanged();
+    partial void OnVCHR_ValueChanging(int value);
+    partial void OnVCHR_ValueChanged();
+    partial void OnVCHR_CodeChanging(string value);
+    partial void OnVCHR_CodeChanged();
+    partial void OnRedeemedChanging(bool value);
+    partial void OnRedeemedChanged();
+    #endregion
+		
+		public Voucher()
+		{
+			this._Invoices = new EntitySet<Invoice>(new Action<Invoice>(this.attach_Invoices), new Action<Invoice>(this.detach_Invoices));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VCHR_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int VCHR_ID
+		{
+			get
+			{
+				return this._VCHR_ID;
+			}
+			set
+			{
+				if ((this._VCHR_ID != value))
+				{
+					this.OnVCHR_IDChanging(value);
+					this.SendPropertyChanging();
+					this._VCHR_ID = value;
+					this.SendPropertyChanged("VCHR_ID");
+					this.OnVCHR_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VCHR_Value", DbType="Int NOT NULL")]
+		public int VCHR_Value
+		{
+			get
+			{
+				return this._VCHR_Value;
+			}
+			set
+			{
+				if ((this._VCHR_Value != value))
+				{
+					this.OnVCHR_ValueChanging(value);
+					this.SendPropertyChanging();
+					this._VCHR_Value = value;
+					this.SendPropertyChanged("VCHR_Value");
+					this.OnVCHR_ValueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VCHR_Code", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string VCHR_Code
+		{
+			get
+			{
+				return this._VCHR_Code;
+			}
+			set
+			{
+				if ((this._VCHR_Code != value))
+				{
+					this.OnVCHR_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._VCHR_Code = value;
+					this.SendPropertyChanged("VCHR_Code");
+					this.OnVCHR_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Redeemed", DbType="Bit NOT NULL")]
+		public bool Redeemed
+		{
+			get
+			{
+				return this._Redeemed;
+			}
+			set
+			{
+				if ((this._Redeemed != value))
+				{
+					this.OnRedeemedChanging(value);
+					this.SendPropertyChanging();
+					this._Redeemed = value;
+					this.SendPropertyChanged("Redeemed");
+					this.OnRedeemedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Voucher_Invoice", Storage="_Invoices", ThisKey="VCHR_ID", OtherKey="VCHR_ID")]
+		public EntitySet<Invoice> Invoices
+		{
+			get
+			{
+				return this._Invoices;
+			}
+			set
+			{
+				this._Invoices.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Invoices(Invoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.Voucher = this;
+		}
+		
+		private void detach_Invoices(Invoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.Voucher = null;
 		}
 	}
 }
