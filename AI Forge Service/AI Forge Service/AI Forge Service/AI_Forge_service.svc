@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="AI_Forge_Service.AI_Forge_service" CodeBehind="AI_Forge_service.svc.cs" %>

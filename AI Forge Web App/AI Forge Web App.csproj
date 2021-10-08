@@ -72,22 +72,27 @@
     <Content Include="AddProduct.aspx" />
     <Content Include="Admin.aspx" />
     <Content Include="Cart.aspx" />
-    <Content Include="Catalogue.aspx" />
-    <Content Include="ClientProfile.aspx" />
+    <Content Include="Checkout.aspx" />
+    <Content Include="Item.aspx" />
+    <Content Include="Shop.aspx" />
+    <Content Include="Profile.aspx" />
     <Content Include="admin master.Master" />
-    <None Include="Connected Services\ServiceReference1\AI_Forge_service.disco" />
-    <Content Include="Connected Services\ServiceReference1\AI_Forge_Web_App.ServiceReference1.Product.datasource">
+    <None Include="Connected Services\ServiceReference\AI_Forge_Service.disco" />
+    <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.Invoice.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\AI_Forge_Web_App.ServiceReference1.Sale.datasource">
+    <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.Product.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\AI_Forge_Web_App.ServiceReference1.User.datasource">
+    <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.Sale.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
+    <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -132,14 +137,10 @@
     <Content Include="js\popper.min.js" />
     <Content Include="PasswordReset.aspx" />
     <Content Include="PersonalDetails.aspx" />
-    <Content Include="Product.aspx" />
-    <Content Include="ProductExample.aspx" />
     <Content Include="SearchBar.css" />
     <Content Include="SignIn.aspx" />
     <Content Include="SignUp.aspx" />
-    <Content Include="smart-fridge.aspx" />
     <Content Include="Web.config" />
-    <Content Include="CheckoutPage.aspx" />
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -171,21 +172,35 @@
     <Compile Include="Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Catalogue.aspx.cs">
-      <DependentUpon>Catalogue.aspx</DependentUpon>
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Catalogue.aspx.designer.cs">
-      <DependentUpon>Catalogue.aspx</DependentUpon>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ClientProfile.aspx.cs">
-      <DependentUpon>ClientProfile.aspx</DependentUpon>
+    <Compile Include="Item.aspx.cs">
+      <DependentUpon>Item.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ClientProfile.aspx.designer.cs">
-      <DependentUpon>ClientProfile.aspx</DependentUpon>
+    <Compile Include="Item.aspx.designer.cs">
+      <DependentUpon>Item.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
+    <Compile Include="Shop.aspx.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shop.aspx.designer.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -232,20 +247,6 @@
     <Compile Include="PersonalDetails.aspx.designer.cs">
       <DependentUpon>PersonalDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Product.aspx.cs">
-      <DependentUpon>Product.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Product.aspx.designer.cs">
-      <DependentUpon>Product.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProductExample.aspx.cs">
-      <DependentUpon>ProductExample.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductExample.aspx.designer.cs">
-      <DependentUpon>ProductExample.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignIn.aspx.cs">
       <DependentUpon>SignIn.aspx</DependentUpon>
@@ -261,20 +262,6 @@
     <Compile Include="SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="smart-fridge.aspx.cs">
-      <DependentUpon>smart-fridge.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="smart-fridge.aspx.designer.cs">
-      <DependentUpon>smart-fridge.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CheckoutPage.aspx.cs">
-      <DependentUpon>CheckoutPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CheckoutPage.aspx.designer.cs">
-      <DependentUpon>CheckoutPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -285,17 +272,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="master.Master" />
-    <None Include="Connected Services\ServiceReference1\AI_Forge_service.wsdl" />
-    <None Include="Connected Services\ServiceReference1\AI_Forge_service.xsd">
+    <None Include="Connected Services\ServiceReference\AI_Forge_Service.wsdl" />
+    <None Include="Connected Services\ServiceReference\AI_Forge_Service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference1\AI_Forge_service1.xsd">
+    <None Include="Connected Services\ServiceReference\AI_Forge_Service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference1\AI_Forge_service2.xsd">
+    <None Include="Connected Services\ServiceReference\AI_Forge_Service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference1\AI_Forge_service3.xsd">
+    <None Include="Connected Services\ServiceReference\AI_Forge_Service3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
@@ -310,7 +297,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
