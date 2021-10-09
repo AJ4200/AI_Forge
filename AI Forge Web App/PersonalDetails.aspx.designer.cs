@@ -10,7 +10,7 @@
 
 namespace AI_Forge_Web_App
 {
-    public partial class PersonalDetails
+    public partial class personalDetails
     {
     }
 }

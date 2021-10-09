@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="AI_Forge_Web_App.Profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <title>My Account</title>

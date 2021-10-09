@@ -238,3 +238,7 @@ C:\Users\ifa Sinthumule\Documents\2021\Informatics 2B\Group prac\AI Forge Web Ap
 C:\Users\ifa Sinthumule\Documents\2021\Informatics 2B\Group prac\AI Forge Web App\obj\Debug\AI Forge Web App.csproj.CoreCompileInputs.cache
 C:\Users\ifa Sinthumule\Documents\2021\Informatics 2B\Group prac\AI Forge Web App\obj\Debug\AI Forge Web App.dll
 C:\Users\ifa Sinthumule\Documents\2021\Informatics 2B\Group prac\AI Forge Web App\obj\Debug\AI Forge Web App.pdb
+C:\Users\ifa Sinthumule\Documents\2021\Informatics 2B\Group-prac-final\AI Forge Web App\obj\Debug\AI Forge Web App.csproj.AssemblyReference.cache
+C:\Users\ifa Sinthumule\Documents\2021\Informatics 2B\Group-prac-final\AI Forge Web App\obj\Debug\AI Forge Web App.csproj.CoreCompileInputs.cache
+C:\Users\ifa Sinthumule\Documents\2021\Informatics 2B\Group-prac-final\AI Forge Web App\obj\Debug\AI Forge Web App.dll
+C:\Users\ifa Sinthumule\Documents\2021\Informatics 2B\Group-prac-final\AI Forge Web App\obj\Debug\AI Forge Web App.pdb

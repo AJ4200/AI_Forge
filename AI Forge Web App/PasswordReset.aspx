@@ -13,27 +13,31 @@
            <h1 class="HeadPass"><strong>Reset Password</strong></h1>
 
            <label class="custom-field pass">
-  <input type="password" style="width:720px" required="required"/>
+  <input type="password" id="OldPass" style="width:720px" runat="server" required="required"/>
   <span class="placeholder">Enter Current Password</span>
 </label>
             <br /><br />
 
             <label class="custom-field pass">
-  <input type="password" style="width:720px" class="Pass-Input" required=" required"/>
+  <input type="password" id="NewPass" style="width:720px" runat="server" class="Pass-Input" required=" required"/>
   <span class="placeholder">New password</span>
 </label>
            <br /><br />
 
             <label class="custom-field pass">
-  <input type="password" style="width:720px" class="Pass-Input" required=" required"/>
+  <input type="password" id="Repeat" runat="server" style="width:720px" class="Pass-Input" required=" required"/>
   <span class="placeholder">Re-enter new password</span>
 </label> <br /><br /><br />
 
-           <a href="ClientProfile.aspx">
+           <div class="PassError" id="PassError" runat="server">
+
+           </div>
+
+           <a href="Profile.aspx">
             <input class="button Cancel" type="button" value="Cancel" />
            </a>
 
-           <input class="button ResetPassword_" type="submit" value="Reset" />
+           <input class="button ResetPassword_" id="ResetB" type="submit" runat="server" value="Reset" />
        </div>
             </section>
 </asp:Content>

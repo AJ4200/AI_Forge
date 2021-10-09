@@ -51,11 +51,16 @@
                         </label>
                     </div>
                    <br/><br/> <hr /> <br/>
-                <div class="Total">
+                <div class="Totalinfo">
                <h3>Total:</h3>
                 <h3>Delivery fee:</h3>
                 <h3>To pay:</h3>
                     </div>
+
+                <div class="Total" id="Totals" runat="server">
+                    
+                </div>
+
                  <hr /><br/>
                    <label class="custom-field two">
   <input type="text" placeholder="&nbsp;"/>

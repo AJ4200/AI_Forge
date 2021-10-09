@@ -119,7 +119,7 @@ namespace AI_Forge_Web_App
 
         protected void btnSort_Click(object sender, EventArgs e)
         {
-
+ 
             divSort.Visible = false;
         }
     }

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace AI_Forge_Web_App
 {
-    public partial class PersonalDetails : System.Web.UI.Page
+    public partial class personalDetails : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

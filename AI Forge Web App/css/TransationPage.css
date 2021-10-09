@@ -6,6 +6,39 @@
     height: auto;
 }
 
+.EditInfo {
+   
+    padding: 0px 20px 10px 20px;
+    border-radius: 5px;
+    border-style: ridge;
+    border-width: 2px;
+    background-color: white;
+    position: relative;
+    top: 30px;
+    left: 185px;
+    width: 70%;
+    height: auto;
+}
+
+.Total {
+    width: 40%;
+    float: right;
+    position: relative;
+    bottom: 92px;
+}
+
+.PageEdit {
+    background-color: #0c0f38;
+    width: 100%;
+    height: 400px;
+}
+.error, .PassError h1 {
+    background-color: #0c0f38;
+    color: red;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif color;
+    font-size: 20px;
+}
+
 div.PaymentInfo {
     background-color: white;
     width: 40%;
@@ -21,6 +54,11 @@ div.PaymentInfo {
         margin: 5px 60px 10px 60px;
         display: block;
     }
+
+EditInfo hr {
+    margin: 5px 150px 10px 150px;
+    display: block;
+}
 
     div.PaymentInfo h1 {
         text-align: center;
@@ -105,7 +143,6 @@ div.password {
     font-size: 20px;
     margin-bottom: 20px
 }
-
 
 section {
     background-color: #0c0f38;

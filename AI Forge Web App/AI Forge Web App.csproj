@@ -73,7 +73,9 @@
     <Content Include="Admin.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Checkout.aspx" />
+    <Content Include="EditPersonal.aspx" />
     <Content Include="Item.aspx" />
+    <Content Include="personalDetails.aspx" />
     <Content Include="Shop.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="admin master.Master" />
@@ -139,7 +141,6 @@
     <Content Include="js\plugin.js" />
     <Content Include="js\popper.min.js" />
     <Content Include="PasswordReset.aspx" />
-    <Content Include="PersonalDetails.aspx" />
     <Content Include="SearchBar.css" />
     <Content Include="SignIn.aspx" />
     <Content Include="SignUp.aspx" />
@@ -182,12 +183,26 @@
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditPersonal.aspx.cs">
+      <DependentUpon>EditPersonal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditPersonal.aspx.designer.cs">
+      <DependentUpon>EditPersonal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Item.aspx.cs">
       <DependentUpon>Item.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Item.aspx.designer.cs">
       <DependentUpon>Item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="personalDetails.aspx.cs">
+      <DependentUpon>personalDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="personalDetails.aspx.designer.cs">
+      <DependentUpon>personalDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shop.aspx.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
@@ -242,13 +257,6 @@
     </Compile>
     <Compile Include="PasswordReset.aspx.designer.cs">
       <DependentUpon>PasswordReset.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PersonalDetails.aspx.cs">
-      <DependentUpon>PersonalDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PersonalDetails.aspx.designer.cs">
-      <DependentUpon>PersonalDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignIn.aspx.cs">
