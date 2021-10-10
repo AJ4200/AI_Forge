@@ -11,40 +11,34 @@
                     <div class="main_form">
                         <div class="row">
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Name" type="text" name="Name">
+                                <input ID="name" class="contactus" placeholder="Name" type="text" required="required" data-error="Name is required." runat="server">
                             </div>
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Surname" type="text" name="Surname">
+                                <input ID="surname" class="contactus" placeholder="Surname" type="text" required="required" data-error="Surname is required." runat="server">
                             </div>
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Email" type="text" name=" Email">
+                                <input ID="Email" class="contactus" placeholder="Email" type="text" required="required" data-error="Email is required." runat="server">
                             </div>
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Phone" type="text" name="Phone">
+                                <input ID="phone" class="contactus" placeholder="Phone" type="text" required="required" data-error="Phone is required." runat="server">
                             </div>
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Gender" type="text" name="Gender">
+                                <input ID="gender" class="contactus" placeholder="Gender" type="text" required="required" data-error="Gender is required." runat="server">
                             </div>
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Date Of Birth" type="date" name="DoB">
+                                <input ID="dob" class="contactus" placeholder="Date Of Birth" type="date" runat="server">
                             </div>
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Address" type="text" name="Address">
-                            </div>
-                            <br>
-                            <br>
-                            <br>
-                            <div class="col-sm-12">
-                                <input class="contactus" placeholder="Username" type="text" name="Username">
+                                <input ID="Address" class="contactus" placeholder="Address" type="text" required="required" data-error="Address is required." runat="server">
                             </div>
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Enter New Password" type="password" name="Password" required>
+                                <input ID="password" class="contactus" placeholder="Enter New Password" type="password" required="required" data-error="Password is required." runat="server">
                             </div>
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Re-enter New Password" type="password" name="Password" required>
+                                <input ID="re_password" class="contactus" placeholder="Re-enter New Password" type="password" required="required" data-error="Password do not match." runat="server">
                             </div>
                             <div class="col-sm-12">                   
-                                <asp:Button ID="btnSignup" class="send" runat="server" Text="Sign Up" Width="100%" /> 
+                                <asp:Button ID="btnSignup" class="send" runat="server" Text="Sign Up" Width="100%" OnClick="btnSignup_Click" /> 
                            </div>
                         </div>
                     </div>

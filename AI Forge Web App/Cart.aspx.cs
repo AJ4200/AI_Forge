@@ -1,4 +1,4 @@
-﻿using AI_Forge_Web_App.ServiceReference1;
+﻿using AI_Forge_Web_App.ServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace AI_Forge_Web_App
 {
     public partial class Checkout : System.Web.UI.Page
     {
-        AI_Forge_serviceClient client = new AI_Forge_serviceClient();
+        AI_Forge_ServiceClient client = new AI_Forge_ServiceClient();
 
         protected void Page_Load(object sender, EventArgs e)
         {

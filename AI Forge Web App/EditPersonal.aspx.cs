@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AI_Forge_Web_App.ServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +10,7 @@ namespace AI_Forge_Web_App
 {
     public partial class EditPersonal : System.Web.UI.Page
     {
-        AI_Forge_serviceClient client = new AI_Forge_serviceClient();
+        AI_Forge_ServiceClient client = new AI_Forge_ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -18,7 +19,7 @@ namespace AI_Forge_Web_App
         protected void UpdatePersonal_clicked(object sender, EventArgs e)
         {
 
-            if(client.UpdatePersonalDetails(1, name, Surname, Email, Number, Gender, DOB))
+            if(client.UpdatePersonalDetails(1, name.Value, Surname.Value, Email.Value, Number.Value, Gender.Value.ToCharArray()[0], Convert.ToDateTime(DOB.Value)))
             {
                 Response.Redirect("Profile.aspx");
             }

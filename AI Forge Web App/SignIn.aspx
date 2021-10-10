@@ -12,14 +12,14 @@
                         <div class="row">
 
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Username" type="text" name="Username" required>
+                                <input ID="email" class="contactus" placeholder="Email"  type="email" required="required" data-error="Email is required." runat="server">
                             </div>
                             <div class="col-sm-12">
-                                <input class="contactus" placeholder="Password" type="password" name="Password" required>
+                                <input ID ="password" class="contactus" placeholder="Password" type="password" required="required" data-error="Password is required." runat="server">
                             </div>
                             <div class="col-sm-12">
                                 <
-                                 <asp:Button ID="btnLogin" class="send" runat="server" Text="Sign In" Width="100%" />
+                                 <asp:Button ID="btnLogin" class="send" runat="server" Text="Sign In" Width="100%" OnClick="btnLogin_Click" />
                             </div>
                         </div>
                     </div>

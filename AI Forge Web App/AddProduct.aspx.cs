@@ -11,7 +11,7 @@ namespace AI_Forge_Web_App
 
     public partial class AddProduct : System.Web.UI.Page
     {
-        AI_Forge_serviceClient client = new AI_Forge_serviceClient();
+        AI_Forge_ServiceClient client = new AI_Forge_ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,8 +19,8 @@ namespace AI_Forge_Web_App
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             string descrip = "to be added when product is edited";
-            int result = client.AddProduct(PName.Value, Convert.ToInt32(price.Value), description.Value, dimensions.Value, category.Value, Convert.ToInt32(quantity.Value), 0, 0, descrip);
-            if (result == 1)
+            bool result = client.AddProduct(PName.Value, Convert.ToInt32(price.Value),"image/products/",description.Value, Int32.Parse(category.Value));
+            if (result == true)
             {
                 Response.Redirect("Admin.aspx?query=" + result);
             }

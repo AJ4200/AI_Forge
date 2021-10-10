@@ -53,7 +53,6 @@ C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Web App\bin\roslyn\VBCSCompile
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Web App\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Web App\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Web App\obj\Debug\AI Forge Web App.csproj.CoreCompileInputs.cache
-C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Web App\obj\Debug\AI Forge Web App.csproj.CopyComplete
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Web App\obj\Debug\AI Forge Web App.dll
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Web App\obj\Debug\AI Forge Web App.pdb
 C:\Users\abelj\Documents\GitHub\AI_Forge\AI Forge Web App\obj\Debug\AI Forge Web App.csproj.AssemblyReference.cache

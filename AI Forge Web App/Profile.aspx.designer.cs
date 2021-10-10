@@ -9,5 +9,9 @@
 
 
 
-public partial class  {
+namespace AI_Forge_Web_App
+{
+    public partial class Profile
+    {
+    }
 }
