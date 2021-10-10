@@ -12,7 +12,6 @@ namespace AI_Forge_Web_App
     {
         AI_Forge_ServiceClient client = new AI_Forge_ServiceClient();
 
-        CheckBoxList chkCategories = new CheckBoxList();
         List<Product> productsOnDisplay = null;
         List<string> appliedFilters = null;
         int priceIndex;
@@ -39,12 +38,11 @@ namespace AI_Forge_Web_App
                 html += "<div class='product-tile-container'>";
                 html += "<div class='product-container-image'>";
                 html += "<a href ='Product.aspx' class='container-link' title='" + p.PROD_Name + "'>";
-                html += "<img class='container-image' src='" + p.PROD_Image_Path + "' alt='" + p.PROD_Name + "'/>";
+                html += "<img class='container-image' src='Item.aspx?=" + p.PROD_ID + "' alt='" + p.PROD_Name + "'/>";
                 html += "</a>";
                 html += "</div>";
-                html += "< div class='product-container-details'>";
-                html += "< a class='details-link' href='" + p.PROD_Name + ".aspx'>View Details</a>";
-                html += "</div>";
+                html += "<div class='product-container-details'>";
+                html += "<a class='details-link' href='Item.aspx?=" + p.PROD_ID + "'>View Details</a>";
                 html += "</div>";
                 html += "<div class='product-tile-summary'>";
                 html += "<div class='product-links'>";

@@ -230,10 +230,10 @@ namespace AI_Forge_Service
             {
                 item = new Product()
                 {
+                    PROD_ID = foundItem.PROD_ID,
                     PROD_Name = foundItem.PROD_Name,
                     PROD_Price = foundItem.PROD_Price,
                     PROD_Image_Path = foundItem.PROD_Image_Path,
-                    PROD_Description = null,
                     CAT_ID = foundItem.CAT_ID,
                     SLE_ID = foundItem.SLE_ID
                 };
@@ -267,12 +267,10 @@ namespace AI_Forge_Service
             {
                 var product = new Product()
                 {
+                    PROD_ID = products.PROD_ID,
                     PROD_Name = products.PROD_Name,
                     PROD_Price = products.PROD_Price,
                     PROD_Image_Path = products.PROD_Image_Path,
-                    PROD_Description = null,
-                    PROD_Inventory = 0,
-                    Active = products.Active,
                     CAT_ID = products.CAT_ID,
                     SLE_ID = products.SLE_ID
                 };

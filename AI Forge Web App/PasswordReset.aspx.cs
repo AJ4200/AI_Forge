@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using HashPass;
 
 namespace AI_Forge_Web_App
 {
@@ -18,9 +19,10 @@ namespace AI_Forge_Web_App
 
         protected void ResetB_Clicked(object sender, EventArgs e)
         {
+            
             if (NewPass == Repeat)
             {
-                if (client.ChangePassword(1, OldPass.Value, NewPass.Value))
+                if (client.ChangePassword(Convert.ToInt32(Session["ID"].ToString()), Secrecy.HashPassword(OldPass.Value), Secrecy.HashPassword(NewPass.Value)))
                 {
                     Response.Redirect("Profile.aspx");
                 }

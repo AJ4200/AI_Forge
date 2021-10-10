@@ -33,7 +33,7 @@
                     2000
                     </h3>
 </div>
-             <a href="#">
+             <a href="EditPersonal.aspx">
             <input class="button EditDetails" type="button" value="Edit personal details" />
            </a>
 

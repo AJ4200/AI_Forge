@@ -19,7 +19,7 @@ namespace AI_Forge_Web_App
         protected void UpdatePersonal_clicked(object sender, EventArgs e)
         {
 
-            if(client.UpdatePersonalDetails(1, name.Value, Surname.Value, Email.Value, Number.Value, Gender.Value.ToCharArray()[0], Convert.ToDateTime(DOB.Value)))
+            if(client.UpdatePersonalDetails(Convert.ToInt32(Session["ID"].ToString()), name.Value, Surname.Value, Email.Value, Number.Value, Gender.Value.ToCharArray()[0], Convert.ToDateTime(DOB.Value)))
             {
                 Response.Redirect("Profile.aspx");
             }

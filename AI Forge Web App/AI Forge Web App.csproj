@@ -77,6 +77,7 @@
     <Content Include="EditPersonal.aspx" />
     <Content Include="Item.aspx" />
     <Content Include="personalDetails.aspx" />
+    <Content Include="ProductManagement.aspx" />
     <Content Include="Shop.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="admin master.Master" />
@@ -205,6 +206,13 @@
     </Compile>
     <Compile Include="personalDetails.aspx.designer.cs">
       <DependentUpon>personalDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductManagement.aspx.cs">
+      <DependentUpon>ProductManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductManagement.aspx.designer.cs">
+      <DependentUpon>ProductManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Secrecy.cs" />
     <Compile Include="Shop.aspx.cs">

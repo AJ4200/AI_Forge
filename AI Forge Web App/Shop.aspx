@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Catalogue" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="Shop.aspx.cs" Inherits="AI_Forge_Web_App.Shop" %>
+﻿<%@ Page Title="Shop" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="Shop.aspx.cs" Inherits="AI_Forge_Web_App.Shop" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	
 	<link rel="stylesheet" href="css/products-checkout-catalog.css">
