@@ -8,17 +8,15 @@
     
     <div class="container2">
         <div class="box">
-            <div class="product__img">
-                <img src="images/Products/product1.jpg" alt="">
+            <div id="imgdiv" runat="server" class="product__img">
+                
             </div>
             <div class="product__disc">
                 <div class="product__disc--content">
                     <div class="disc__content--about">
-                        <h1>Oculus Rift S</h1>
-                        <span>get ready to step into a new world</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur hic minus nihil
-                            obcaecati, ratione repellendus saepe sint tenetur totam ullam. Accusantium aspernatur
-                            ducimus impedit perferendis quisquam repellendus similique ullam vitae!</p>
+                        <h1 id="itemname" runat="server"></h1>
+                        <span id="price" runat="server"></span>
+                        <p id="decrip" runat="server"></p>
                     </div>
 
                     <div class="product__view--more">
@@ -30,7 +28,7 @@
 
             <div class="product_buttons">
                 <button class="btn wishlist">Add to wishlist</button>
-                <button class="btn buy">Add to cart</button>
+                <asp:Button ID="btnBuy" class="btn buy" runat="server" Text="Add to cart" OnClick="btnBuy_Click" />
             </div>
         </div>
     </div>
