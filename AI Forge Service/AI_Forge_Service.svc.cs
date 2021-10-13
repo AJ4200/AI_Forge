@@ -28,6 +28,7 @@ namespace AI_Forge_Service
                     ADRS_Details = address,
                     Active = true
                 };
+
                 db.Address_Books.InsertOnSubmit(addr);
                 try
                 {
@@ -70,6 +71,7 @@ namespace AI_Forge_Service
                 CAT_ID = category,
                 Active = true
             };
+            
             db.Products.InsertOnSubmit(temp_product);
             try
             {
@@ -89,8 +91,9 @@ namespace AI_Forge_Service
             {
                 VCHR_Value = value,
                 VCHR_Code = code,
-                Redeemed = true
+                Redeemed = false
             };
+
             db.Vouchers.InsertOnSubmit(vchr);
             try
             {
@@ -136,12 +139,13 @@ namespace AI_Forge_Service
 
         public bool DeleteProduct(int id)
         {
-            var product = GetProduct(id);
+            var product = (from i in db.Products
+                           where i.PROD_ID.Equals(id)
+                           select i).FirstOrDefault();
+
             if (product != null)
             {
-
-                if (product.Active == false)
-                    product.Active = true;
+                product.Active = false;
 
                 try
                 {
@@ -166,13 +170,27 @@ namespace AI_Forge_Service
                        where a.ADRS_ID.Equals(id)
                        select a).FirstOrDefault();
 
-            return addr;
+            if (addr != null)
+            {
+                Address_Book address = new Address_Book()
+                {
+                    ADRS_ID = addr.ADRS_ID,
+                    ADRS_Details = addr.ADRS_Details
+                };
+
+                return address;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public List<string> GetCatagories()
         {
             var categories = (from c in db.Categories
                          select c.CAT_Name).ToList();
+            
             return categories;
         }
 
@@ -185,11 +203,11 @@ namespace AI_Forge_Service
 
         public int GetInventoryOf(int prod_ID)
         {
-            var inventory = (from p in db.Products
-                             where p.PROD_ID.Equals(prod_ID)
-                             select p.PROD_Inventory).FirstOrDefault();
+            var inventory = (from i in db.Products
+                        where i.PROD_ID.Equals(prod_ID)
+                        select i.PROD_Inventory).FirstOrDefault();
 
-            return inventory;
+            return inventory
         }
 
         public Invoice GetInvoice(int id)
@@ -201,6 +219,7 @@ namespace AI_Forge_Service
             return inv;
         }
 
+        //returns the subtotal and the vat
         public List<double> GetInvoiceSummary(int id)
         {
             var lines = (from i in db.Invoice_Lines
@@ -215,31 +234,41 @@ namespace AI_Forge_Service
             List<double> summary = new List<double>();
             summary.Add((double)subtotal);
             summary.Add((double)subtotal * 0.14);
+            if(subtotal > 450)
+            {
+                summary.Add(0);
+            } else
+            {
+                summary.Add(100);
+            }
 
             return summary;
         }
 
         public Product GetProduct(int id)
         {
-            Product item = null;
             var foundItem = (from i in db.Products
                              where i.PROD_ID.Equals(id)
                              select i).FirstOrDefault();
 
             if (foundItem != null)
             {
-                item = new Product()
+                Product item = new Product()
                 {
-                    PROD_ID = foundItem.PROD_ID,
                     PROD_Name = foundItem.PROD_Name,
                     PROD_Price = foundItem.PROD_Price,
                     PROD_Image_Path = foundItem.PROD_Image_Path,
+                    PROD_Description = foundItem.PROD_Description,
                     CAT_ID = foundItem.CAT_ID,
                     SLE_ID = foundItem.SLE_ID
                 };
-            }
 
-            return item;
+                return item;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public List<Product> GetProducts()
@@ -247,11 +276,21 @@ namespace AI_Forge_Service
             List<Product> products = new List<Product>();
             var temp = (from i in db.Products
                         where i.Active
-                        select i).ToList();
+                        select i).DefaultIfEmpty();
 
             foreach (Product p in temp)
             {
-                products.Add(GetProduct(p.PROD_ID));
+                var item = new Product()
+                {
+                    PROD_Name = p.PROD_Name,
+                    PROD_Price = p.PROD_Price,
+                    PROD_Image_Path = p.PROD_Image_Path,
+                    PROD_Description = p.PROD_Description,
+                    CAT_ID = p.CAT_ID,
+                    SLE_ID = p.SLE_ID
+                };
+
+                products.Add(item);
             }
 
             return products;
@@ -260,14 +299,15 @@ namespace AI_Forge_Service
         public List<Product> GetProductsOnSpecial()
         {
             List<Product> specials = new List<Product>();
+
             dynamic products = (from p in db.Products
                                 where !p.SLE_ID.Equals(null) && p.Active.Equals(true)
-                                select p).ToList();
+                                select p).DefaultIfEmpty();
+
             foreach (Product p in products)
             {
                 var product = new Product()
                 {
-                    PROD_ID = products.PROD_ID,
                     PROD_Name = products.PROD_Name,
                     PROD_Price = products.PROD_Price,
                     PROD_Image_Path = products.PROD_Image_Path,
@@ -359,6 +399,7 @@ namespace AI_Forge_Service
             var vetUser = (from u in db.Users
                            where u.User_Email.Equals(Email)
                            select u).FirstOrDefault();
+
             if (vetUser == null)
             {
                 var newUser = new User
@@ -372,7 +413,7 @@ namespace AI_Forge_Service
                     User_Password = Password,
                 };
 
-                var domain = Email.Substring(Email.IndexOf("@"), Email.Length - Email.IndexOf("@"));
+                var domain = Email.Substring(Email.IndexOf("@") + 1, Email.Length - Email.IndexOf("@") - 1);
                 if (domain.Equals("aiforge.com"))
                 {
                     newUser.User_Type = "EMP";
@@ -402,10 +443,13 @@ namespace AI_Forge_Service
 
         public bool RemoveAddress(int id)
         {
-            var addr = GetAddress(id);
+            var addr = (from a in db.Address_Books
+                        where a.ADRS_ID.Equals(id)
+                        select a).FirstOrDefault();
+
             if (addr != null)
             {
-                addr.Active = true;
+                addr.Active = false;
                 try
                 {
                     db.SubmitChanges();
@@ -432,7 +476,7 @@ namespace AI_Forge_Service
                 Invoice_Date = DateTime.Today
             };
             
-            if(CreateInvoice(inv, user_id, vchr_id))
+            if(CreateInvoice(inv))
             {
                 for(int i=0; i<products.Count; i++)
                 {
@@ -461,7 +505,7 @@ namespace AI_Forge_Service
             return false;
         }
 
-        private bool CreateInvoice(Invoice inv, int user_id, int vchr_id)
+        private bool CreateInvoice(Invoice inv)
         {
             db.Invoices.InsertOnSubmit(inv);
             try
@@ -510,7 +554,9 @@ namespace AI_Forge_Service
 
         public bool UpdateAddress(int id, string address)
         {
-            var addr = GetAddress(id);
+            var addr = (from a in db.Address_Books
+                        where a.ADRS_ID.Equals(id)
+                        select a).FirstOrDefault();
 
             if (addr != null)
             {
