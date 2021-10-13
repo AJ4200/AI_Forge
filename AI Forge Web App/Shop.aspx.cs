@@ -48,7 +48,7 @@ namespace AI_Forge_Web_App
                 if (p.SLE_ID != null)
                 {
                     html += "<p class='discount-price-links'>R" + String.Format("{0:0.00}", p.PROD_Price) + "></p>";
-                    decimal salePrice = p.PROD_Price - p.PROD_Price * client.GetSale(Convert.ToInt32(p.SLE_ID)).SLE_Value;
+                    decimal salePrice = p.PROD_Price - (p.PROD_Price * client.GetSale(Convert.ToInt32(p.SLE_ID)).SLE_Value);
                     html += "<p class='price-links'>R" + String.Format("{0:0.00}", salePrice) + "></p>";
 
                 }
