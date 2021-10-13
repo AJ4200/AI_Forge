@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     <div class="wrap">
-                        <div class="search">
+                        <div id="sb" runat="server" class="search">
                             <input type="text" class="searchTerm" placeholder="What are you looking for?">
                             <button type="submit" class="searchButton">
                                 <i class="fa fa-search"></i>

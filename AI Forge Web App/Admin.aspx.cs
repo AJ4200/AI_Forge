@@ -11,7 +11,7 @@ namespace AI_Forge_Web_App
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

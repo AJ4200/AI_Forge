@@ -24,6 +24,7 @@ namespace AI_Forge_Web_App
                 if (Session["UserType"].ToString() == "MAN")
                 {
                     admin.Visible = true;
+                    sb.Visible = false;
                 }
             }
         }

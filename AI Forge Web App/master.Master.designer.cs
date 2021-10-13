@@ -69,6 +69,15 @@ namespace AI_Forge_Web_App
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl admin;
 
         /// <summary>
+        /// sb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sb;
+
+        /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>
         /// <remarks>
