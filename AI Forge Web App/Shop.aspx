@@ -6,8 +6,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-		<asp:Button id="btnShowSort" runat="server" Text="Button" OnClick="btnShowSort_Click" />
+		<p>
+			<span>
+				<asp:Button id="btnShowSort" class="send" width="150px" runat="server" Text="Button" OnClick="btnShowSort_Click" />
+		   </span>
+			<span>
+				<asp:Button id="Button1"  class="send" width="150px" runat="server" Text="Button" OnClick="btnShowFilters_Click" />
+		   </span>
+		</p>
+		
+		<div>
 		<div id="divSort" runat="server" Visible="false">
+			<h2>Sort</h2>
 			<asp:RadioButtonList id="rdlSort" runat="server">
                 <asp:ListItem Selected="True">Name: A-Z</asp:ListItem>
                 <asp:ListItem>Name: Z-A</asp:ListItem>
@@ -16,14 +26,14 @@
                 <asp:ListItem>Category: A-Z</asp:ListItem>
                 <asp:ListItem>Category: Z-A</asp:ListItem>
             </asp:RadioButtonList>
-			<asp:Button id="btnSort" runat="server" Text="Button" OnClick="btnSort_Click" />
+			<asp:Button id="btnSort" class="send" width="150px" runat="server" Text="Button" OnClick="btnSort_Click" />
 		</div>
-		
-		<asp:Button id="btnShowFilters" runat="server" Text="Button" OnClick="btnShowFilters_Click" />
+		<br><br>
 		<div id="divFilters" runat="server" Visible="false">
+			<h2>Filter</h2>
 			<div id="price">
-				<asp:TextBox id="min_price" runat="server"></asp:TextBox>
-				<asp:TextBox id="max_price" runat="server"></asp:TextBox>
+				<p>Price: <span><asp:TextBox id="min_price" runat="server" width="100px"></asp:TextBox>   to   </span><span><asp:TextBox id="max_price" runat="server" width="100px"></asp:TextBox></span></p>
+				
 			</div>
 			<div id="categories">
 				<asp:CheckBoxList ID="cblCategories" runat="server">
@@ -35,9 +45,10 @@
                     <asp:ListItem>Bathroom</asp:ListItem>
                 </asp:CheckBoxList>
 			</div>
-			<asp:Button id="btnFilter" runat="server" Text="Button" OnClick="btnFilter_Click" />
+			<asp:Button id="btnFilter" class="send" width="150px" runat="server" Text="Button" OnClick="btnFilter_Click" />
 		</div>
 	</div>
+		</div>
 
 	<div>
 		<div id="products_on_display" runat="server">

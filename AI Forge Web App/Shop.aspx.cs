@@ -29,7 +29,7 @@ namespace AI_Forge_Web_App
             string html = "<ul>";
             foreach (Product p in productsOnDisplay)
             {
-                html += "<ul><li class='product-tile'>";
+                html += "<li class='product-tile'>";
                 html += "<div class='product-tile-container'>";
                 html += "<div class='product-container-image'>";
                 html += "<a href ='Product.aspx' class='container-link' title='" + p.PROD_Name + "'>";
@@ -48,7 +48,7 @@ namespace AI_Forge_Web_App
                 if (p.SLE_ID != null)
                 {
                     html += "<p class='discount-price-links'>R" + String.Format("{0:0.00}", p.PROD_Price) + "></p>";
-                    double salePrice = (double)(p.PROD_Price - p.PROD_Price * client.GetSale(Convert.ToInt32(p.SLE_ID)).SLE_Value);
+                    decimal salePrice = p.PROD_Price - p.PROD_Price * client.GetSale(Convert.ToInt32(p.SLE_ID)).SLE_Value;
                     html += "<p class='price-links'>R" + String.Format("{0:0.00}", salePrice) + "></p>";
 
                 }
@@ -74,26 +74,27 @@ namespace AI_Forge_Web_App
 
         protected void btnFilter_Click(object sender, EventArgs e)
         {
-            if(!min_price.Text.Equals("") && !max_price.Text.Equals(""))
+            if (!min_price.Text.Equals("") && !max_price.Text.Equals(""))
             {
                 var fltr = "Price: " + min_price.Text + "-" + max_price.Text;
                 if (!priceIndex.Equals(null))
                 {
                     appliedFilters[priceIndex] = fltr;
-                } else
+                }
+                else
                 {
                     appliedFilters.Add(fltr);
                     priceIndex = appliedFilters.Count - 1;
                 }
             }
 
-            foreach(ListItem lst in cblCategories.Items)
+            foreach (ListItem lst in cblCategories.Items)
             {
                 if (lst.Selected && !appliedFilters.Contains(lst.Text))
                 {
                     appliedFilters.Add(lst.Text);
-                } 
-                else if(!lst.Selected && appliedFilters.Contains(lst.Text))
+                }
+                else if (!lst.Selected && appliedFilters.Contains(lst.Text))
                 {
                     appliedFilters.Remove(lst.Text);
                 }
@@ -118,7 +119,7 @@ namespace AI_Forge_Web_App
                     productsOnDisplay.Sort((x, y) => x.PROD_Name.CompareTo(y.PROD_Name));
                     break;
                 case "Name: Z-A":
-                    productsOnDisplay.Sort((x,y) => x.PROD_Name.CompareTo(y.PROD_Name));
+                    productsOnDisplay.Sort((x, y) => x.PROD_Name.CompareTo(y.PROD_Name));
                     productsOnDisplay.Reverse();
                     break;
                 case "Price: Ascending":
