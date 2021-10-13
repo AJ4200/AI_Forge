@@ -80,7 +80,6 @@
     <Content Include="ProductManagement.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="Shop.aspx" />
-    <Content Include="admin master.Master" />
     <None Include="Connected Services\ServiceReference\AI_Forge_Service.disco" />
     <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.Invoice.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -164,13 +163,6 @@
     </Compile>
     <Compile Include="AddProduct.aspx.designer.cs">
       <DependentUpon>AddProduct.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin master.Master.cs">
-      <DependentUpon>admin master.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin master.Master.designer.cs">
-      <DependentUpon>admin master.Master</DependentUpon>
     </Compile>
     <Compile Include="Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
