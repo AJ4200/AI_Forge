@@ -1784,7 +1784,6 @@
     <Content Include="Admin\scss\fonts\Manrope\Manrope-Light.eot" />
     <Content Include="Admin\scss\vertical-layout-light\style.scss" />
     <Content Include="Admin\scss\vertical-layout-light\_layouts.scss" />
-    <Content Include="Admin\scss\vertical-layout-light\_navbar.scss" />
     <Content Include="Admin\scss\vertical-layout-light\_settings-panel.scss" />
     <Content Include="Admin\scss\vertical-layout-light\_sidebar.scss" />
     <Content Include="Admin\scss\vertical-layout-light\_variables.scss" />
@@ -1820,6 +1819,7 @@
     <Content Include="Admin\vendors\tinymce\readme.md" />
     <Content Include="Admin\vendors\tinymce\skins\ui\oxide-dark\fonts\tinymce-mobile.woff" />
     <Content Include="Admin\vendors\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
+    <Content Include="AdminMaster.Master" />
     <None Include="Connected Services\ServiceReference\AI_Forge_Service.disco" />
     <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.Invoice.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -1901,6 +1901,13 @@
     </Compile>
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>

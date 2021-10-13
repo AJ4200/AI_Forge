@@ -28,5 +28,17 @@ namespace AI_Forge_Web_App
                 }
             }
         }
+        public bool admin_nav
+        {
+            get
+            {
+                admin.Visible = true;
+                return admin.Visible;
+            }
+            set
+            {
+                admin.Visible= value;
+            }
+        }
     }
 }

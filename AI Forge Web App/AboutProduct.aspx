@@ -27,7 +27,7 @@
             </div>
 
             <div class="product_buttons" id="cart" runat="server" Visible="false">
-                <!--<button class="btn wishlist">Add to wishlist</button>-->
+                <button class="btn wishlist">Add to wishlist</button>
                 <asp:Button ID="btnBuy" class="btn buy" runat="server" Text="Add to cart" OnClick="btnBuy_Click"/>
             </div>
         </div>
