@@ -59,7 +59,7 @@ namespace AI_Forge_Service
             }
         }
             
-        public bool AddProduct(string name, int price, string imgPath, string description, int category)
+        public bool AddProduct(string name, int price, string imgPath, string description, string category)
         {
             Product temp_product = new Product()
             {
@@ -68,7 +68,7 @@ namespace AI_Forge_Service
                 PROD_Image_Path = imgPath,
                 PROD_Description = description,
                 PROD_Inventory = 0,
-                CAT_ID = category,
+                PROD_Category = category,
                 Active = true
             };
             
@@ -95,7 +95,7 @@ namespace AI_Forge_Service
             {
                 Invoice_Id = inv.Invoice_Id,
                 PROD_Id = prod_id,
-                InvoiceL_Quantity = quantity,
+                InvoiceL_Quantity = (short)quantity,
                 InvoiceL_Price_Each = price
             };
 
@@ -236,17 +236,10 @@ namespace AI_Forge_Service
 
         public List<string> GetCatagories()
         {
-            var categories = (from c in db.Categories
-                         select c.CAT_Name).ToList();
+            var categories = (from p in db.Products
+                         select p.PROD_Category).Distinct().ToList();
             
             return categories;
-        }
-
-        public string GetCategory(int id)
-        {
-            var category = (from c in db.Categories
-                              select c.CAT_Name).FirstOrDefault();
-            return category;
         }
 
         public int GetInventoryOf(int prod_ID)
@@ -307,7 +300,7 @@ namespace AI_Forge_Service
                     PROD_Price = foundItem.PROD_Price,
                     PROD_Image_Path = foundItem.PROD_Image_Path,
                     PROD_Description = foundItem.PROD_Description,
-                    CAT_ID = foundItem.CAT_ID,
+                    PROD_Category = foundItem.PROD_Category,
                     SLE_ID = foundItem.SLE_ID
                 };
 
@@ -334,7 +327,7 @@ namespace AI_Forge_Service
                     PROD_Price = p.PROD_Price,
                     PROD_Image_Path = p.PROD_Image_Path,
                     PROD_Description = p.PROD_Description,
-                    CAT_ID = p.CAT_ID,
+                    PROD_Category = p.PROD_Category,
                     SLE_ID = p.SLE_ID
                 };
 
@@ -359,7 +352,7 @@ namespace AI_Forge_Service
                     PROD_Name = products.PROD_Name,
                     PROD_Price = products.PROD_Price,
                     PROD_Image_Path = products.PROD_Image_Path,
-                    CAT_ID = products.CAT_ID,
+                    PROD_Category = products.PROD_Category,
                     SLE_ID = products.SLE_ID
                 };
                 specials.Add(product);
@@ -629,7 +622,7 @@ namespace AI_Forge_Service
             }
         }
 
-        public bool UpdateProduct(int id, string name, int price, string imgPath, string description, int category)
+        public bool UpdateProduct(int id, string name, int price, string imgPath, string description, string category)
         {
             var tempProduct = (from i in db.Products
                                where i.PROD_ID.Equals(id)
@@ -639,7 +632,7 @@ namespace AI_Forge_Service
             {
                 tempProduct.PROD_Name = name;
                 tempProduct.PROD_Price = price;
-                tempProduct.CAT_ID = category;
+                tempProduct.PROD_Category = category;
                 tempProduct.PROD_Image_Path = imgPath;
                 tempProduct.PROD_Description = description;
                 try

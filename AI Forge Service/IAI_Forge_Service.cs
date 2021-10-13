@@ -34,9 +34,6 @@ namespace AI_Forge_Service
         List<string> GetCatagories();
 
         [OperationContract]
-        string GetCategory(int id);
-
-        [OperationContract]
         User Login(string Email, string Password);
 
         [OperationContract]
@@ -61,7 +58,7 @@ namespace AI_Forge_Service
         bool RemoveAddress(int id);
 
         [OperationContract]
-        bool UpdateProduct(int id, string name, int price, string imgPath, string description, int category);
+        bool UpdateProduct(int id, string name, int price, string imgPath, string description, string category);
 
         [OperationContract]
         User GetUser(int id);
@@ -70,7 +67,7 @@ namespace AI_Forge_Service
         User VerifyEmail(string Email);
 
         [OperationContract]
-        bool AddProduct(string name, int price, string imgPath, string description, int category);
+        bool AddProduct(string name, int price, string imgPath, string description, string category);
 
         [OperationContract]
         bool DeleteProduct(int id);

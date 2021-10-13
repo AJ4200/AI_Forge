@@ -112,7 +112,32 @@ namespace AI_Forge_Web_App
 
         protected void btnSort_Click(object sender, EventArgs e)
         {
- 
+            switch (rdlSort.SelectedValue)
+            {
+                case ">Name: A-Z":
+                    productsOnDisplay.Sort((x, y) => x.PROD_Name.CompareTo(y.PROD_Name));
+                    break;
+                case "Name: Z-A":
+                    productsOnDisplay.Sort((x,y) => x.PROD_Name.CompareTo(y.PROD_Name));
+                    productsOnDisplay.Reverse();
+                    break;
+                case "Price: Ascending":
+                    productsOnDisplay.Sort((x, y) => x.PROD_Price.CompareTo(y.PROD_Price));
+                    break;
+                case "Price: Descending":
+                    productsOnDisplay.Sort((x, y) => x.PROD_Price.CompareTo(y.PROD_Price));
+                    productsOnDisplay.Reverse();
+                    break;
+                case "Category: A-Z":
+                    productsOnDisplay.Sort((x, y) => x.PROD_Category.CompareTo(y.PROD_Category));
+                    break;
+                case "Category: Z-A":
+                    productsOnDisplay.Sort((x, y) => x.PROD_Category.CompareTo(y.PROD_Category));
+                    productsOnDisplay.Reverse();
+                    break;
+                default:
+                    break;
+            }
             divSort.Visible = false;
         }
     }

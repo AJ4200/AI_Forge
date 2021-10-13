@@ -96,20 +96,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetCategory">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCategoryResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetCategoryResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="Login">
     <xs:complexType>
       <xs:sequence>
@@ -247,7 +233,7 @@
         <xs:element minOccurs="0" name="price" type="xs:int" />
         <xs:element minOccurs="0" name="imgPath" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="category" type="xs:int" />
+        <xs:element minOccurs="0" name="category" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -293,7 +279,7 @@
         <xs:element minOccurs="0" name="price" type="xs:int" />
         <xs:element minOccurs="0" name="imgPath" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="category" type="xs:int" />
+        <xs:element minOccurs="0" name="category" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -26,13 +26,10 @@ namespace AI_Forge_Web_App.ServiceReference {
         private bool ActiveField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CAT_IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AI_Forge_Web_App.ServiceReference.Category CategoryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private AI_Forge_Web_App.ServiceReference.Invoice_Line[] Invoice_LinesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PROD_CategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PROD_DescriptionField;
@@ -82,32 +79,6 @@ namespace AI_Forge_Web_App.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CAT_ID {
-            get {
-                return this.CAT_IDField;
-            }
-            set {
-                if ((this.CAT_IDField.Equals(value) != true)) {
-                    this.CAT_IDField = value;
-                    this.RaisePropertyChanged("CAT_ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AI_Forge_Web_App.ServiceReference.Category Category {
-            get {
-                return this.CategoryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
-                    this.CategoryField = value;
-                    this.RaisePropertyChanged("Category");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public AI_Forge_Web_App.ServiceReference.Invoice_Line[] Invoice_Lines {
             get {
                 return this.Invoice_LinesField;
@@ -116,6 +87,19 @@ namespace AI_Forge_Web_App.ServiceReference {
                 if ((object.ReferenceEquals(this.Invoice_LinesField, value) != true)) {
                     this.Invoice_LinesField = value;
                     this.RaisePropertyChanged("Invoice_Lines");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PROD_Category {
+            get {
+                return this.PROD_CategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PROD_CategoryField, value) != true)) {
+                    this.PROD_CategoryField = value;
+                    this.RaisePropertyChanged("PROD_Category");
                 }
             }
         }
@@ -220,83 +204,6 @@ namespace AI_Forge_Web_App.ServiceReference {
                 if ((object.ReferenceEquals(this.SaleField, value) != true)) {
                     this.SaleField = value;
                     this.RaisePropertyChanged("Sale");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/AI_Forge_Service")]
-    [System.SerializableAttribute()]
-    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CAT_IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CAT_NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AI_Forge_Web_App.ServiceReference.Product[] ProductsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CAT_ID {
-            get {
-                return this.CAT_IDField;
-            }
-            set {
-                if ((this.CAT_IDField.Equals(value) != true)) {
-                    this.CAT_IDField = value;
-                    this.RaisePropertyChanged("CAT_ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CAT_Name {
-            get {
-                return this.CAT_NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CAT_NameField, value) != true)) {
-                    this.CAT_NameField = value;
-                    this.RaisePropertyChanged("CAT_Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AI_Forge_Web_App.ServiceReference.Product[] Products {
-            get {
-                return this.ProductsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProductsField, value) != true)) {
-                    this.ProductsField = value;
-                    this.RaisePropertyChanged("Products");
                 }
             }
         }
@@ -439,7 +346,7 @@ namespace AI_Forge_Web_App.ServiceReference {
         private decimal InvoiceL_Price_EachField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int InvoiceL_QuantityField;
+        private short InvoiceL_QuantityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Invoice_IdField;
@@ -500,7 +407,7 @@ namespace AI_Forge_Web_App.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int InvoiceL_Quantity {
+        public short InvoiceL_Quantity {
             get {
                 return this.InvoiceL_QuantityField;
             }
@@ -1203,12 +1110,6 @@ namespace AI_Forge_Web_App.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/GetCatagories", ReplyAction="http://tempuri.org/IAI_Forge_Service/GetCatagoriesResponse")]
         System.Threading.Tasks.Task<string[]> GetCatagoriesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/GetCategory", ReplyAction="http://tempuri.org/IAI_Forge_Service/GetCategoryResponse")]
-        string GetCategory(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/GetCategory", ReplyAction="http://tempuri.org/IAI_Forge_Service/GetCategoryResponse")]
-        System.Threading.Tasks.Task<string> GetCategoryAsync(int id);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/Login", ReplyAction="http://tempuri.org/IAI_Forge_Service/LoginResponse")]
         AI_Forge_Web_App.ServiceReference.User Login(string Email, string Password);
         
@@ -1258,10 +1159,10 @@ namespace AI_Forge_Web_App.ServiceReference {
         System.Threading.Tasks.Task<bool> RemoveAddressAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/UpdateProduct", ReplyAction="http://tempuri.org/IAI_Forge_Service/UpdateProductResponse")]
-        bool UpdateProduct(int id, string name, int price, string imgPath, string description, int category);
+        bool UpdateProduct(int id, string name, int price, string imgPath, string description, string category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/UpdateProduct", ReplyAction="http://tempuri.org/IAI_Forge_Service/UpdateProductResponse")]
-        System.Threading.Tasks.Task<bool> UpdateProductAsync(int id, string name, int price, string imgPath, string description, int category);
+        System.Threading.Tasks.Task<bool> UpdateProductAsync(int id, string name, int price, string imgPath, string description, string category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/GetUser", ReplyAction="http://tempuri.org/IAI_Forge_Service/GetUserResponse")]
         AI_Forge_Web_App.ServiceReference.User GetUser(int id);
@@ -1276,10 +1177,10 @@ namespace AI_Forge_Web_App.ServiceReference {
         System.Threading.Tasks.Task<AI_Forge_Web_App.ServiceReference.User> VerifyEmailAsync(string Email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/AddProduct", ReplyAction="http://tempuri.org/IAI_Forge_Service/AddProductResponse")]
-        bool AddProduct(string name, int price, string imgPath, string description, int category);
+        bool AddProduct(string name, int price, string imgPath, string description, string category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/AddProduct", ReplyAction="http://tempuri.org/IAI_Forge_Service/AddProductResponse")]
-        System.Threading.Tasks.Task<bool> AddProductAsync(string name, int price, string imgPath, string description, int category);
+        System.Threading.Tasks.Task<bool> AddProductAsync(string name, int price, string imgPath, string description, string category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/DeleteProduct", ReplyAction="http://tempuri.org/IAI_Forge_Service/DeleteProductResponse")]
         bool DeleteProduct(int id);
@@ -1407,14 +1308,6 @@ namespace AI_Forge_Web_App.ServiceReference {
             return base.Channel.GetCatagoriesAsync();
         }
         
-        public string GetCategory(int id) {
-            return base.Channel.GetCategory(id);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetCategoryAsync(int id) {
-            return base.Channel.GetCategoryAsync(id);
-        }
-        
         public AI_Forge_Web_App.ServiceReference.User Login(string Email, string Password) {
             return base.Channel.Login(Email, Password);
         }
@@ -1479,11 +1372,11 @@ namespace AI_Forge_Web_App.ServiceReference {
             return base.Channel.RemoveAddressAsync(id);
         }
         
-        public bool UpdateProduct(int id, string name, int price, string imgPath, string description, int category) {
+        public bool UpdateProduct(int id, string name, int price, string imgPath, string description, string category) {
             return base.Channel.UpdateProduct(id, name, price, imgPath, description, category);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateProductAsync(int id, string name, int price, string imgPath, string description, int category) {
+        public System.Threading.Tasks.Task<bool> UpdateProductAsync(int id, string name, int price, string imgPath, string description, string category) {
             return base.Channel.UpdateProductAsync(id, name, price, imgPath, description, category);
         }
         
@@ -1503,11 +1396,11 @@ namespace AI_Forge_Web_App.ServiceReference {
             return base.Channel.VerifyEmailAsync(Email);
         }
         
-        public bool AddProduct(string name, int price, string imgPath, string description, int category) {
+        public bool AddProduct(string name, int price, string imgPath, string description, string category) {
             return base.Channel.AddProduct(name, price, imgPath, description, category);
         }
         
-        public System.Threading.Tasks.Task<bool> AddProductAsync(string name, int price, string imgPath, string description, int category) {
+        public System.Threading.Tasks.Task<bool> AddProductAsync(string name, int price, string imgPath, string description, string category) {
             return base.Channel.AddProductAsync(name, price, imgPath, description, category);
         }
         

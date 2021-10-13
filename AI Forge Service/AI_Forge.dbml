@@ -1,21 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AI_Forge_DB" Class="AI_ForgeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\AI_Forge_DB.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="AI_Forge_DBConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Product" Member="Products">
-    <Type Name="Product">
-      <Column Name="PROD_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PROD_Name" Type="System.String" DbType="VarChar(75) NOT NULL" CanBeNull="false" />
-      <Column Name="PROD_Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
-      <Column Name="PROD_Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="PROD_Image_Path" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="PROD_Inventory" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="CAT_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SLE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Product_Invoice_Line" Member="Invoice_Lines" ThisKey="PROD_ID" OtherKey="PROD_Id" Type="Invoice_Line" />
-      <Association Name="Sale_Product" Member="Sale" ThisKey="SLE_ID" OtherKey="SLE_ID" Type="Sale" IsForeignKey="true" />
-      <Association Name="Category_Product" Member="Category" ThisKey="CAT_ID" OtherKey="CAT_ID" Type="Category" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Sale" Member="Sales">
     <Type Name="Sale">
       <Column Name="SLE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -23,13 +7,6 @@
       <Column Name="SLE_Value" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Sale_Product" Member="Products" ThisKey="SLE_ID" OtherKey="SLE_ID" Type="Product" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Category" Member="Categories">
-    <Type Name="Category">
-      <Column Name="CAT_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CAT_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Category_Product" Member="Products" ThisKey="CAT_ID" OtherKey="CAT_ID" Type="Product" />
     </Type>
   </Table>
   <Table Name="dbo.[User]" Member="Users">
@@ -58,17 +35,6 @@
       <Association Name="User_Address_Book" Member="User" ThisKey="User_Id" OtherKey="User_Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Invoice_Line" Member="Invoice_Lines">
-    <Type Name="Invoice_Line">
-      <Column Name="InvoiceL_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="InvoiceL_Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Invoice_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PROD_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="InvoiceL_Price_Each" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
-      <Association Name="Product_Invoice_Line" Member="Product" ThisKey="PROD_Id" OtherKey="PROD_ID" Type="Product" IsForeignKey="true" />
-      <Association Name="Invoice_Invoice_Line" Member="Invoice" ThisKey="Invoice_Id" OtherKey="Invoice_Id" Type="Invoice" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Invoice" Member="Invoices">
     <Type Name="Invoice">
       <Column Name="Invoice_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -87,6 +53,32 @@
       <Column Name="VCHR_Code" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="Redeemed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Voucher_Invoice" Member="Invoices" ThisKey="VCHR_ID" OtherKey="VCHR_ID" Type="Invoice" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="PROD_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PROD_Name" Type="System.String" DbType="VarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="PROD_Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="PROD_Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PROD_Image_Path" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PROD_Inventory" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PROD_Category" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="SLE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Product_Invoice_Line" Member="Invoice_Lines" ThisKey="PROD_ID" OtherKey="PROD_Id" Type="Invoice_Line" />
+      <Association Name="Sale_Product" Member="Sale" ThisKey="SLE_ID" OtherKey="SLE_ID" Type="Sale" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Invoice_Line" Member="Invoice_Lines">
+    <Type Name="Invoice_Line">
+      <Column Name="InvoiceL_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InvoiceL_Quantity" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Invoice_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PROD_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceL_Price_Each" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="Invoice_Invoice_Line" Member="Invoice" ThisKey="Invoice_Id" OtherKey="Invoice_Id" Type="Invoice" IsForeignKey="true" />
+      <Association Name="Product_Invoice_Line" Member="Product" ThisKey="PROD_Id" OtherKey="PROD_ID" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
