@@ -19,25 +19,15 @@
             <h3>Date of Birth</h3>
             <h3>Address</h3>
 
-            <div class="HardCode">
-                <h3>Paul Jones</h3>
-                <h3>Paul1289@gmail.com</h3>
-                <h3>0725638569</h3>
-                <h3>Male</h3>
-                <h3>12 June 1989</h3>
-                <h3>
-                    Richmond Avenue <br />
-                    Auckland Parrk <br />
-                    Johannesburg <br />
-                    2000
-                    </h3>
+            <div class="HardCode" id="HardCode" runat="server">
+                
 </div>
              <a href="EditPersonal.aspx">
             <input class="button EditDetails" type="button" value="Edit personal details" />
            </a>
 
-            <a href="#">
-            <input class="button Invoices" type="button" value="Previous Invoices" />
+            <a href="addressEdit.aspx">
+            <input class="button Invoices" type="button" value="Update Address" />
            </a>
 
            <a href="PasswordReset.aspx">
