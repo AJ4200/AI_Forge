@@ -18,7 +18,7 @@ namespace AI_Forge_Web_App
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            bool result = client.AddProduct(PName.Value, Convert.ToInt32(price.Value),"image/products/",description.Value, Int32.Parse(category.Value));
+            bool result = client.AddProduct(PName.Value, Convert.ToInt32(price.Value),"image/products/",description.Value, category.Value);
             if (result == true)
             {
                 Response.Redirect("Admin.aspx?query=" + result);

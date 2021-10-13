@@ -65,28 +65,70 @@ namespace AI_Forge_Web_App
 
         protected void btnAdd_Click1(object sender, EventArgs e)
         {
-            bool added = client.AddProduct(name.Value, Convert.ToInt32(price.Value), imgPath.Value, description.Value, Convert.ToInt32(categories.Value));
-            if (added)
+            string cat = getCategory();
+
+            if (!cat.Equals(""))
             {
-                Response.Redirect("");
-            }
-            else
-            {
-                Response.Redirect("");
+                bool added = client.AddProduct(name.Value, Convert.ToInt32(price.Value), imgPath.Value, description.Value, cat);
+                if (added)
+                {
+                    Response.Redirect("");
+                }
+                else
+                {
+                    Response.Redirect("");
+                }
             }
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(ddlProducts.Text.Substring(0, ddlProducts.Text.IndexOf(".")));
-            bool edited = client.UpdateProduct(id, name.Value, Convert.ToInt32(price.Value), imgPath.Value, description.Value, Convert.ToInt32(categories.Value));
-            if (edited)
+            string cat = getCategory();
+
+            if (!cat.Equals(""))
             {
-                Response.Redirect("");
+                int id = Convert.ToInt32(ddlProducts.Text.Substring(0, ddlProducts.Text.IndexOf(".")));
+                bool edited = client.UpdateProduct(id, name.Value, Convert.ToInt32(price.Value), imgPath.Value, description.Value, cat);
+                if (edited)
+                {
+                    Response.Redirect("");
+                }
+                else
+                {
+                    Response.Redirect("");
+                }
             }
+        }
+
+        private string getCategory()
+        {
+            if (general.Checked)
+            {
+                return general.Value;
+            }
+            else if (kitchen.Checked)
+            {
+                return kitchen.Value;
+            }
+            else if (security.Checked)
+            {
+                return security.Value;
+            }
+            else if (bathroom.Checked)
+            {
+                return bathroom.Value;
+            }
+            else if (bedroom.Checked)
+            {
+                return bedroom.Value;
+            }
+            else if (living_room.Checked)
+            {
+                return living_room.Value;
+            } 
             else
             {
-                Response.Redirect("");
+                return "";
             }
         }
 

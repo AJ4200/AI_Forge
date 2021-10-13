@@ -29,14 +29,18 @@
                             <input class="contactus" placeholder="Description" type="text" name="Description" id="description" runat="server" required>
                         </div>
                         <div class="col-sm-12" id="divCategory" runat="server">
-                           <select class="contactus" name="Category" id="categories" runat="server" required>
-                               <option value="0">General</option>
-                               <option value="1">Security</option>
-                               <option value="2">Kitchen</option>
-                               <option value="3">Bedroom</option>
-                               <option value="4">Bathroom</option>
-                               <option value="5">Living Room</option>
-                           </select>
+                            <input class="contactus" type="radio" name="Category" id="general" runat="server" value="General">
+                            <label class="contactus" for="general">General</label><br>
+                            <input class="contactus" type="radio" name="Category" id="security" runat="server" value="Security">
+                            <label class="contactus" for="security">GSecurity</label><br>
+                            <input class="contactus" type="radio" name="Category" id="kitchen" runat="server" value="Kitchen">
+                            <label class="contactus" for="kitchen">Kitchen</label><br>
+                            <input class="contactus" type="radio" name="Category" id="bedroom" runat="server" value="Bedroom">
+                            <label class="contactus" for="bedroom">Bedroom</label><br>
+                            <input class="contactus" type="radio" name="Category" id="bathroom" runat="server" value="Bathroom">
+                            <label class="contactus" for="bathroom">Bathroom</label><br>
+                            <input class="contactus" type="radio" name="Category" id="living_room" runat="server" value="Living Room">
+                            <label class="contactus" for="living_room">Living Room</label><br>
                         </div>
                         <div class="col-sm-12" id="divAdd" runat="server">
                            <asp:Button ID="btnAdd" runat="server" class="send" Text="Add Product" style="width:420px;" OnClick="btnAdd_Click1"/>
