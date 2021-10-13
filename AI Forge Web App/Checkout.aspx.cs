@@ -46,9 +46,9 @@ namespace AI_Forge_Web_App
             }
             double ToPay = total + delivery;
 
-            display += "< h3 >" + total + "</ h3 >";
-            display += "< h3 >" + delivery + "</ h3 >";
-            display += "< h3 >" + ToPay + "</ h3 >";
+            display += "< h3 >R" + total + "</ h3 >";
+            display += "< h3 >R" + delivery + "</ h3 >";
+            display += "< h3 >R" + ToPay + "</ h3 >";
 
             Totals.InnerHtml = display;
 

@@ -24,6 +24,15 @@ namespace AI_Forge_Web_App
         protected global::System.Web.UI.WebControls.Button btnShowSort;
 
         /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
         /// divSort control.
         /// </summary>
         /// <remarks>
@@ -49,15 +58,6 @@ namespace AI_Forge_Web_App
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSort;
-
-        /// <summary>
-        /// btnShowFilters control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnShowFilters;
 
         /// <summary>
         /// divFilters control.

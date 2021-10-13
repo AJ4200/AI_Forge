@@ -317,12 +317,13 @@ namespace AI_Forge_Service
             List<Product> products = new List<Product>();
             var temp = (from i in db.Products
                         where i.Active
-                        select i).DefaultIfEmpty();
+                        select i).ToList();
 
             foreach (Product p in temp)
             {
                 var item = new Product()
                 {
+                    PROD_ID = p.PROD_ID,
                     PROD_Name = p.PROD_Name,
                     PROD_Price = p.PROD_Price,
                     PROD_Image_Path = p.PROD_Image_Path,
@@ -349,11 +350,12 @@ namespace AI_Forge_Service
             {
                 var product = new Product()
                 {
-                    PROD_Name = products.PROD_Name,
-                    PROD_Price = products.PROD_Price,
-                    PROD_Image_Path = products.PROD_Image_Path,
-                    PROD_Category = products.PROD_Category,
-                    SLE_ID = products.SLE_ID
+                    PROD_ID = p.PROD_ID,
+                    PROD_Name = p.PROD_Name,
+                    PROD_Price = p.PROD_Price,
+                    PROD_Image_Path = p.PROD_Image_Path,
+                    PROD_Category = p.PROD_Category,
+                    SLE_ID = p.SLE_ID
                 };
                 specials.Add(product);
             }

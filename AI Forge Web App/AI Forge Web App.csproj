@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutProduct.aspx" />
+    <Content Include="addressEdit.aspx" />
     <Content Include="Admin.aspx" />
     <Content Include="Admin\css\vertical-layout-light\style.css" />
     <Content Include="Admin\gulpfile.js" />
@@ -1894,6 +1895,13 @@
     </Compile>
     <Compile Include="AboutProduct.aspx.designer.cs">
       <DependentUpon>AboutProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addressEdit.aspx.cs">
+      <DependentUpon>addressEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addressEdit.aspx.designer.cs">
+      <DependentUpon>addressEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
