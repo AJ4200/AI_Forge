@@ -140,6 +140,18 @@
   <wsdl:message name="IAI_Forge_Service_Transact_OutputMessage">
     <wsdl:part name="parameters" element="tns:TransactResponse" />
   </wsdl:message>
+  <wsdl:message name="IAI_Forge_Service_AddToInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddToInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_Service_AddToInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddToInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_Service_CreateInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IAI_Forge_Service_CreateInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateInvoiceResponse" />
+  </wsdl:message>
   <wsdl:message name="IAI_Forge_Service_GetInvoice_InputMessage">
     <wsdl:part name="parameters" element="tns:GetInvoice" />
   </wsdl:message>
@@ -246,6 +258,14 @@
     <wsdl:operation name="Transact">
       <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/Transact" message="tns:IAI_Forge_Service_Transact_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_Service/TransactResponse" message="tns:IAI_Forge_Service_Transact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddToInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/AddToInvoice" message="tns:IAI_Forge_Service_AddToInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_Service/AddToInvoiceResponse" message="tns:IAI_Forge_Service_AddToInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/CreateInvoice" message="tns:IAI_Forge_Service_CreateInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAI_Forge_Service/CreateInvoiceResponse" message="tns:IAI_Forge_Service_CreateInvoice_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetInvoice">
       <wsdl:input wsaw:Action="http://tempuri.org/IAI_Forge_Service/GetInvoice" message="tns:IAI_Forge_Service_GetInvoice_InputMessage" />
@@ -453,6 +473,24 @@
     </wsdl:operation>
     <wsdl:operation name="Transact">
       <soap:operation soapAction="http://tempuri.org/IAI_Forge_Service/Transact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddToInvoice">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_Service/AddToInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInvoice">
+      <soap:operation soapAction="http://tempuri.org/IAI_Forge_Service/CreateInvoice" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

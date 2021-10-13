@@ -321,11 +321,8 @@
   <xs:element name="Transact">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="user_id" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element minOccurs="0" name="vchr_id" type="xs:int" />
-        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="products" nillable="true" type="q12:ArrayOfint" />
-        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="prices" nillable="true" type="q13:ArrayOfdecimal" />
-        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="quantities" nillable="true" type="q14:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -333,6 +330,37 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="TransactResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddToInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="prod_id" type="xs:int" />
+        <xs:element minOccurs="0" name="price" type="xs:decimal" />
+        <xs:element minOccurs="0" name="quantity" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddToInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddToInvoiceResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateInvoiceResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -346,7 +374,7 @@
   <xs:element name="GetInvoiceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/AI_Forge_Service" minOccurs="0" name="GetInvoiceResult" nillable="true" type="q15:Invoice" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/AI_Forge_Service" minOccurs="0" name="GetInvoiceResult" nillable="true" type="q12:Invoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -360,7 +388,7 @@
   <xs:element name="GetInvoiceSummaryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetInvoiceSummaryResult" nillable="true" type="q16:ArrayOfdouble" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetInvoiceSummaryResult" nillable="true" type="q13:ArrayOfdouble" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

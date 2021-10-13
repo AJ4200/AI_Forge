@@ -16,6 +16,11 @@
     margin: 20px;
 }
 
+.discount-price-links {
+    text-decoration: line-through;
+    font-size: 6px;
+}
+
 .product-tile-summary lblProductName {
     /*TODO*/
 }

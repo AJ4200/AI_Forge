@@ -26,7 +26,14 @@
 				<asp:TextBox id="max_price" runat="server"></asp:TextBox>
 			</div>
 			<div id="categories">
-				<asp:CheckBoxList ID="cblCategories" runat="server"></asp:CheckBoxList>
+				<asp:CheckBoxList ID="cblCategories" runat="server">
+                    <asp:ListItem>General</asp:ListItem>
+                    <asp:ListItem>Bedroom</asp:ListItem>
+                    <asp:ListItem>Kitchen</asp:ListItem>
+                    <asp:ListItem>Security</asp:ListItem>
+                    <asp:ListItem>Living Room</asp:ListItem>
+                    <asp:ListItem>Bathroom</asp:ListItem>
+                </asp:CheckBoxList>
 			</div>
 			<asp:Button id="btnFilter" runat="server" Text="Button" OnClick="btnFilter_Click" />
 		</div>

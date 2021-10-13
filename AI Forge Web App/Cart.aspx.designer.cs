@@ -24,40 +24,31 @@ namespace AI_Forge_Web_App
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl cart;
 
         /// <summary>
-        /// Button5 control.
+        /// vat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button5;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl vat;
 
         /// <summary>
-        /// Label3 control.
+        /// delivery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl delivery;
 
         /// <summary>
-        /// Button6 control.
+        /// subtotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button6;
-
-        /// <summary>
-        /// lblSubtotalValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSubtotalValue;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl subtotal;
 
         /// <summary>
         /// btnCheckout control.

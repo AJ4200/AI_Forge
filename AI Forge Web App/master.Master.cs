@@ -9,6 +9,7 @@ namespace AI_Forge_Web_App
 {
     public partial class master : System.Web.UI.MasterPage
     {
+        public static List<UserCart> CartItems = new List<UserCart>();
         protected void Page_Load(object sender, EventArgs e)
         {
             signout.Visible = false;

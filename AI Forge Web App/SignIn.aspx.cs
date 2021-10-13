@@ -24,10 +24,9 @@ namespace AI_Forge_Web_App
 
             if (loguser != null)
             {
+                Session["UserID"] = loguser.User_Type;
                 Session["UserType"] = loguser.User_Type;
-                Session["Email"] = loguser.User_Email;
                 Session["Name"] = loguser.User_Name;
-                Session["Surname"] = loguser.User_Surname;
 
                 Response.Redirect("home.aspx");
             }

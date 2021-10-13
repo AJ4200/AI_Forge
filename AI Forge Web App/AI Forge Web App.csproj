@@ -70,16 +70,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutProduct.aspx" />
     <Content Include="AddProduct.aspx" />
     <Content Include="Admin.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Checkout.aspx" />
     <Content Include="EditPersonal.aspx" />
-    <Content Include="Item.aspx" />
     <Content Include="personalDetails.aspx" />
     <Content Include="ProductManagement.aspx" />
-    <Content Include="Shop.aspx" />
     <Content Include="Profile.aspx" />
+    <Content Include="Shop.aspx" />
     <Content Include="admin master.Master" />
     <None Include="Connected Services\ServiceReference\AI_Forge_Service.disco" />
     <Content Include="Connected Services\ServiceReference\AI_Forge_Web_App.ServiceReference.Invoice.datasource">
@@ -151,6 +151,13 @@
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutProduct.aspx.cs">
+      <DependentUpon>AboutProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutProduct.aspx.designer.cs">
+      <DependentUpon>AboutProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddProduct.aspx.cs">
       <DependentUpon>AddProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -193,13 +200,6 @@
     <Compile Include="EditPersonal.aspx.designer.cs">
       <DependentUpon>EditPersonal.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Item.aspx.cs">
-      <DependentUpon>Item.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Item.aspx.designer.cs">
-      <DependentUpon>Item.aspx</DependentUpon>
-    </Compile>
     <Compile Include="personalDetails.aspx.cs">
       <DependentUpon>personalDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -214,6 +214,13 @@
     <Compile Include="ProductManagement.aspx.designer.cs">
       <DependentUpon>ProductManagement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Secrecy.cs" />
     <Compile Include="Shop.aspx.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
@@ -221,13 +228,6 @@
     </Compile>
     <Compile Include="Shop.aspx.designer.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Profile.aspx.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Profile.aspx.designer.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -291,6 +291,7 @@
     <Compile Include="SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserCart.cs" />
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

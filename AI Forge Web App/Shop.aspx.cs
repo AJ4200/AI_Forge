@@ -21,51 +21,46 @@ namespace AI_Forge_Web_App
             productsOnDisplay = new List<Product>();
             appliedFilters = new List<string>();
             productsOnDisplay = client.GetProducts().ToList();
-            foreach (string c in client.GetCatagories().ToList())
-            {
-                cblCategories.Items.Add(c);
-            }
-
             generateProductHtml();
         }
 
         private void generateProductHtml()
         {
-            string html = "";
+            string html = "<ul>";
             foreach (Product p in productsOnDisplay)
             {
                 html += "<ul><li class='product-tile'>";
                 html += "<div class='product-tile-container'>";
                 html += "<div class='product-container-image'>";
                 html += "<a href ='Product.aspx' class='container-link' title='" + p.PROD_Name + "'>";
-                html += "<img class='container-image' src='Item.aspx?=" + p.PROD_ID + "' alt='" + p.PROD_Name + "'/>";
+                html += "<img class='container-image' src='AboutProduct.aspx?id=" + p.PROD_ID + "' alt='" + p.PROD_Name + "'/>";
                 html += "</a>";
                 html += "</div>";
                 html += "<div class='product-container-details'>";
-                html += "<a class='details-link' href='Item.aspx?=" + p.PROD_ID + "'>View Details</a>";
+                html += "<a class='details-link' href='AboutProduct.aspx?id=" + p.PROD_ID + "'>View Details</a>";
+                html += "</div>";
                 html += "</div>";
                 html += "<div class='product-tile-summary'>";
                 html += "<div class='product-links'>";
-                html += "<asp:Label ID ='" + p.PROD_Name + "_Name' runat='server' Text='" + p.PROD_Name + "'></asp:Label>";
+                html += "<p class='product-name'>" + p.PROD_Name + "'></p>";
                 html += "</div>";
-                html += "<div class='product-tile-prices'>";
+                html += "<div class='product-tile__prices'>";
                 if (p.SLE_ID != null)
                 {
-                    html += "<p><asp:Label ID='" + p.PROD_Name + "_Price' runat='server' style='text-decoration:line-through; font-size:6px;'" +
-                        " Text='" + Math.Round(p.PROD_Price, 2) + "'></asp:Label></p>";
+                    html += "<p class='discount-price-links'>R" + String.Format("{0:0.00}", p.PROD_Price) + "></p>";
                     double salePrice = (double)(p.PROD_Price - p.PROD_Price * client.GetSale(Convert.ToInt32(p.SLE_ID)).SLE_Value);
-                    html += "<p><asp:Label ID='" + p.PROD_Name + "_Sale_Price' runat='server' Text='" + Math.Round(salePrice, 2) + "'></asp:Label></p>";
+                    html += "<p class='price-links'>R" + String.Format("{0:0.00}", salePrice) + "></p>";
 
                 }
                 else
                 {
-                    html += "<p><asp:Label ID='" + p.PROD_Name + "_Price' runat='server' Text='" + Math.Round(p.PROD_Price, 2) + "'></asp:Label></p>";
+                    html += "<p class='price-links'>R" + String.Format("{0:0.00}", p.PROD_Price) + "</p>";
                 }
                 html += "</div>";
                 html += "</div>";
-                html += "</li></ul>";
+                html += "</li>";
             }
-            products_on_display.InnerHtml = html;
+            products_on_display.InnerHtml = html + "</ul>";
         }
 
         protected void btnShowFilters_Click(object sender, EventArgs e)
@@ -79,7 +74,7 @@ namespace AI_Forge_Web_App
 
         protected void btnFilter_Click(object sender, EventArgs e)
         {
-            if(!min_price.Text.Equals(null) && !max_price.Text.Equals(null))
+            if(!min_price.Text.Equals("") && !max_price.Text.Equals(""))
             {
                 var fltr = "Price: " + min_price.Text + "-" + max_price.Text;
                 if (!priceIndex.Equals(null))

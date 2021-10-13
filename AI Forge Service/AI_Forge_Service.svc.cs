@@ -85,6 +85,33 @@ namespace AI_Forge_Service
             }
         }
 
+        public bool AddToInvoice(int id, int prod_id, decimal price, int quantity)
+        {
+            var inv = (from i in db.Invoices
+                       where i.Invoice_Id.Equals(id)
+                       select i).FirstOrDefault();
+
+            var invL = new Invoice_Line()
+            {
+                Invoice_Id = inv.Invoice_Id,
+                PROD_Id = prod_id,
+                InvoiceL_Quantity = quantity,
+                InvoiceL_Price_Each = price
+            };
+
+            db.Invoice_Lines.InsertOnSubmit(invL);
+            try
+            {
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ex.GetBaseException();
+                return false;
+            }
+        }
+
         public bool AddVoucher(int value, string code)
         {
             Voucher vchr = new Voucher()
@@ -134,6 +161,27 @@ namespace AI_Forge_Service
             else
             {
                 return false;
+            }
+        }
+
+        public int CreateInvoice(int user_id)
+        {
+            var inv = new Invoice()
+            {
+                User_Id = user_id,
+                Invoice_Date = DateTime.Today
+            };
+
+            db.Invoices.InsertOnSubmit(inv);
+            try
+            {
+                db.SubmitChanges();
+                return inv.Invoice_Id;
+            }
+            catch (Exception ex)
+            {
+                ex.GetBaseException();
+                return 0;
             }
         }
 
@@ -207,7 +255,7 @@ namespace AI_Forge_Service
                         where i.PROD_ID.Equals(prod_ID)
                         select i.PROD_Inventory).FirstOrDefault();
 
-            return inventory
+            return inventory;
         }
 
         public Invoice GetInvoice(int id)
@@ -467,56 +515,59 @@ namespace AI_Forge_Service
             }
         }
 
-        public bool Transact(int user_id, int vchr_id, List<int> products, List<decimal> prices, List<int> quantities)
+        public bool Transact(int id, int vchr_id)
         {
-            var inv = new Invoice()
-            {
-                User_Id = user_id,
-                VCHR_ID = vchr_id,
-                Invoice_Date = DateTime.Today
-            };
-            
-            if(CreateInvoice(inv))
-            {
-                for(int i=0; i<products.Count; i++)
-                {
-                    var invL = new Invoice_Line()
-                    {
-                        Invoice_Id = inv.Invoice_Id,
-                        PROD_Id = products[i],
-                        InvoiceL_Quantity = quantities[i],
-                        InvoiceL_Price_Each = prices[i]
-                    };
+            var inv = (from i in db.Invoices
+                       where i.Invoice_Id.Equals(id)
+                       select i).FirstOrDefault();
 
-                    db.Invoice_Lines.InsertOnSubmit(invL);
-                    try
-                    {
-                        db.SubmitChanges();
-                        return true;
-                    }
-                    catch (Exception ex)
-                    {
-                        ex.GetBaseException();
-                        return false;
-                    }
+            if (inv != null)
+            {
+                inv.VCHR_ID = vchr_id;
+                try
+                {
+                    db.SubmitChanges();
+                    addForgePoints(inv);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                    return false;
                 }
             }
 
             return false;
         }
 
-        private bool CreateInvoice(Invoice inv)
+        private void addForgePoints(Invoice inv)
         {
-            db.Invoices.InsertOnSubmit(inv);
-            try
+            var invL = (from i in db.Invoice_Lines
+                        where i.Invoice_Id.Equals(inv.Invoice_Id)
+                        select i).FirstOrDefault();
+
+            decimal points = 0;
+            
+            if(invL != null)
             {
-                db.SubmitChanges();
-                return true;
+                points += (invL.InvoiceL_Quantity * invL.InvoiceL_Price_Each)/10;
             }
-            catch (Exception ex)
+
+            var usr = (from u in db.Users
+                       where u.User_Id.Equals(inv.User_Id)
+                       select u).FirstOrDefault();
+
+            if (usr != null)
             {
-                ex.GetBaseException();
-                return false;
+                usr.Forge_Points += points;
+                try
+                {
+                    db.SubmitChanges();
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                }
             }
         }
 

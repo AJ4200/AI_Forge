@@ -1,7 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs"  %>
+﻿<%@ Page Title="My Account" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="AI_Forge_Web_App.Profile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <title>My Account</title>
     <link href="css/ClientProfileStyle.css" rel="stylesheet" />
     
 </asp:Content>

@@ -76,7 +76,13 @@ namespace AI_Forge_Service
         bool DeleteProduct(int id);
 
         [OperationContract]
-        bool Transact(int user_id, int vchr_id, List<int> products, List<decimal> prices, List<int> quantities);
+        bool Transact(int id, int vchr_id);
+
+        [OperationContract]
+        bool AddToInvoice(int id, int prod_id, decimal price, int quantity);
+        
+        [OperationContract]
+        int CreateInvoice(int user_id);
 
         [OperationContract]
         Invoice GetInvoice(int id);

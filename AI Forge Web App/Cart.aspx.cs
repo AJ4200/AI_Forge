@@ -14,17 +14,34 @@ namespace AI_Forge_Web_App
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //change param to session variable
-            generateProductHtml(new List<Product>());
+            generateCartHtml();
+
+            double total = 0;
+            foreach (UserCart c in master.CartItems)
+            {
+                total += (c.quantity * c.price);
+            }
+            
+            if (total > 450)
+            {
+                subtotal.InnerHtml = "R" + String.Format("{0:0.00}", total + 100);
+                delivery.InnerHtml = "R100.00";
+            } 
+            else
+            {
+                vat.InnerHtml = "R" + String.Format("{0:0.00}", total * 0.14);
+                delivery.InnerHtml = "R0.00";
+            }
         }
 
-        private void generateProductHtml(List<Product> products)
+        private void generateCartHtml()
         {
             string html = "";
-            foreach (Product p in products)
+            foreach (UserCart c in master.CartItems)
             {
+                var p = client.GetProduct(c.id);
                 html += "<li class='cart-product-container'>";
-                html += "<div class='product-container-info'>";
+                //html += "<div class='product-container-info'>";
                 html += "<div class='product-container-image'>";
                 html += "<img class='container-image' src='" + p.PROD_Image_Path + "' alt='" + p.PROD_Name + "'/>";
                 html += "</div>";
@@ -32,25 +49,25 @@ namespace AI_Forge_Web_App
                 html += "<p class='product-name'>" + p.PROD_Name + "</p>";
                 html += "<div class='product-select'>";
                 html += "<span class='select-less'><asp:Button ID='btnInc_" + p.PROD_Name + "' runat='server' Text='-' Width='18px'/></span>";
-                html += "<span class='quantity-value'><asp:Label ID='lbl" + p.PROD_Name + " runat='server' Text='1'></asp:Label></span>";
+                html += "<span class='quantity-value'><p>" + c.quantity + "</p></span>";
                 html += "<span class='select-more'><asp:Button ID='btnDec_" + p.PROD_Name + "' runat='server' Text='+' Width='18px'/></span>";
                 html += "</div>";
                 html += "</div>";
-                html += "</div>";
+                //html += "</div>";
                 html += "<div class='item-price'>";
                 html += "<p class='price-heading'> Price </p>";
-                html += "<asp:Label ID ='" + p.PROD_Name + "_Name' runat='server' Text='" + p.PROD_Name + "'></asp:Label>";
-                html += "</div>";
-                html += "<div class='product-tile-prices'>";
+                //html += "<asp:Label ID ='" + p.PROD_Name + "_Name' runat='server' Text='" + p.PROD_Name + "'></asp:Label>";
+                //html += "</div>";
+                //html += "<div class='product-tile-prices'>";
                 if (p.SLE_ID != null)
                 {
                     double salePrice = (double)(p.PROD_Price - p.PROD_Price * client.GetSale(Convert.ToInt32(p.SLE_ID)).SLE_Value);
-                    html += "<p class='price-value'> R" + Math.Round(salePrice, 2) + "' </p>";
+                    html += "<p class='price-value'> R" + String.Format("{0:0.00}", salePrice) + "</p>";
 
                 }
                 else
                 {
-                    html += "<p class='price-value'> R" + Math.Round(p.PROD_Price, 2) + "' </p>";
+                    html += "<p class='price-value'> R" + String.Format("{0:0.00}", p.PROD_Price) + "</p>";
                 }
                 html += "</div>";
                 html += "</li>";
@@ -58,6 +75,23 @@ namespace AI_Forge_Web_App
             cart.InnerHtml = html;
         }
 
+        protected void btnCheckout_Click(object sender, EventArgs e)
+        {
+            var id = client.CreateInvoice(Convert.ToInt32(Session["UserID"].ToString()));
+            if (id != 0)
+            {
+                foreach (UserCart c in master.CartItems)
+                {
+                    client.AddToInvoice(id, c.id, (decimal)c.price, c.quantity);
+                }
+                Response.Redirect("Checkout.aspx?id="+id);
+            }
+            else
+            {
+                Response.Redirect("Cart.aspx");
+            }
+
+        }
     }
 
 }

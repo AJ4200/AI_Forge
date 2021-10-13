@@ -18,7 +18,6 @@ namespace AI_Forge_Web_App
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string descrip = "to be added when product is edited";
             bool result = client.AddProduct(PName.Value, Convert.ToInt32(price.Value),"image/products/",description.Value, Int32.Parse(category.Value));
             if (result == true)
             {

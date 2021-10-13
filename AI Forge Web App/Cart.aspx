@@ -8,7 +8,7 @@
 
 	<ul id="cart" runat="server">
 		<!--F4 Double Door Fridge-->
-		<li class="cart-item-container">
+		<%--<li class="cart-item-container">
 			<div class="item-container-info">
 				<div class="item-container-image">
 					<img class="container-image" src="images/Products/smart-fridge.jpg" alt="F4 Double Door Fridge"/>
@@ -33,18 +33,26 @@
 				<p class="price=heading">Price</p>
 				<p class="price-value">R17500.00</p>
 			</div>
-		</li>
+		</li>--%>
 	</ul>
 
 	<div class="checkout">
 		<div class="checkout-summary">
-			<p class="Subtotal">Subtotal</p>
-			<p class="SubtotalValue">
-				<asp:Label ID="lblSubtotalValue" runat="server" Text="R20250.00"></asp:Label>
+			<p>VAT</p>
+			<p id="vat" runat="server">
+
+			</p>
+			<p>Delivery</p>
+			<p id="delivery" runat="server">
+
+			</p>
+			<p>Subtotal</p>
+			<p id="subtotal" runat="server">
+
 			</p>
 		</div>
 		<div class="confirm">
-			<asp:Button ID="btnCheckout" runat="server" Text="Checkout" Width="80px" />
+			<asp:Button ID="btnCheckout" runat="server" Text="Procced To Checkout" Width="80px" OnClick="btnCheckout_Click" />
 		</div>
 	</div>
 

@@ -1288,10 +1288,22 @@ namespace AI_Forge_Web_App.ServiceReference {
         System.Threading.Tasks.Task<bool> DeleteProductAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/Transact", ReplyAction="http://tempuri.org/IAI_Forge_Service/TransactResponse")]
-        bool Transact(int user_id, int vchr_id, int[] products, decimal[] prices, int[] quantities);
+        bool Transact(int id, int vchr_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/Transact", ReplyAction="http://tempuri.org/IAI_Forge_Service/TransactResponse")]
-        System.Threading.Tasks.Task<bool> TransactAsync(int user_id, int vchr_id, int[] products, decimal[] prices, int[] quantities);
+        System.Threading.Tasks.Task<bool> TransactAsync(int id, int vchr_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/AddToInvoice", ReplyAction="http://tempuri.org/IAI_Forge_Service/AddToInvoiceResponse")]
+        bool AddToInvoice(int id, int prod_id, decimal price, int quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/AddToInvoice", ReplyAction="http://tempuri.org/IAI_Forge_Service/AddToInvoiceResponse")]
+        System.Threading.Tasks.Task<bool> AddToInvoiceAsync(int id, int prod_id, decimal price, int quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/CreateInvoice", ReplyAction="http://tempuri.org/IAI_Forge_Service/CreateInvoiceResponse")]
+        int CreateInvoice(int user_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/CreateInvoice", ReplyAction="http://tempuri.org/IAI_Forge_Service/CreateInvoiceResponse")]
+        System.Threading.Tasks.Task<int> CreateInvoiceAsync(int user_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAI_Forge_Service/GetInvoice", ReplyAction="http://tempuri.org/IAI_Forge_Service/GetInvoiceResponse")]
         AI_Forge_Web_App.ServiceReference.Invoice GetInvoice(int id);
@@ -1507,12 +1519,28 @@ namespace AI_Forge_Web_App.ServiceReference {
             return base.Channel.DeleteProductAsync(id);
         }
         
-        public bool Transact(int user_id, int vchr_id, int[] products, decimal[] prices, int[] quantities) {
-            return base.Channel.Transact(user_id, vchr_id, products, prices, quantities);
+        public bool Transact(int id, int vchr_id) {
+            return base.Channel.Transact(id, vchr_id);
         }
         
-        public System.Threading.Tasks.Task<bool> TransactAsync(int user_id, int vchr_id, int[] products, decimal[] prices, int[] quantities) {
-            return base.Channel.TransactAsync(user_id, vchr_id, products, prices, quantities);
+        public System.Threading.Tasks.Task<bool> TransactAsync(int id, int vchr_id) {
+            return base.Channel.TransactAsync(id, vchr_id);
+        }
+        
+        public bool AddToInvoice(int id, int prod_id, decimal price, int quantity) {
+            return base.Channel.AddToInvoice(id, prod_id, price, quantity);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddToInvoiceAsync(int id, int prod_id, decimal price, int quantity) {
+            return base.Channel.AddToInvoiceAsync(id, prod_id, price, quantity);
+        }
+        
+        public int CreateInvoice(int user_id) {
+            return base.Channel.CreateInvoice(user_id);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateInvoiceAsync(int user_id) {
+            return base.Channel.CreateInvoiceAsync(user_id);
         }
         
         public AI_Forge_Web_App.ServiceReference.Invoice GetInvoice(int id) {
