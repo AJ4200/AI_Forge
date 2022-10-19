@@ -95,7 +95,7 @@
                                                 <div>
                                                     <a href="#">
                                                         <img src="images/search.png" alt="cart" /></a>
-                                                    <a href="Checkout.aspx">
+                                                    <a href="Cart.aspx">
                                                         <img src="images/cart.png" alt="cart" /></a>
                                                     <a href="TransactionPage.aspx">
                                                         <img src="images/wishlists.png" alt="cart" /></a>

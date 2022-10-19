@@ -32,8 +32,8 @@ namespace AI_Forge_Web_App
                 html += "<li class='product-tile'>";
                 html += "<div class='product-tile-container'>";
                 html += "<div class='product-container-image'>";
-                html += "<a href ='Product.aspx' class='container-link' title='" + p.PROD_Name + "'>";
-                html += "<img class='container-image' src='AboutProduct.aspx?id=" + p.PROD_ID + "' alt='" + p.PROD_Name + "'/>";
+                html += "<a href ='AboutProduct.aspx?id=" + p.PROD_ID + "' class='container-link' title='" + p.PROD_Name + "'>";
+                html += "<img class='container-image' src='" + p.PROD_Image_Path + "' alt='" + p.PROD_Name + "'/>";
                 html += "</a>";
                 html += "</div>";
                 html += "<div class='product-container-details'>";
@@ -42,7 +42,7 @@ namespace AI_Forge_Web_App
                 html += "</div>";
                 html += "<div class='product-tile-summary'>";
                 html += "<div class='product-links'>";
-                html += "<p class='product-name'>" + p.PROD_Name + "'></p>";
+                html += "<p class='product-name'>" + p.PROD_Name + "</p>";
                 html += "</div>";
                 html += "<div class='product-tile__prices'>";
                 if (p.SLE_ID != null)

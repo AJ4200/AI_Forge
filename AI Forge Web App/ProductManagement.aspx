@@ -10,7 +10,7 @@
                   <div class="main_form">
                       <h1 style="color:aliceblue; text-align:center;">Add Product</h1>
                      <div class="row">
-                         <div class="col-sm-12" id="divSearch" runat="server">
+                         <div class="col-sm-12" id="divSearch" runat="server" Visible="false">
                              <label for="search">Search Product</label>
                              <asp:DropDownList class="contactus" ID="ddlProducts" runat="server" OnTextChanged="ddlProducts_TextChanged">
                              </asp:DropDownList>
@@ -29,18 +29,7 @@
                             <input class="contactus" placeholder="Description" type="text" name="Description" id="description" runat="server" required>
                         </div>
                         <div class="col-sm-12" id="divCategory" runat="server">
-                            <input class="contactus" type="radio" name="Category" id="general" runat="server" value="General">
-                            <label class="contactus" for="general">General</label><br>
-                            <input class="contactus" type="radio" name="Category" id="security" runat="server" value="Security">
-                            <label class="contactus" for="security">GSecurity</label><br>
-                            <input class="contactus" type="radio" name="Category" id="kitchen" runat="server" value="Kitchen">
-                            <label class="contactus" for="kitchen">Kitchen</label><br>
-                            <input class="contactus" type="radio" name="Category" id="bedroom" runat="server" value="Bedroom">
-                            <label class="contactus" for="bedroom">Bedroom</label><br>
-                            <input class="contactus" type="radio" name="Category" id="bathroom" runat="server" value="Bathroom">
-                            <label class="contactus" for="bathroom">Bathroom</label><br>
-                            <input class="contactus" type="radio" name="Category" id="living_room" runat="server" value="Living Room">
-                            <label class="contactus" for="living_room">Living Room</label><br>
+                            <input class="contactus" placeholder="General,Security,Kitchen,Bedroom,Bathroom,Living Room" type="text" name="Category" id="category" runat="server" required>
                         </div>
                         <div class="col-sm-12" id="divAdd" runat="server">
                            <asp:Button ID="btnAdd" runat="server" class="send" Text="Add Product" style="width:420px;" OnClick="btnAdd_Click1"/>

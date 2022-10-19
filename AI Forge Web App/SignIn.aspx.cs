@@ -28,7 +28,7 @@ namespace AI_Forge_Web_App
                 Session["UserType"] = loguser.User_Type;
                 Session["Name"] = loguser.User_Name;
 
-                Response.Redirect("home.aspx");
+                Response.Redirect("Admin.aspx");
             }
             //else
             //{

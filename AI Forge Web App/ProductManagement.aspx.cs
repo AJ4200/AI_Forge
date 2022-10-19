@@ -34,15 +34,14 @@ namespace AI_Forge_Web_App
                         divDelete.Visible = false;
                         break;
                     case "edit":
-                        divName.Visible = false;
-                        divPrice.Visible = false;
-                        divCategory.Visible = false;
-                        divImage.Visible = false;
-                        divDescription.Visible = false;
+                        divName.Visible = true;
+                        divPrice.Visible = true;
+                        divCategory.Visible = true;
+                        divImage.Visible = true;
+                        divDescription.Visible = true;
                         divAdd.Visible = false;
-                        divEdit.Visible = false;
                         divDelete.Visible = false;
-                        toSearch = client.GetProducts().ToList();
+                        //toSearch = client.GetProducts().ToList();
                         break;
                     case "delete":
                         divName.Visible = false;
@@ -52,8 +51,7 @@ namespace AI_Forge_Web_App
                         divDescription.Visible = false;
                         divEdit.Visible = false;
                         divAdd.Visible = false;
-                        divDelete.Visible = false;
-                        toSearch = client.GetProducts().ToList();
+                        //toSearch = client.GetProducts().ToList();
                         break;
                     default:
                         Response.Redirect("Home.aspx");
@@ -65,72 +63,54 @@ namespace AI_Forge_Web_App
 
         protected void btnAdd_Click1(object sender, EventArgs e)
         {
-            string cat = getCategory();
-
-            if (!cat.Equals(""))
-            {
-                bool added = client.AddProduct(name.Value, Convert.ToInt32(price.Value), imgPath.Value, description.Value, cat);
+                bool added = client.AddProduct(name.Value, Convert.ToInt32(price.Value), imgPath.Value, description.Value, category.Value);
                 if (added)
                 {
-                    Response.Redirect("");
+                    Response.Redirect("Admin.aspx");
                 }
-                else
-                {
-                    Response.Redirect("");
-                }
-            }
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            string cat = getCategory();
-
-            if (!cat.Equals(""))
-            {
                 int id = Convert.ToInt32(ddlProducts.Text.Substring(0, ddlProducts.Text.IndexOf(".")));
-                bool edited = client.UpdateProduct(id, name.Value, Convert.ToInt32(price.Value), imgPath.Value, description.Value, cat);
+                bool edited = client.UpdateProduct(id, name.Value, Convert.ToInt32(price.Value), imgPath.Value, description.Value, category.Value);
                 if (edited)
                 {
-                    Response.Redirect("");
+                    Response.Redirect("Admin.aspx");
                 }
-                else
-                {
-                    Response.Redirect("");
-                }
-            }
         }
 
-        private string getCategory()
-        {
-            if (general.Checked)
-            {
-                return general.Value;
-            }
-            else if (kitchen.Checked)
-            {
-                return kitchen.Value;
-            }
-            else if (security.Checked)
-            {
-                return security.Value;
-            }
-            else if (bathroom.Checked)
-            {
-                return bathroom.Value;
-            }
-            else if (bedroom.Checked)
-            {
-                return bedroom.Value;
-            }
-            else if (living_room.Checked)
-            {
-                return living_room.Value;
-            } 
-            else
-            {
-                return "";
-            }
-        }
+        //private string getCategory()
+        //{
+        //    if (general.Checked)
+        //    {
+        //        return general.Value;
+        //    }
+        //    else if (kitchen.Checked)
+        //    {
+        //        return kitchen.Value;
+        //    }
+        //    else if (security.Checked)
+        //    {
+        //        return security.Value;
+        //    }
+        //    else if (bathroom.Checked)
+        //    {
+        //        return bathroom.Value;
+        //    }
+        //    else if (bedroom.Checked)
+        //    {
+        //        return bedroom.Value;
+        //    }
+        //    else if (living_room.Checked)
+        //    {
+        //        return living_room.Value;
+        //    } 
+        //    else
+        //    {
+        //        return "";
+        //    }
+        //}
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
@@ -138,11 +118,7 @@ namespace AI_Forge_Web_App
             bool deleted = client.DeleteProduct(id);
             if (deleted)
             {
-                Response.Redirect("");
-            }
-            else
-            {
-                Response.Redirect("");
+                Response.Redirect("Admin.aspx");
             }
         }
 
@@ -162,7 +138,7 @@ namespace AI_Forge_Web_App
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            switch (Request.QueryString["ID"])
+            switch (Request.QueryString["type"])
             {
                 case "edit":
                     divName.Visible = true;

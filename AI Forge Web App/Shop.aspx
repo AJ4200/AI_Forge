@@ -8,10 +8,10 @@
     <div>
 		<p>
 			<span>
-				<asp:Button id="btnShowSort" class="send" width="150px" runat="server" Text="Button" OnClick="btnShowSort_Click" />
+				<asp:Button id="btnShowSort" class="send" width="150px" runat="server" Text="Sort"  OnClick="btnShowSort_Click" />
 		   </span>
 			<span>
-				<asp:Button id="Button1"  class="send" width="150px" runat="server" Text="Button" OnClick="btnShowFilters_Click" />
+				<asp:Button id="Button1"  class="send" width="150px" runat="server" Text="Filter" OnClick="btnShowFilters_Click" />
 		   </span>
 		</p>
 		

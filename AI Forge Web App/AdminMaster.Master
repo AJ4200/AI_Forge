@@ -73,17 +73,19 @@
                                         <li class="nav-item active">
                                             <a class="nav-link" href="home.aspx">Home</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Shop.aspx">Catalog  </a>
-                                        </li>
                                         <li id="signout" runat="server" class="nav-item">
                                             <a class="nav-link" href="SignOut.aspx">Sign Out</a>
                                         </li>
-                                        <li id="admin" runat="server" class="nav-item">
-                                            <a class="nav-link" href="Admin.aspx">Admin</a>
-                                        </li>
+
                                         <li id="Li1" runat="server" class="nav-item">
-                                            <a class="nav-link" href="ProductManagement.aspx">Manage Products</a>
+                                            <a class="nav-link" href="ProductManagement.aspx?type=add">Add Product</a>
+                                        </li>
+                                        <li id="Li2" runat="server" class="nav-item">
+                                            <a class="nav-link" href="ProductManagement.aspx?type=edit">Edit Product</a>
+
+                                        </li>
+                                        <li id="Li3" runat="server" class="nav-item">
+                                            <a class="nav-link" href="ProductManagement.aspx?type=delete">Delete Product</a>
                                         </li>
                                     </ul>
 
